@@ -234,8 +234,10 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .hero__proof-val{font-size:var(--fs-xl);font-weight:var(--w-bold);color:var(--white);letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
 .hero__proof-lbl{font-size:var(--fs-xs);color:rgba(255,255,255,0.65);margin-top:2px;letter-spacing:0.02em}
 
-/* Right — Fintech Dashboard Visual */
+/* Hero Banner Image */
 .hero__right{position:relative;display:flex;justify-content:center}
+.hero__banner{width:100%;max-width:480px;display:flex;align-items:center;justify-content:center}
+.hero__banner-img{width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:var(--r-xl);display:block}
 
 .dash{width:100%;max-width:420px}
 .dash__card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:var(--sp-6);box-shadow:var(--sh-xl)}

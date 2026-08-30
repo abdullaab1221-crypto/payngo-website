@@ -68,28 +68,6 @@
   });
 
   /* ----------------------------------------
-     Hero Rate — auto-update
-  ---------------------------------------- */
-  const heroRateEl = $('#heroRate');
-  const heroHighEl = $('#heroHigh');
-  const heroLowEl = $('#heroLow');
-  const heroSendEl = $('#heroSend');
-
-  function updateHeroRate() {
-    const delta = (Math.random() - 0.5) * 0.06;
-    const newRate = EXCHANGE_RATE + delta;
-    if (heroRateEl) heroRateEl.textContent = newRate.toFixed(2);
-    if (heroHighEl) heroHighEl.textContent = (EXCHANGE_RATE + Math.random() * 0.3).toFixed(2);
-    if (heroLowEl) heroLowEl.textContent = (EXCHANGE_RATE - Math.random() * 0.3).toFixed(2);
-    if (heroSendEl) {
-      const sendAmt = 1000;
-      const val = Math.round(sendAmt * newRate);
-      heroSendEl.textContent = 'PKR ' + val.toLocaleString('en-US');
-    }
-  }
-  setInterval(updateHeroRate, 8000);
-
-  /* ----------------------------------------
      Calculator
   ---------------------------------------- */
   const calcInput = $('#calcSendInput');
