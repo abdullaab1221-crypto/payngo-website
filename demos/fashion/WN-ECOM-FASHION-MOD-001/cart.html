@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart — WN Fashion</title>
+    <link rel="stylesheet" href="../shared/css/base.css">
+    <style>
+        :root{--ec-primary:#1a1a2e;--ec-secondary:#c9a96e;--ec-accent:#e8a0b4;--ec-bg:#faf9f7;--ec-text:#2d2d3f;--ec-light:#f5f0e8;--ec-border:#e5e0d8;--ec-success:#4a7c59;--ec-danger:#c44536;--ec-radius:8px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--ec-bg);color:var(--ec-text);line-height:1.6}
+        .ec-notice-bar{background:var(--ec-primary);color:#fff;text-align:center;padding:8px 16px;font-size:12px;letter-spacing:1px}
+        .ec-header{background:#fff;border-bottom:1px solid var(--ec-border);position:sticky;top:0;z-index:100}
+        .ec-header-inner{max-width:1400px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+        .ec-logo{font-size:28px;font-weight:700;color:var(--ec-primary);letter-spacing:4px;text-decoration:none}
+        .ec-nav{display:flex;gap:32px;align-items:center}
+        .ec-nav a{text-decoration:none;color:var(--ec-text);font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
+        .ec-nav a:hover{color:var(--ec-secondary)}
+        .ec-header-actions{display:flex;gap:20px;align-items:center}
+        .ec-header-actions a{text-decoration:none;color:var(--ec-text);font-size:20px;position:relative}
+        .ec-badge{position:absolute;top:-8px;right:-10px;background:var(--ec-secondary);color:#fff;font-size:10px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+        .ec-mobile-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--ec-text)}
+        .ec-page-title{max-width:1400px;margin:0 auto;padding:32px 24px 0}
+        .ec-page-title h1{font-size:28px;font-weight:300;letter-spacing:2px}
+        .ec-cart-layout{max-width:1400px;margin:0 auto;padding:24px;display:grid;grid-template-columns:1fr 380px;gap:32px}
+        .ec-cart-items{display:flex;flex-direction:column;gap:16px}
+        .ec-cart-item{display:grid;grid-template-columns:120px 1fr auto;gap:24px;padding:20px;background:#fff;border-radius:var(--ec-radius);border:1px solid var(--ec-border);align-items:center}
+        .ec-cart-item-img{width:120px;height:120px;border-radius:var(--ec-radius);overflow:hidden}
+        .ec-cart-item-img img{width:100%;height:100%;object-fit:cover}
+        .ec-cart-item-info h3{font-size:16px;font-weight:500;margin-bottom:4px}
+        .ec-cart-item-info p{font-size:13px;color:#888}
+        .ec-cart-item-actions{display:flex;gap:16px;align-items:center;margin-top:8px}
+        .ec-qty{display:flex;align-items:center;border:1px solid var(--ec-border);border-radius:var(--ec-radius);overflow:hidden}
+        .ec-qty button{width:36px;height:36px;border:none;background:#fff;cursor:pointer;font-size:16px}
+        .ec-qty span{width:40px;text-align:center;font-size:14px}
+        .ec-remove-btn{background:none;border:none;color:var(--ec-danger);cursor:pointer;font-size:13px;text-decoration:underline}
+        .ec-cart-item-price{text-align:right}
+        .ec-cart-item-price .ec-price{font-size:18px;font-weight:600;color:var(--ec-primary)}
+        .ec-cart-item-price .ec-unit-price{font-size:13px;color:#888}
+        .ec-empty-cart{text-align:center;padding:80px 24px}
+        .ec-empty-cart h2{font-size:24px;font-weight:300;margin-bottom:16px}
+        .ec-empty-cart p{color:#888;margin-bottom:24px}
+        .ec-cart-summary{position:sticky;top:100px;height:fit-content}
+        .ec-summary-card{background:#fff;border-radius:var(--ec-radius);border:1px solid var(--ec-border);padding:32px}
+        .ec-summary-card h2{font-size:18px;font-weight:500;letter-spacing:1px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--ec-border)}
+        .ec-summary-row{display:flex;justify-content:space-between;margin-bottom:12px;font-size:14px}
+        .ec-summary-row.total{font-size:18px;font-weight:600;margin-top:16px;padding-top:16px;border-top:1px solid var(--ec-border)}
+        .ec-coupon-row{display:flex;gap:8px;margin:20px 0}
+        .ec-coupon-row input{flex:1;padding:12px;border:1px solid var(--ec-border);border-radius:var(--ec-radius);font-size:14px}
+        .ec-coupon-row button{padding:12px 20px;background:var(--ec-primary);color:#fff;border:none;border-radius:var(--ec-radius);cursor:pointer;font-size:13px;letter-spacing:1px}
+        .ec-checkout-btn{width:100%;padding:16px;background:var(--ec-secondary);color:#fff;border:none;border-radius:var(--ec-radius);cursor:pointer;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-top:16px;transition:all .3s}
+        .ec-checkout-btn:hover{background:#b8944f}
+        .ec-continue-link{display:block;text-align:center;margin-top:16px;font-size:13px;color:var(--ec-secondary);text-decoration:none}
+        .ec-continue-link:hover{text-decoration:underline}
+        .ec-footer{background:var(--ec-primary);color:#fff;padding:60px 24px 24px}
+        .ec-footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+        .ec-footer h4{font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;color:var(--ec-secondary)}
+        .ec-footer p,.ec-footer a{color:#aaa;font-size:13px;text-decoration:none;line-height:2}
+        .ec-footer a:hover{color:#fff}
+        .ec-footer-bottom{max-width:1400px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:12px;color:#666}
+        @media(max-width:768px){
+            .ec-nav{display:none}.ec-mobile-toggle{display:block}
+            .ec-cart-layout{grid-template-columns:1fr}
+            .ec-cart-item{grid-template-columns:80px 1fr;gap:16px}
+            .ec-cart-item-price{grid-column:1/-1;text-align:left}
+            .ec-footer-inner{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <div class="ec-notice-bar">WN Fashion Store — Moderate Package | WN-ECOM-FASHION-MOD-001</div>
+    <header class="ec-header">
+        <div class="ec-header-inner">
+            <button class="ec-mobile-toggle" onclick="document.querySelector('.ec-nav').classList.toggle('ec-show')">?</button>
+            <a href="index.html" class="ec-logo">WN Fashion</a>
+            <nav class="ec-nav">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+            </nav>
+            <div class="ec-header-actions">
+                <a href="wishlist.html" title="Wishlist">? <span class="ec-badge" id="ec-wishlist-count">0</span></a>
+                <a href="account.html" title="Account">??</a>
+                <a href="cart.html" title="Cart">?? <span class="ec-badge" id="ec-cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="ec-page-title"><h1>Shopping Cart</h1></div>
+    <div class="ec-cart-layout" id="ec-cart-layout"></div>
+
+    <footer class="ec-footer">
+        <div class="ec-footer-inner">
+            <div><h4>WN Fashion</h4><p>Premium fashion for the modern woman.</p></div>
+            <div><h4>Quick Links</h4><a href="shop.html">Shop All</a><br><a href="shop.html?category=dresses">Dresses</a></div>
+            <div><h4>Help</h4><a href="account.html">My Account</a><br><a href="wishlist.html">Wishlist</a></div>
+            <div><h4>Contact</h4><p>WhatsApp: +92 300 0000000</p><a href="https://wa.me/923281190004?text=Hello%20WebNest%2C%20I%20am%20interested%20in%20Fashion%20E-commerce%20%E2%80%94%20Moderate%20Package%20(WN-ECOM-FASHION-MOD-001)." target="_blank" class="ec-btn" style="margin-top:12px;display:inline-block;font-size:12px;padding:10px 20px">Chat on WhatsApp</a></div>
+        </div>
+        <div class="ec-footer-bottom">&copy; 2026 WN Fashion. All rights reserved. | WN-ECOM-FASHION-MOD-001</div>
+    </footer>
+
+    <script src="../shared/js/base.js"></script>
+    <script>
+    function ecFormatPrice(p){return'Rs. '+p.toLocaleString()}
+    function ecGetCart(){return JSON.parse(localStorage.getItem('ec_cart')||'[]')}
+    function ecGetWishlist(){return JSON.parse(localStorage.getItem('ec_wishlist')||'[]')}
+    function ecUpdateCounts(){
+        document.getElementById('ec-cart-count').textContent=ecGetCart().reduce((s,i)=>s+i.qty,0);
+        document.getElementById('ec-wishlist-count').textContent=ecGetWishlist().length;
+    }
+    function ecUpdateQty(idx,delta){
+        let cart=ecGetCart();
+        cart[idx].qty+=delta;
+        if(cart[idx].qty<1)cart[idx].qty=1;
+        localStorage.setItem('ec_cart',JSON.stringify(cart));
+        ecRender();
+    }
+    function ecRemoveItem(idx){
+        let cart=ecGetCart();
+        cart.splice(idx,1);
+        localStorage.setItem('ec_cart',JSON.stringify(cart));
+        ecRender();
+    }
+    function ecGetColorName(hex){
+        const map={'#1a1a2e':'Navy','#2d2d3f':'Charcoal','#f5f0e8':'Cream','#c9a96e':'Gold','#e8a0b4':'Pink','#8b7355':'Brown','#4a7c59':'Green','#d4c5a9':'Beige'};
+        return map[hex]||hex;
+    }
+    function ecRender(){
+        const cart=ecGetCart();
+        const layout=document.getElementById('ec-cart-layout');
+        if(!cart.length){
+            layout.innerHTML=`<div class="ec-empty-cart" style="grid-column:1/-1">
+                <h2>Your cart is empty</h2>
+                <p>Looks like you haven't added any items yet.</p>
+                <a href="shop.html" class="ec-btn">Start Shopping</a>
+            </div>`;
+            ecUpdateCounts();return;
+        }
+        const subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
+        const shipping=subtotal>=5000?0:500;
+        const total=subtotal+shipping;
+        layout.innerHTML=`
+            <div class="ec-cart-items">
+                ${cart.map((item,i)=>`
+                <div class="ec-cart-item">
+                    <div class="ec-cart-item-img"><img src="${item.image}" alt="${item.name}"></div>
+                    <div class="ec-cart-item-info">
+                        <h3><a href="product.html?id=${item.id}" style="color:inherit;text-decoration:none">${item.name}</a></h3>
+                        <p>Size: ${item.size} | Color: ${ecGetColorName(item.color)}</p>
+                        <div class="ec-cart-item-actions">
+                            <div class="ec-qty">
+                                <button onclick="ecUpdateQty(${i},-1)">-</button>
+                                <span>${item.qty}</span>
+                                <button onclick="ecUpdateQty(${i},1)">+</button>
+                            </div>
+                            <button class="ec-remove-btn" onclick="ecRemoveItem(${i})">Remove</button>
+                        </div>
+                    </div>
+                    <div class="ec-cart-item-price">
+                        <div class="ec-price">${ecFormatPrice(item.price*item.qty)}</div>
+                        ${item.qty>1?`<div class="ec-unit-price">${ecFormatPrice(item.price)} each</div>`:''}
+                    </div>
+                </div>`).join('')}
+            </div>
+            <div class="ec-cart-summary">
+                <div class="ec-summary-card">
+                    <h2>Order Summary</h2>
+                    <div class="ec-summary-row"><span>Subtotal</span><span>${ecFormatPrice(subtotal)}</span></div>
+                    <div class="ec-summary-row"><span>Shipping</span><span>${shipping===0?'Free':ecFormatPrice(shipping)}</span></div>
+                    <div class="ec-summary-row total"><span>Total</span><span>${ecFormatPrice(total)}</span></div>
+                    <div class="ec-coupon-row">
+                        <input type="text" placeholder="Coupon code" id="ec-coupon-input">
+                        <button onclick="ecApplyCoupon()">Apply</button>
+                    </div>
+                    <div id="ec-coupon-msg" style="font-size:13px;margin-bottom:8px"></div>
+                    <a href="checkout.html" class="ec-checkout-btn">Proceed to Checkout</a>
+                    <a href="shop.html" class="ec-continue-link">? Continue Shopping</a>
+                </div>
+            </div>
+        `;
+        ecUpdateCounts();
+    }
+    function ecApplyCoupon(){
+        const code=document.getElementById('ec-coupon-input').value.trim().toUpperCase();
+        const valid={WN Fashion10:10,NEWUSER:15,FASHION20:20,VIP25:25};
+        const msg=document.getElementById('ec-coupon-msg');
+        if(valid[code]){msg.style.color='var(--ec-success)';msg.textContent=`Coupon applied! ${valid[code]}% discount`}
+        else{msg.style.color='var(--ec-danger)';msg.textContent='Invalid coupon code'}
+    }
+    ecRender();
+    </script>
+</body>
+</html>

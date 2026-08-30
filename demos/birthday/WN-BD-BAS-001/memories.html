@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah's Memories | Birthday WebNest Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+</head>
+<body>
+
+  <div class="bd-notice">
+    <strong>WebNest Birthday Demo</strong> — Basic Package &bull; 3 Pages &bull; 5 Photos
+  </div>
+
+  <header class="bd-header">
+    <div class="bd-container bd-header__inner">
+      <a href="index.html" class="bd-brand">
+        <span class="bd-brand__icon">🎂</span>
+        Sarah's Birthday
+      </a>
+      <nav class="bd-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="memories.html" class="active">Memories</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-BAS-001" class="bd-btn bd-btn--whatsapp bd-btn--sm bd-header__cta" target="_blank" rel="noopener">
+        Order on WhatsApp
+      </a>
+      <button class="bd-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="bd-mobile">
+    <a href="index.html" data-link>Home</a>
+    <a href="story.html" data-link>Story</a>
+    <a href="memories.html" data-link>Memories</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-BAS-001" class="bd-btn bd-btn--whatsapp" target="_blank" rel="noopener">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <section class="bd-hero" style="min-height: 70vh;">
+    <div class="bd-hero__bg" style="background-image: url('https://images.pexels.com/photos/1721216/pexels-photo-1721216.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
+    <div class="bd-hero__overlay"></div>
+    <div class="bd-hero__content">
+      <span class="bd-hero__eyebrow">Photo Gallery</span>
+      <h1 class="bd-hero__name">Beautiful Memories</h1>
+      <p class="bd-hero__message">Every picture tells a story, every moment a treasure.</p>
+    </div>
+  </section>
+
+  <section class="bd-section">
+    <div class="bd-container bd-section__head">
+      <span class="bd-tag">Gallery</span>
+      <h2 class="bd-title">Moments Worth Cherishing</h2>
+      <p class="bd-desc">Click on any photo to see it in full size. Each image captures a piece of the journey.</p>
+    </div>
+    <div class="bd-gallery bd-container">
+      <div class="bd-photo bd-reveal">
+        <img src="https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Birthday cake with candles" loading="lazy">
+        <div class="bd-photo__caption">Making Wishes</div>
+      </div>
+      <div class="bd-photo bd-reveal" data-delay="1">
+        <img src="https://images.pexels.com/photos/1405766/pexels-photo-1405766.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Birthday celebration" loading="lazy">
+        <div class="bd-photo__caption">Celebration Night</div>
+      </div>
+      <div class="bd-photo bd-reveal" data-delay="2">
+        <img src="https://images.pexels.com/photos/1721216/pexels-photo-1721216.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Party decorations" loading="lazy">
+        <div class="bd-photo__caption">Party Vibes</div>
+      </div>
+      <div class="bd-photo bd-reveal" data-delay="3">
+        <img src="https://images.pexels.com/photos/1152366/pexels-photo-1152366.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Birthday gifts" loading="lazy">
+        <div class="bd-photo__caption">Gifts & Surprises</div>
+      </div>
+      <div class="bd-photo bd-reveal" data-delay="4">
+        <img src="https://images.pexels.com/photos/3018988/pexels-photo-3018988.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Birthday balloons" loading="lazy">
+        <div class="bd-photo__caption">Balloons & Joy</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bd-section bd-section--alt">
+    <div class="bd-container">
+      <div class="bd-cta bd-reveal">
+        <h2 class="bd-cta__title">Celebrate Someone Special</h2>
+        <p class="bd-cta__desc">Create a personalized birthday website that captures all the beautiful moments and memories.</p>
+        <div class="bd-cta__actions">
+          <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-BAS-001" class="bd-btn bd-btn--whatsapp" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <a href="index.html" class="bd-btn bd-btn--outline">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bd-footer">
+    <div class="bd-container">
+      <div class="bd-footer__inner">
+        <div class="bd-footer__brand">🎂 Sarah's Birthday</div>
+        <nav class="bd-footer__nav">
+          <a href="index.html">Home</a>
+          <a href="story.html">Story</a>
+          <a href="memories.html">Memories</a>
+        </nav>
+      </div>
+      <div class="bd-footer__bottom">
+        <p>Crafted with love by <strong>WebNest</strong></p>
+        <span class="bd-footer__tag"> WN-BD-BAS-001 &bull; Basic Package</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bd-lightbox">
+    <button class="bd-lightbox__close">&times;</button>
+    <img src="" alt="Full view">
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

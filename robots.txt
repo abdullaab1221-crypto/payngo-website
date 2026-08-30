@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /demos/
+Disallow: /orders/
+Disallow: /prompts/
 
-Sitemap: https://payngo.site/sitemap.xml
+Sitemap: https://payngo.com/sitemap.xml

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | La Maison Restaurant | WN-BIZ-REST-MOD-001</title>
+  <meta name="description" content="Explore the La Maison menu featuring French-inspired cuisine, fresh ingredients, and culinary artistry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root { --primary: #d97706; --primary-light: #f59e0b; --primary-dark: #b45309; }
+    .biz-hero-page {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      padding: 120px 20px 60px;
+      text-align: center;
+      color: #fff;
+    }
+    .biz-hero-page__title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); margin-bottom: 12px; }
+    .biz-hero-page__text { opacity: 0.9; max-width: 600px; margin: 0 auto; }
+    .biz-section { padding: 80px 20px; }
+    .biz-menu-filters {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .biz-menu-filter {
+      padding: 10px 24px;
+      border: 2px solid #e5e7eb;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+      background: #fff;
+    }
+    .biz-menu-filter--active, .biz-menu-filter:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .biz-menu-category {
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+    .biz-menu-category__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+    .biz-menu-category__line { width: 60px; height: 3px; background: var(--primary); margin-bottom: 32px; }
+    .biz-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .biz-menu-card {
+      display: flex;
+      gap: 20px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .biz-menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .biz-menu-card__img { width: 160px; min-height: 140px; object-fit: cover; flex-shrink: 0; }
+    .biz-menu-card__body { padding: 20px; display: flex; flex-direction: column; justify-content: center; }
+    .biz-menu-card__top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px; gap: 12px; }
+    .biz-menu-card__name { font-family: 'Playfair Display', serif; font-size: 18px; }
+    .biz-menu-card__price { color: var(--primary); font-weight: 700; white-space: nowrap; }
+    .biz-menu-card__desc { color: #777; font-size: 14px; line-height: 1.5; }
+    .biz-menu-card__tags { display: flex; gap: 8px; margin-top: 8px; }
+    .biz-menu-card__tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; background: #fef3c7; color: var(--primary-dark); }
+    @media (max-width: 768px) {
+      .biz-menu-grid { grid-template-columns: 1fr; }
+      .biz-menu-card { flex-direction: column; }
+      .biz-menu-card__img { width: 100%; height: 180px; }
+      .biz-menu-card__body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="biz-notice">
+    <div class="biz-container">Demo: <strong>La Maison Restaurant — Moderate Package</strong> | ID: <strong>WN-BIZ-REST-MOD-001</strong></div>
+  </div>
+
+  <header class="biz-header">
+    <div class="biz-header__inner">
+      <a href="index.html" class="biz-brand"><span class="biz-brand__icon">🍽</span><span>La Maison</span></a>
+      <nav class="biz-nav">
+        <a href="index.html" class="biz-nav__link">Home</a>
+        <a href="menu.html" class="biz-nav__link biz-nav__link--active">Menu</a>
+        <a href="gallery.html" class="biz-nav__link">Gallery</a>
+        <a href="about.html" class="biz-nav__link">About</a>
+        <a href="testimonials.html" class="biz-nav__link">Reviews</a>
+        <a href="contact.html" class="biz-nav__link">Contact</a>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20would%20like%20to%20order%20from%20your%20menu." class="biz-header__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+      <div class="biz-burger"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+  <div class="biz-mobile">
+    <div class="biz-mobile__close">✕</div>
+    <a href="index.html" class="biz-mobile__link">Home</a>
+    <a href="menu.html" class="biz-mobile__link">Menu</a>
+    <a href="gallery.html" class="biz-mobile__link">Gallery</a>
+    <a href="about.html" class="biz-mobile__link">About</a>
+    <a href="testimonials.html" class="biz-mobile__link">Reviews</a>
+    <a href="contact.html" class="biz-mobile__link">Contact</a>
+    <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20would%20like%20to%20order%20from%20your%20menu." class="biz-mobile__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+  </div>
+
+  <section class="biz-hero-page">
+    <h1 class="biz-hero-page__title">Our Menu</h1>
+    <p class="biz-hero-page__text">Each dish is a work of art, crafted with passion and the finest ingredients.</p>
+  </section>
+
+  <section class="biz-section">
+    <div class="biz-menu-filters">
+      <span class="biz-menu-filter biz-menu-filter--active">All</span>
+      <span class="biz-menu-filter">Starters</span>
+      <span class="biz-menu-filter">Mains</span>
+      <span class="biz-menu-filter">Desserts</span>
+      <span class="biz-menu-filter">Drinks</span>
+    </div>
+
+    <div class="biz-menu-category">
+      <h2 class="biz-menu-category__title">Starters</h2>
+      <div class="biz-menu-category__line"></div>
+      <div class="biz-menu-grid">
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?w=800&q=80" alt="French Onion Soup" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">French Onion Soup</h3><span class="biz-menu-card__price">₨1,500</span></div>
+            <p class="biz-menu-card__desc">Classic caramelized onion soup with Gruyère cheese croutons and rich beef broth.</p>
+            <div class="biz-menu-card__tags"><span class="biz-menu-card__tag">Chef's Pick</span></div>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=800&q=80" alt="Tuna Tartare" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Tuna Tartare</h3><span class="biz-menu-card__price">₨2,200</span></div>
+            <p class="biz-menu-card__desc">Fresh ahi tuna with avocado, sesame, ginger, and crispy wonton chips.</p>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?w=800&q=80" alt="Bruschetta Trio" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Bruschetta Trio</h3><span class="biz-menu-card__price">₨1,800</span></div>
+            <p class="biz-menu-card__desc">Three toasted ciabatta topped with tomato basil, mushroom, and smoked salmon.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-menu-category">
+      <h2 class="biz-menu-category__title">Mains</h2>
+      <div class="biz-menu-category__line"></div>
+      <div class="biz-menu-grid">
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Wagyu Beef Tenderloin" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Wagyu Beef Tenderloin</h3><span class="biz-menu-card__price">₨8,500</span></div>
+            <p class="biz-menu-card__desc">Premium A5 wagyu with truffle mash, roasted vegetables, and red wine jus.</p>
+            <div class="biz-menu-card__tags"><span class="biz-menu-card__tag">Signature</span></div>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" alt="Seared Salmon" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Seared Atlantic Salmon</h3><span class="biz-menu-card__price">₨4,200</span></div>
+            <p class="biz-menu-card__desc">Pan-seared salmon with lemon butter sauce, asparagus, and herb risotto.</p>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800&q=80" alt="Lobster Risotto" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Lobster Risotto</h3><span class="biz-menu-card__price">₨6,800</span></div>
+            <p class="biz-menu-card__desc">Creamy arborio rice with butter-poached lobster, saffron, and parmesan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-menu-category">
+      <h2 class="biz-menu-category__title">Desserts</h2>
+      <div class="biz-menu-category__line"></div>
+      <div class="biz-menu-grid">
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80" alt="Crème Brûlée" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Crème Brûlée</h3><span class="biz-menu-card__price">₨1,800</span></div>
+            <p class="biz-menu-card__desc">Classic vanilla bean custard with caramelized sugar crust and fresh berries.</p>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=80" alt="Chocolate Fondant" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Chocolate Fondant</h3><span class="biz-menu-card__price">₨2,100</span></div>
+            <p class="biz-menu-card__desc">Rich dark chocolate cake with molten center, served with vanilla ice cream.</p>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80" alt="Tiramisu" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Classic Tiramisu</h3><span class="biz-menu-card__price">₨2,000</span></div>
+            <p class="biz-menu-card__desc">Espresso-soaked ladyfingers with mascarpone cream and cocoa dust.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-menu-category">
+      <h2 class="biz-menu-category__title">Drinks</h2>
+      <div class="biz-menu-category__line"></div>
+      <div class="biz-menu-grid">
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80" alt="Sommelier's Wine" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">Sommelier's Wine Selection</h3><span class="biz-menu-card__price">₨3,500</span></div>
+            <p class="biz-menu-card__desc">A curated glass of red or white wine selected by our sommelier.</p>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80" alt="La Maison Cocktail" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">La Maison Signature Cocktail</h3><span class="biz-menu-card__price">₨2,500</span></div>
+            <p class="biz-menu-card__desc">Bourbon, honey, lemon, and a dash of aromatic bitters. Our house special.</p>
+          </div>
+        </div>
+        <div class="biz-menu-card">
+          <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&q=80" alt="French 75" class="biz-menu-card__img">
+          <div class="biz-menu-card__body">
+            <div class="biz-menu-card__top"><h3 class="biz-menu-card__name">French 75</h3><span class="biz-menu-card__price">₨2,200</span></div>
+            <p class="biz-menu-card__desc">Gin, champagne, lemon juice, and simple syrup. A timeless classic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="biz-footer">
+    <div class="biz-container biz-footer__grid">
+      <div><div class="biz-brand biz-brand--footer"><span class="biz-brand__icon">🍽</span><span>La Maison</span></div><p class="biz-footer__text">Fine dining experience in the heart of Downtown.</p></div>
+      <div><h4 class="biz-footer__title">Quick Links</h4><a href="index.html" class="biz-footer__link">Home</a><a href="menu.html" class="biz-footer__link">Menu</a><a href="gallery.html" class="biz-footer__link">Gallery</a><a href="about.html" class="biz-footer__link">About</a><a href="testimonials.html" class="biz-footer__link">Reviews</a><a href="contact.html" class="biz-footer__link">Contact</a></div>
+      <div><h4 class="biz-footer__title">Contact</h4><p class="biz-footer__text">42 Oak Street, Downtown</p><p class="biz-footer__text">+92 321 555 0199</p></div>
+      <div><h4 class="biz-footer__title">Hours</h4><p class="biz-footer__text">Mon-Sat: 12PM - 11PM</p><p class="biz-footer__text">Sunday: 12PM - 10PM</p></div>
+    </div>
+    <div class="biz-footer__bottom"><div class="biz-container"><p>&copy; 2026 La Maison Restaurant. All rights reserved.</p></div></div>
+  </footer>
+
+  <div class="biz-admin-toggle" onclick="toggleAdmin()">⚙️</div>
+  <div class="biz-admin" id="bizAdmin">
+    <div class="biz-admin__sidebar">
+      <div class="biz-admin__sidebar-header"><h3>Admin Panel</h3><div class="biz-admin__close" onclick="toggleAdmin()">✕</div></div>
+      <nav class="biz-admin__nav">
+        <a class="biz-admin__nav-link biz-admin__nav-link--active" onclick="showSection('overview')">Overview</a>
+        <a class="biz-admin__nav-link" onclick="showSection('menu')">Menu</a>
+        <a class="biz-admin__nav-link" onclick="showSection('gallery')">Gallery</a>
+        <a class="biz-admin__nav-link" onclick="showSection('testimonials')">Testimonials</a>
+        <a class="biz-admin__nav-link" onclick="showSection('inquiries')">Inquiries</a>
+        <a class="biz-admin__nav-link" onclick="showSection('settings')">Business Info</a>
+      </nav>
+    </div>
+    <div class="biz-admin__main">
+      <div class="biz-admin__topbar"><h2 class="biz-admin__title">Dashboard</h2><div class="biz-admin__close-mobile" onclick="toggleAdmin()">✕</div></div>
+      <div class="biz-admin__content">
+        <div class="biz-admin__section" id="admin-overview"><div class="biz-admin__stats"><div class="biz-admin__stat"><div class="biz-admin__stat-value">234</div><div class="biz-admin__stat-label">Total Orders</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">68</div><div class="biz-admin__stat-label">Reservations</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">₨520K</div><div class="biz-admin__stat-label">Revenue</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">4.9★</div><div class="biz-admin__stat-label">Rating</div></div></div></div>
+        <div class="biz-admin__section" id="admin-menu" style="display:none;"><h3>Menu Management</h3><p>12 items across 4 categories.</p></div>
+        <div class="biz-admin__section" id="admin-gallery" style="display:none;"><h3>Gallery</h3><p>8 photos uploaded.</p></div>
+        <div class="biz-admin__section" id="admin-testimonials" style="display:none;"><h3>Testimonials</h3><p>6 reviews published.</p></div>
+        <div class="biz-admin__section" id="admin-inquiries" style="display:none;"><h3>Inquiries</h3><p>No new inquiries.</p></div>
+        <div class="biz-admin__section" id="admin-settings" style="display:none;"><h3>Business Info</h3><div class="biz-admin__info-grid"><div class="biz-admin__info-item"><strong>Name:</strong> La Maison Restaurant</div><div class="biz-admin__info-item"><strong>Address:</strong> 42 Oak Street, Downtown</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+  <script>
+    function toggleAdmin() { document.getElementById('bizAdmin').classList.toggle('biz-admin--open'); }
+    function showSection(section) {
+      document.querySelectorAll('.biz-admin__section').forEach(s => s.style.display = 'none');
+      document.getElementById('admin-' + section).style.display = 'block';
+      document.querySelectorAll('.biz-admin__nav-link').forEach(l => l.classList.remove('biz-admin__nav-link--active'));
+      event.target.classList.add('biz-admin__nav-link--active');
+    }
+    document.querySelectorAll('.biz-menu-filter').forEach(f => {
+      f.addEventListener('click', function() {
+        document.querySelectorAll('.biz-menu-filter').forEach(x => x.classList.remove('biz-menu-filter--active'));
+        this.classList.add('biz-menu-filter--active');
+      });
+    });
+  </script>
+</body>
+</html>

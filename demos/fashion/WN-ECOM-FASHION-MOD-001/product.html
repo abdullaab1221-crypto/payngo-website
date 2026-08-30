@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product — WN Fashion</title>
+    <link rel="stylesheet" href="../shared/css/base.css">
+    <style>
+        :root{--ec-primary:#1a1a2e;--ec-secondary:#c9a96e;--ec-accent:#e8a0b4;--ec-bg:#faf9f7;--ec-text:#2d2d3f;--ec-light:#f5f0e8;--ec-border:#e5e0d8;--ec-success:#4a7c59;--ec-danger:#c44536;--ec-radius:8px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--ec-bg);color:var(--ec-text);line-height:1.6}
+        .ec-notice-bar{background:var(--ec-primary);color:#fff;text-align:center;padding:8px 16px;font-size:12px;letter-spacing:1px}
+        .ec-header{background:#fff;border-bottom:1px solid var(--ec-border);position:sticky;top:0;z-index:100}
+        .ec-header-inner{max-width:1400px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+        .ec-logo{font-size:28px;font-weight:700;color:var(--ec-primary);letter-spacing:4px;text-decoration:none}
+        .ec-nav{display:flex;gap:32px;align-items:center}
+        .ec-nav a{text-decoration:none;color:var(--ec-text);font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
+        .ec-nav a:hover{color:var(--ec-secondary)}
+        .ec-header-actions{display:flex;gap:20px;align-items:center}
+        .ec-header-actions a{text-decoration:none;color:var(--ec-text);font-size:20px;position:relative}
+        .ec-badge{position:absolute;top:-8px;right:-10px;background:var(--ec-secondary);color:#fff;font-size:10px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+        .ec-mobile-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--ec-text)}
+        .ec-breadcrumb{max-width:1400px;margin:0 auto;padding:16px 24px;font-size:13px;color:#888}
+        .ec-breadcrumb a{color:var(--ec-text);text-decoration:none}
+        .ec-breadcrumb a:hover{color:var(--ec-secondary)}
+        .ec-product-detail{max-width:1400px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+        .ec-gallery{position:sticky;top:100px;height:fit-content}
+        .ec-main-img{width:100%;height:500px;border-radius:var(--ec-radius);overflow:hidden;margin-bottom:16px}
+        .ec-main-img img{width:100%;height:100%;object-fit:cover}
+        .ec-thumbs{display:flex;gap:8px}
+        .ec-thumb{width:80px;height:80px;border-radius:var(--ec-radius);overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .3s}
+        .ec-thumb.active,.ec-thumb:hover{border-color:var(--ec-secondary)}
+        .ec-thumb img{width:100%;height:100%;object-fit:cover}
+        .ec-product-meta h1{font-size:28px;font-weight:400;letter-spacing:1px;margin-bottom:8px}
+        .ec-product-rating{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+        .ec-stars{color:var(--ec-secondary);font-size:16px}
+        .ec-rating-text{font-size:14px;color:#888}
+        .ec-product-price-block{margin-bottom:24px}
+        .ec-price-big{font-size:28px;font-weight:600;color:var(--ec-primary)}
+        .ec-price-old{font-size:18px;color:#999;text-decoration:line-through;margin-left:12px}
+        .ec-stock-status{display:inline-block;padding:4px 12px;border-radius:4px;font-size:12px;letter-spacing:1px;margin-bottom:24px}
+        .ec-in-stock{background:#e8f5e9;color:var(--ec-success)}
+        .ec-low-stock{background:#fff3e0;color:#e65100}
+        .ec-out-stock{background:#ffebee;color:var(--ec-danger)}
+        .ec-option-label{font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+        .ec-size-options{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+        .ec-size-btn{min-width:48px;padding:12px 16px;border:1px solid var(--ec-border);background:#fff;border-radius:var(--ec-radius);cursor:pointer;font-size:14px;transition:all .3s;text-align:center}
+        .ec-size-btn:hover{border-color:var(--ec-secondary)}
+        .ec-size-btn.active{background:var(--ec-primary);color:#fff;border-color:var(--ec-primary)}
+        .ec-size-btn.disabled{opacity:.4;cursor:not-allowed}
+        .ec-color-options{display:flex;gap:12px;margin-bottom:24px}
+        .ec-color-opt{width:40px;height:40px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .3s}
+        .ec-color-opt.active{border-color:var(--ec-primary);box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ec-primary)}
+        .ec-qty-row{display:flex;gap:16px;align-items:center;margin-bottom:24px}
+        .ec-qty{display:flex;align-items:center;border:1px solid var(--ec-border);border-radius:var(--ec-radius);overflow:hidden}
+        .ec-qty button{width:44px;height:44px;border:none;background:#fff;cursor:pointer;font-size:18px}
+        .ec-qty span{width:48px;text-align:center;font-size:16px}
+        .ec-add-btn{flex:1;padding:14px 32px;background:var(--ec-primary);color:#fff;border:none;border-radius:var(--ec-radius);cursor:pointer;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:all .3s}
+        .ec-add-btn:hover{background:var(--ec-secondary)}
+        .ec-wishlist-big{width:54px;height:54px;border:1px solid var(--ec-border);background:#fff;border-radius:var(--ec-radius);cursor:pointer;font-size:20px;transition:all .3s}
+        .ec-wishlist-big:hover,.ec-wishlist-big.active{background:var(--ec-accent);color:#fff;border-color:var(--ec-accent)}
+        .ec-buy-btn{width:100%;padding:16px;background:var(--ec-secondary);color:#fff;border:none;border-radius:var(--ec-radius);cursor:pointer;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;transition:all .3s}
+        .ec-buy-btn:hover{background:#b8944f}
+        .ec-tabs{margin-top:40px}
+        .ec-tab-nav{display:flex;border-bottom:1px solid var(--ec-border);margin-bottom:24px}
+        .ec-tab-btn{padding:12px 24px;border:none;background:none;cursor:pointer;font-size:14px;letter-spacing:1px;border-bottom:2px solid transparent;transition:all .3s}
+        .ec-tab-btn.active{color:var(--ec-secondary);border-bottom-color:var(--ec-secondary)}
+        .ec-tab-content{display:none;font-size:14px;line-height:1.8;color:#555}
+        .ec-tab-content.active{display:block}
+        .ec-size-guide-link{color:var(--ec-secondary);cursor:pointer;text-decoration:underline;font-size:13px;margin-left:8px}
+        .ec-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center}
+        .ec-modal-overlay.show{display:flex}
+        .ec-modal{background:#fff;border-radius:var(--ec-radius);padding:32px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;position:relative}
+        .ec-modal-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;cursor:pointer}
+        .ec-modal h3{font-size:20px;margin-bottom:16px}
+        .ec-size-table{width:100%;border-collapse:collapse;font-size:13px}
+        .ec-size-table th,.ec-size-table td{padding:10px 16px;border:1px solid var(--ec-border);text-align:center}
+        .ec-size-table th{background:var(--ec-light);font-weight:600}
+        .ec-reviews-list{display:flex;flex-direction:column;gap:20px}
+        .ec-review{padding:20px;background:var(--ec-light);border-radius:var(--ec-radius)}
+        .ec-review-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+        .ec-review-avatar{width:40px;height:40px;border-radius:50%;background:var(--ec-secondary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600}
+        .ec-review-name{font-weight:500;font-size:14px}
+        .ec-review-date{font-size:12px;color:#888}
+        .ec-review-stars{color:var(--ec-secondary);font-size:13px;margin-bottom:8px}
+        .ec-review-text{font-size:14px;color:#555}
+        .ec-related{max-width:1400px;margin:0 auto;padding:0 24px 80px}
+        .ec-section-title{text-align:center;margin-bottom:32px}
+        .ec-section-title h2{font-size:24px;font-weight:300;letter-spacing:4px}
+        .ec-products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .ec-product-card{background:#fff;border-radius:var(--ec-radius);overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer}
+        .ec-product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+        .ec-product-img{position:relative;height:250px;overflow:hidden}
+        .ec-product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .ec-product-card:hover .ec-product-img img{transform:scale(1.05)}
+        .ec-product-badge{position:absolute;top:12px;left:12px;padding:4px 12px;font-size:11px;letter-spacing:1px;text-transform:uppercase;border-radius:4px}
+        .ec-badge-new{background:var(--ec-primary);color:#fff}
+        .ec-badge-sale{background:var(--ec-danger);color:#fff}
+        .ec-wishlist-btn{position:absolute;top:12px;right:12px;width:36px;height:36px;background:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .3s}
+        .ec-wishlist-btn:hover,.ec-wishlist-btn.active{background:var(--ec-accent);color:#fff}
+        .ec-product-info{padding:16px}
+        .ec-product-info h3{font-size:14px;font-weight:500;margin-bottom:4px}
+        .ec-product-price{display:flex;gap:8px;align-items:center}
+        .ec-price-current{font-size:16px;font-weight:600;color:var(--ec-primary)}
+        .ec-price-original{font-size:14px;color:#999;text-decoration:line-through}
+        .ec-footer{background:var(--ec-primary);color:#fff;padding:60px 24px 24px}
+        .ec-footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+        .ec-footer h4{font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;color:var(--ec-secondary)}
+        .ec-footer p,.ec-footer a{color:#aaa;font-size:13px;text-decoration:none;line-height:2}
+        .ec-footer a:hover{color:#fff}
+        .ec-footer-bottom{max-width:1400px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:12px;color:#666}
+        .ec-toast{position:fixed;bottom:24px;right:24px;background:var(--ec-primary);color:#fff;padding:16px 24px;border-radius:var(--ec-radius);font-size:14px;z-index:300;transform:translateY(100px);opacity:0;transition:all .3s}
+        .ec-toast.show{transform:translateY(0);opacity:1}
+        @media(max-width:768px){
+            .ec-nav{display:none}.ec-mobile-toggle{display:block}
+            .ec-product-detail{grid-template-columns:1fr;gap:32px}
+            .ec-gallery{position:static}
+            .ec-main-img{height:350px}
+            .ec-products-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+            .ec-footer-inner{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <div class="ec-notice-bar">WN Fashion Store — Moderate Package | WN-ECOM-FASHION-MOD-001</div>
+    <header class="ec-header">
+        <div class="ec-header-inner">
+            <button class="ec-mobile-toggle" onclick="document.querySelector('.ec-nav').classList.toggle('ec-show')">?</button>
+            <a href="index.html" class="ec-logo">WN Fashion</a>
+            <nav class="ec-nav">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="shop.html?category=dresses">Dresses</a>
+                <a href="shop.html?category=accessories">Accessories</a>
+            </nav>
+            <div class="ec-header-actions">
+                <a href="wishlist.html" title="Wishlist">? <span class="ec-badge" id="ec-wishlist-count">0</span></a>
+                <a href="account.html" title="Account">??</a>
+                <a href="cart.html" title="Cart">?? <span class="ec-badge" id="ec-cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="ec-breadcrumb" id="ec-breadcrumb"></div>
+    <div class="ec-product-detail" id="ec-product-detail"></div>
+
+    <div class="ec-related">
+        <div class="ec-section-title"><h2>YOU MAY ALSO LIKE</h2></div>
+        <div class="ec-products-grid" id="ec-related-products"></div>
+    </div>
+
+    <div class="ec-modal-overlay" id="ec-size-modal">
+        <div class="ec-modal">
+            <button class="ec-modal-close" onclick="document.getElementById('ec-size-modal').classList.remove('show')">&times;</button>
+            <h3>Size Guide</h3>
+            <table class="ec-size-table">
+                <thead><tr><th>Size</th><th>Bust (cm)</th><th>Waist (cm)</th><th>Hips (cm)</th></tr></thead>
+                <tbody>
+                    <tr><td>XS</td><td>80-84</td><td>60-64</td><td>86-90</td></tr>
+                    <tr><td>S</td><td>84-88</td><td>64-68</td><td>90-94</td></tr>
+                    <tr><td>M</td><td>88-92</td><td>68-72</td><td>94-98</td></tr>
+                    <tr><td>L</td><td>92-96</td><td>72-76</td><td>98-102</td></tr>
+                    <tr><td>XL</td><td>96-100</td><td>76-80</td><td>102-106</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ec-toast" id="ec-toast"></div>
+
+    <footer class="ec-footer">
+        <div class="ec-footer-inner">
+            <div><h4>WN Fashion</h4><p>Premium fashion for the modern woman.</p></div>
+            <div><h4>Quick Links</h4><a href="shop.html">Shop All</a><br><a href="shop.html?category=dresses">Dresses</a><br><a href="shop.html?category=tops">Tops</a></div>
+            <div><h4>Help</h4><a href="account.html">My Account</a><br><a href="cart.html">Cart</a><br><a href="wishlist.html">Wishlist</a></div>
+            <div><h4>Contact</h4><p>WhatsApp: +92 300 0000000</p><a href="https://wa.me/923281190004?text=Hello%20WebNest%2C%20I%20am%20interested%20in%20Fashion%20E-commerce%20%E2%80%94%20Moderate%20Package%20(WN-ECOM-FASHION-MOD-001)." target="_blank" class="ec-btn" style="margin-top:12px;display:inline-block;font-size:12px;padding:10px 20px">Chat on WhatsApp</a></div>
+        </div>
+        <div class="ec-footer-bottom">&copy; 2026 WN Fashion. All rights reserved. | WN-ECOM-FASHION-MOD-001</div>
+    </footer>
+
+    <script src="../shared/js/base.js"></script>
+    <script>
+    const EC_PRODUCTS=[
+        {id:'V001',name:'Silk Wrap Dress',category:'dresses',price:12500,salePrice:null,image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#c9a96e'],rating:4.8,reviews:42,isNew:true,featured:true,tags:['dress','silk','wrap']},
+        {id:'V002',name:'Cashmere Blend Coat',category:'outerwear',price:28000,salePrice:22500,image:'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#f5f0e8'],rating:4.9,reviews:35,isNew:false,featured:true,tags:['coat','cashmere','outerwear'],isSale:true},
+        {id:'V003',name:'High-Waist Tailored Trousers',category:'bottoms',price:8500,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#1a1a2e','#2d2d3f'],rating:4.7,reviews:28,isNew:true,featured:false,tags:['trousers','tailored','high-waist']},
+        {id:'V004',name:'Pearl Embellished Blouse',category:'tops',price:7800,salePrice:null,image:'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#e8a0b4'],rating:4.6,reviews:19,isNew:false,featured:false,tags:['blouse','pearl','embellished']},
+        {id:'V005',name:'Leather Crossbody Bag',category:'accessories',price:15000,salePrice:null,image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',sizes:['One Size'],colors:['#8b7355','#1a1a2e'],rating:4.8,reviews:56,isNew:false,featured:true,tags:['bag','leather','crossbody']},
+        {id:'V006',name:'Striped Cotton Shirt',category:'tops',price:5500,salePrice:4200,image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#1a1a2e'],rating:4.5,reviews:33,isNew:false,featured:false,tags:['shirt','cotton','striped'],isSale:true},
+        {id:'V007',name:'A-Line Midi Skirt',category:'bottoms',price:6800,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#2d2d3f','#c9a96e'],rating:4.7,reviews:21,isNew:true,featured:false,tags:['skirt','midi','a-line']},
+        {id:'V008',name:'Suede Block Heels',category:'shoes',price:11000,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#8b7355','#1a1a2e'],rating:4.6,reviews:44,isNew:false,featured:true,tags:['shoes','heels','suede']},
+        {id:'V009',name:'Oversized Wool Blazer',category:'outerwear',price:19500,salePrice:15800,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.9,reviews:38,isNew:false,featured:true,tags:['blazer','wool','oversized'],isSale:true},
+        {id:'V010',name:'Lace Trim Camisole',category:'tops',price:4200,salePrice:null,image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#e8a0b4'],rating:4.4,reviews:27,isNew:true,featured:false,tags:['camisole','lace','trim']},
+        {id:'V011',name:'Wide Leg Palazzo Pants',category:'bottoms',price:7200,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#1a1a2e','#f5f0e8'],rating:4.6,reviews:16,isNew:false,featured:false,tags:['pants','palazzo','wide-leg']},
+        {id:'V012',name:'Quilted Jacket',category:'outerwear',price:16500,salePrice:null,image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#4a7c59'],rating:4.7,reviews:22,isNew:true,featured:false,tags:['jacket','quilted','outerwear']},
+        {id:'V013',name:'Floral Print Dress',category:'dresses',price:9800,salePrice:7500,image:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#f5f0e8'],rating:4.8,reviews:31,isNew:false,featured:true,tags:['dress','floral','print'],isSale:true},
+        {id:'V014',name:'Canvas Sneakers',category:'shoes',price:6500,salePrice:null,image:'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&q=80',sizes:['36','37','38','39','40','41'],colors:['#f5f0e8','#1a1a2e'],rating:4.5,reviews:67,isNew:false,featured:false,tags:['shoes','sneakers','canvas']},
+        {id:'V015',name:'Turtleneck Sweater',category:'tops',price:8200,salePrice:null,image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.7,reviews:24,isNew:true,featured:false,tags:['sweater','turtleneck','knit']},
+        {id:'V016',name:'Leather Belt',category:'accessories',price:3800,salePrice:null,image:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',sizes:['S','M','L'],colors:['#8b7355','#1a1a2e'],rating:4.6,reviews:39,isNew:false,featured:false,tags:['belt','leather','accessory']},
+        {id:'V017',name:'Pleated Tennis Skirt',category:'bottoms',price:5200,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#1a1a2e'],rating:4.5,reviews:18,isNew:true,featured:false,tags:['skirt','pleated','tennis']},
+        {id:'V018',name:'Satin Midi Dress',category:'dresses',price:14500,salePrice:11800,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#1a1a2e'],rating:4.9,reviews:45,isNew:false,featured:true,tags:['dress','satin','midi'],isSale:true},
+        {id:'V019',name:'Ankle Strap Sandals',category:'shoes',price:9500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#c9a96e','#1a1a2e'],rating:4.7,reviews:32,isNew:false,featured:false,tags:['shoes','sandals','ankle-strap']},
+        {id:'V020',name:'Structured Tote Bag',category:'accessories',price:12000,salePrice:null,image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',sizes:['One Size'],colors:['#2d2d3f','#c9a96e'],rating:4.8,reviews:41,isNew:true,featured:true,tags:['bag','tote','structured']},
+        {id:'V021',name:'Draped Jersey Maxi Dress',category:'dresses',price:11800,salePrice:null,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#e8a0b4'],rating:4.6,reviews:15,isNew:true,featured:false,tags:['dress','jersey','maxi']},
+        {id:'V022',name:'Wool Blend Cape Blazer',category:'outerwear',price:21000,salePrice:17500,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.8,reviews:11,isNew:true,featured:true,tags:['blazer','cape','wool']},
+        {id:'V023',name:'Embroidered Silk Blouse',category:'tops',price:9500,salePrice:null,image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#c9a96e'],rating:4.7,reviews:23,isNew:false,featured:false,tags:['blouse','silk','embroidered']},
+        {id:'V024',name:'Leather Ankle Boots',category:'shoes',price:18500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#1a1a2e','#8b7355'],rating:4.9,reviews:38,isNew:false,featured:true,tags:['boots','leather','ankle']},
+        {id:'V025',name:'Pleated Chiffon Blouse',category:'tops',price:7200,salePrice:5800,image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#e8a0b4','#f5f0e8'],rating:4.5,reviews:29,isNew:false,featured:false,tags:['blouse','chiffon','pleated'],isSale:true},
+        {id:'V026',name:'Suede Knee-High Boots',category:'shoes',price:24000,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#8b7355','#1a1a2e'],rating:4.8,reviews:19,isNew:true,featured:false,tags:['boots','suede','knee-high']},
+        {id:'V027',name:'Tweed Mini Skirt',category:'bottoms',price:8800,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#2d2d3f','#c9a96e'],rating:4.6,reviews:21,isNew:true,featured:false,tags:['skirt','tweed','mini']},
+        {id:'V028',name:'Pearl Drop Earrings',category:'accessories',price:6500,salePrice:null,image:'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',sizes:['One Size'],colors:['#f5f0e8','#c9a96e'],rating:4.7,reviews:34,isNew:false,featured:false,tags:['earrings','pearl','drop']},
+        {id:'V029',name:'Double-Layer Tulle Skirt',category:'bottoms',price:10500,salePrice:8500,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#e8a0b4'],rating:4.8,reviews:17,isNew:false,featured:true,tags:['skirt','tulle','double-layer'],isSale:true},
+        {id:'V030',name:'Woven Straw Tote',category:'accessories',price:7800,salePrice:null,image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',sizes:['One Size'],colors:['#d4c5a9','#8b7355'],rating:4.5,reviews:26,isNew:true,featured:false,tags:['bag','straw','tote']}
+    ];
+    const EC_REVIEWS=[
+        {name:'Ayesha K.',avatar:'AK',rating:5,date:'2026-01-15',text:'Absolutely love this piece! The quality is outstanding and it fits perfectly. Will definitely order again.'},
+        {name:'Fatima R.',avatar:'FR',rating:4,date:'2026-01-10',text:'Beautiful design and great fabric. Runs slightly small, so size up if you are between sizes.'},
+        {name:'Sara M.',avatar:'SM',rating:5,date:'2025-12-28',text:'This exceeded my expectations. The stitching is perfect and the color is exactly as shown.'},
+        {name:'Zainab A.',avatar:'ZA',rating:4,date:'2025-12-20',text:'Very elegant piece. Delivery was quick and packaging was beautiful. Minor wrinkle but steamed out easily.'},
+        {name:'Nadia P.',avatar:'NP',rating:5,date:'2025-12-15',text:'My new favorite! The fabric feels luxurious and the cut is very flattering. Highly recommend WN Fashion.'}
+    ];
+
+    function ecFormatPrice(p){return'Rs. '+p.toLocaleString()}
+    function ecGetStars(r){return'?'.repeat(Math.floor(r))+(r%1>=.5?'½':'')}
+    function ecGetCart(){return JSON.parse(localStorage.getItem('ec_cart')||'[]')}
+    function ecGetWishlist(){return JSON.parse(localStorage.getItem('ec_wishlist')||'[]')}
+    function ecUpdateCounts(){
+        document.getElementById('ec-cart-count').textContent=ecGetCart().reduce((s,i)=>s+i.qty,0);
+        document.getElementById('ec-wishlist-count').textContent=ecGetWishlist().length;
+    }
+    function ecToggleWishlist(id){
+        let w=ecGetWishlist(),idx=w.indexOf(id);
+        if(idx>-1)w.splice(idx,1);else w.push(id);
+        localStorage.setItem('ec_wishlist',JSON.stringify(w));
+        ecUpdateCounts();
+        const btn=document.getElementById('ec-wishlist-toggle');
+        if(btn)btn.classList.toggle('active',w.includes(id));
+    }
+    function ecToast(msg){
+        const t=document.getElementById('ec-toast');t.textContent=msg;t.classList.add('show');
+        setTimeout(()=>t.classList.remove('show'),2500);
+    }
+    function ecAddToRecentlyViewed(id){
+        let rv=JSON.parse(localStorage.getItem('ec_recently_viewed')||'[]');
+        rv=rv.filter(x=>x!==id);rv.unshift(id);
+        if(rv.length>8)rv=rv.slice(0,8);
+        localStorage.setItem('ec_recently_viewed',JSON.stringify(rv));
+    }
+
+    const params=new URLSearchParams(window.location.search);
+    const productId=params.get('id')||'V001';
+    const product=EC_PRODUCTS.find(p=>p.id===productId)||EC_PRODUCTS[0];
+    ecAddToRecentlyViewed(product.id);
+
+    let selectedSize=product.sizes[0];
+    let selectedColor=product.colors[0];
+    let qty=1;
+
+    document.getElementById('ec-breadcrumb').innerHTML=`<a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <a href="shop.html?category=${product.category}">${product.category}</a> / ${product.name}`;
+
+    const stock=product.id.charCodeAt(4)%3===0?0:(product.id.charCodeAt(4)%3===1?3:15);
+    const stockClass=stock===0?'ec-out-stock':stock<=5?'ec-low-stock':'ec-in-stock';
+    const stockText=stock===0?'Out of Stock':stock<=5?`Only ${stock} left`:'In Stock';
+
+    document.getElementById('ec-product-detail').innerHTML=`
+        <div class="ec-gallery">
+            <div class="ec-main-img"><img id="ec-main-image" src="${product.image}" alt="${product.name}"></div>
+            <div class="ec-thumbs">
+                <div class="ec-thumb active"><img src="${product.image}" alt="Thumb 1"></div>
+                <div class="ec-thumb"><img src="${product.image}" alt="Thumb 2"></div>
+                <div class="ec-thumb"><img src="${product.image}" alt="Thumb 3"></div>
+            </div>
+        </div>
+        <div class="ec-product-meta">
+            <h1>${product.name}</h1>
+            <div class="ec-product-rating">
+                <span class="ec-stars">${ecGetStars(product.rating)}</span>
+                <span class="ec-rating-text">${product.rating} (${product.reviews} reviews)</span>
+            </div>
+            <div class="ec-product-price-block">
+                <span class="ec-price-big">${ecFormatPrice(product.salePrice||product.price)}</span>
+                ${product.salePrice?`<span class="ec-price-old">${ecFormatPrice(product.price)}</span>`:''}
+            </div>
+            <span class="ec-stock-status ${stockClass}">${stockText}</span>
+            <div class="ec-option-label">Size <span class="ec-size-guide-link" onclick="document.getElementById('ec-size-modal').classList.add('show')">Size Guide</span></div>
+            <div class="ec-size-options" id="ec-size-options">
+                ${product.sizes.map(s=>`<button class="ec-size-btn ${s===selectedSize?'active':''}" data-size="${s}">${s}</button>`).join('')}
+            </div>
+            <div class="ec-option-label">Color</div>
+            <div class="ec-color-options" id="ec-color-options">
+                ${product.colors.map(c=>`<div class="ec-color-opt ${c===selectedColor?'active':''}" data-color="${c}" style="background:${c}"></div>`).join('')}
+            </div>
+            <div class="ec-qty-row">
+                <div class="ec-qty">
+                    <button onclick="if(qty>1){qty--;document.getElementById('ec-qty-val').textContent=qty}">-</button>
+                    <span id="ec-qty-val">${qty}</span>
+                    <button onclick="qty++;document.getElementById('ec-qty-val').textContent=qty">+</button>
+                </div>
+                <button class="ec-add-btn" onclick="ecDoAddToCart()" ${stock===0?'disabled style="opacity:.5"':''}>Add to Cart</button>
+                <button class="ec-wishlist-btn ${ecGetWishlist().includes(product.id)?'active':''}" id="ec-wishlist-toggle" onclick="ecToggleWishlist('${product.id}')">?</button>
+            </div>
+            <button class="ec-buy-btn" onclick="ecDoAddToCart();location.href='cart.html'" ${stock===0?'disabled style="opacity:.5"':''}>Buy Now</button>
+            <div class="ec-tabs">
+                <div class="ec-tab-nav">
+                    <button class="ec-tab-btn active" data-tab="desc">Description</button>
+                    <button class="ec-tab-btn" data-tab="fit">Size & Fit</button>
+                    <button class="ec-tab-btn" data-tab="shipping">Shipping & Returns</button>
+                </div>
+                <div class="ec-tab-content active" id="ec-tab-desc">
+                    <p>Elevate your wardrobe with this exquisite ${product.name} from WN Fashion. Crafted from premium materials with meticulous attention to detail, this piece embodies timeless elegance with a modern sensibility.</p>
+                    <p style="margin-top:12px">Perfect for both special occasions and elevated everyday wear. The ${product.tags[0]} design features a flattering silhouette that complements every body type.</p>
+                </div>
+                <div class="ec-tab-content" id="ec-tab-fit">
+                    <p><strong>Fit:</strong> True to size. Model is 5'9" and wears size S.</p>
+                    <p style="margin-top:8px"><strong>Model Measurements:</strong> Bust 33" | Waist 24" | Hips 35"</p>
+                    <p style="margin-top:8px">Available sizes: ${product.sizes.join(', ')}</p>
+                </div>
+                <div class="ec-tab-content" id="ec-tab-shipping">
+                    <p><strong>Shipping:</strong> Free delivery on orders over Rs. 5,000. Standard delivery takes 3-5 business days.</p>
+                    <p style="margin-top:8px"><strong>Returns:</strong> We accept returns within 30 days of purchase. Items must be unworn with tags attached.</p>
+                    <p style="margin-top:8px"><strong>Exchange:</strong> Free exchange within 15 days for different size or color.</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.querySelectorAll('.ec-tab-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            document.querySelectorAll('.ec-tab-btn').forEach(b=>b.classList.remove('active'));
+            document.querySelectorAll('.ec-tab-content').forEach(c=>c.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('ec-tab-'+btn.dataset.tab).classList.add('active');
+        });
+    });
+    document.querySelectorAll('#ec-size-options .ec-size-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            document.querySelectorAll('#ec-size-options .ec-size-btn').forEach(b=>b.classList.remove('active'));
+            btn.classList.add('active');selectedSize=btn.dataset.size;
+        });
+    });
+    document.querySelectorAll('#ec-color-options .ec-color-opt').forEach(opt=>{
+        opt.addEventListener('click',()=>{
+            document.querySelectorAll('#ec-color-options .ec-color-opt').forEach(o=>o.classList.remove('active'));
+            opt.classList.add('active');selectedColor=opt.dataset.color;
+        });
+    });
+
+    function ecDoAddToCart(){
+        if(stock===0)return;
+        let cart=ecGetCart();
+        const existing=cart.find(i=>i.id===product.id&&i.size===selectedSize&&i.color===selectedColor);
+        if(existing){existing.qty+=qty}
+        else{cart.push({id:product.id,name:product.name,image:product.image,price:product.salePrice||product.price,size:selectedSize,color:selectedColor,qty})}
+        localStorage.setItem('ec_cart',JSON.stringify(cart));
+        ecUpdateCounts();
+        ecToast('Added to cart!');
+    }
+
+    const related=EC_PRODUCTS.filter(p=>p.category===product.category&&p.id!==product.id).slice(0,4);
+    document.getElementById('ec-related-products').innerHTML=related.map(p=>`
+        <div class="ec-product-card" onclick="location.href='product.html?id=${p.id}'">
+            <div class="ec-product-img">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                ${p.isNew?'<span class="ec-product-badge ec-badge-new">New</span>':''}
+                ${p.isSale?'<span class="ec-product-badge ec-badge-sale">Sale</span>':''}
+            </div>
+            <div class="ec-product-info">
+                <h3>${p.name}</h3>
+                <div class="ec-product-price">
+                    <span class="ec-price-current">${ecFormatPrice(p.salePrice||p.price)}</span>
+                    ${p.salePrice?`<span class="ec-price-original">${ecFormatPrice(p.price)}</span>`:''}
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    ecUpdateCounts();
+    </script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — WN Fashion</title>
+<link rel="stylesheet" href="../shared/css/base.css">
+<style>
+:root{--gold:#c9a96e;--navy:#1a1a2e;--burgundy:#8b0000;--cream:#f5f0e8;--sage:#7c8c6e;--blush:#e8a0b4;--charcoal:#2d2d3f;--taupe:#d4c5a9;--font-display:'Georgia',serif;--font-body:'Segoe UI',system-ui,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);color:#1a1a1a;background:#fff;}
+.ec-notice-bar{background:var(--navy);color:var(--cream);text-align:center;padding:8px 16px;font-size:12px;letter-spacing:2px;text-transform:uppercase;}
+.ec-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid #eee;}
+.ec-nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;}
+.ec-logo{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--navy);letter-spacing:4px;text-decoration:none;}
+.ec-nav-links{display:flex;gap:32px;list-style:none;}
+.ec-nav-links a{text-decoration:none;color:#333;font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:color 0.3s;position:relative;}
+.ec-nav-links a:hover,.ec-nav-links a.ec-active{color:var(--gold);}
+.ec-nav-icons{display:flex;gap:20px;align-items:center;}
+.ec-nav-icons a{color:#333;font-size:18px;text-decoration:none;transition:color 0.3s;}
+.ec-nav-icons a:hover{color:var(--gold);}
+.ec-cart-count{position:relative;}
+.ec-cart-count span{position:absolute;top:-8px;right:-10px;background:var(--gold);color:#fff;font-size:10px;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.ec-mobile-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--navy);}
+.ec-breadcrumb{padding:20px 40px;max-width:1400px;margin:0 auto;font-size:13px;color:#888;}
+.ec-breadcrumb a{color:var(--gold);text-decoration:none;}
+.ec-pdp{max-width:1400px;margin:0 auto;padding:20px 40px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+.ec-gallery{position:sticky;top:100px;align-self:start;}
+.ec-main-img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#f5f5f5;margin-bottom:16px;}
+.ec-thumbs{display:flex;gap:8px;}
+.ec-thumb{width:80px;height:100px;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:border-color 0.3s;opacity:0.7;}
+.ec-thumb:hover,.ec-thumb.active{border-color:var(--gold);opacity:1;}
+.ec-product-detail h1{font-family:var(--font-display);font-size:32px;color:var(--navy);margin-bottom:8px;}
+.ec-rating{display:flex;align-items:center;gap:8px;margin-bottom:16px;color:#c9a96e;font-size:18px;}
+.ec-rating span{color:#888;font-size:14px;}
+.ec-pdp-price{font-size:28px;font-weight:700;color:var(--navy);margin-bottom:20px;}
+.ec-pdp-price .ec-original{font-size:18px;color:#999;text-decoration:line-through;margin-left:12px;font-weight:400;}
+.ec-pdp-desc{color:#666;line-height:1.8;margin-bottom:24px;}
+.ec-option-group{margin-bottom:24px;}
+.ec-option-group label{display:block;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:var(--navy);font-weight:600;}
+.ec-color-options{display:flex;gap:10px;}
+.ec-color-opt{width:36px;height:36px;border-radius:50%;border:2px solid #ddd;cursor:pointer;transition:all 0.3s;}
+.ec-color-opt:hover,.ec-color-opt.active{border-color:var(--navy);transform:scale(1.15);}
+.ec-size-options{display:flex;gap:8px;flex-wrap:wrap;}
+.ec-size-opt{padding:10px 20px;border:1px solid #ddd;background:#fff;cursor:pointer;font-size:14px;transition:all 0.3s;}
+.ec-size-opt:hover,.ec-size-opt.active{border-color:var(--gold);background:var(--gold);color:#fff;}
+.ec-qty-row{display:flex;align-items:center;gap:20px;margin-bottom:24px;}
+.ec-qty{display:flex;border:1px solid #ddd;}
+.ec-qty button{width:44px;height:44px;border:none;background:#f5f5f5;cursor:pointer;font-size:18px;transition:background 0.3s;}
+.ec-qty button:hover{background:#e0e0e0;}
+.ec-qty input{width:60px;height:44px;border:none;text-align:center;font-size:16px;outline:none;}
+.ec-add-btn{width:100%;padding:16px;background:var(--navy);color:#fff;border:none;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background 0.3s;margin-bottom:12px;}
+.ec-add-btn:hover{background:var(--gold);}
+.ec-buy-btn{width:100%;padding:16px;background:var(--gold);color:#fff;border:none;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:opacity 0.3s;}
+.ec-buy-btn:hover{opacity:0.9;}
+.ec-wish-share{display:flex;gap:16px;margin-top:20px;}
+.ec-wish-btn,.ec-share-btn{padding:12px 24px;border:1px solid #ddd;background:#fff;cursor:pointer;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:all 0.3s;}
+.ec-wish-btn:hover,.ec-share-btn:hover{border-color:var(--gold);color:var(--gold);}
+.ec-tabs{margin-top:60px;border-top:1px solid #eee;}
+.ec-tab-nav{display:flex;gap:0;border-bottom:1px solid #eee;}
+.ec-tab-btn{padding:16px 24px;border:none;background:none;cursor:pointer;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#888;transition:color 0.3s;position:relative;}
+.ec-tab-btn.active{color:var(--navy);font-weight:600;}
+.ec-tab-btn.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);}
+.ec-tab-content{padding:30px 0;display:none;line-height:1.8;color:#666;}
+.ec-tab-content.active{display:block;}
+.ec-review{border-bottom:1px solid #eee;padding:20px 0;}
+.ec-review-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.ec-review-author{font-weight:600;}
+.ec-review-date{font-size:13px;color:#999;}
+.ec-review-stars{color:var(--gold);margin-bottom:8px;}
+.ec-review-text{color:#666;font-size:14px;line-height:1.6;}
+.ec-review-helpful{margin-top:8px;font-size:13px;color:#999;}
+.ec-review-helpful button{border:none;background:none;color:var(--gold);cursor:pointer;font-size:13px;}
+.ec-related{max-width:1400px;margin:0 auto;padding:40px;}
+.ec-related h2{font-family:var(--font-display);font-size:28px;color:var(--navy);margin-bottom:30px;text-align:center;}
+.ec-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.ec-product-card{text-decoration:none;color:inherit;}
+.ec-product-img{position:relative;aspect-ratio:3/4;overflow:hidden;background:#f5f5f5;margin-bottom:16px;}
+.ec-product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.ec-product-card:hover .ec-product-img img{transform:scale(1.05);}
+.ec-product-badge{position:absolute;top:12px;left:12px;padding:4px 12px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;}
+.ec-badge-new{background:var(--sage);}
+.ec-badge-sale{background:var(--burgundy);}
+.ec-product-info h3{font-size:15px;font-weight:500;margin-bottom:4px;}
+.ec-product-price{display:flex;gap:8px;align-items:center;}
+.ec-price-current{font-weight:600;color:var(--navy);}
+.ec-price-original{text-decoration:line-through;color:#999;font-size:14px;}
+.ec-footer{background:var(--navy);color:rgba(255,255,255,0.7);padding:60px 40px 30px;}
+.ec-footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;}
+.ec-footer-brand{font-family:var(--font-display);font-size:24px;color:#fff;letter-spacing:3px;margin-bottom:16px;}
+.ec-footer h4{color:#fff;font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
+.ec-footer-links{list-style:none;}
+.ec-footer-links li{margin-bottom:10px;}
+.ec-footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:14px;transition:color 0.3s;}
+.ec-footer-links a:hover{color:var(--gold);}
+.ec-footer-bottom{max-width:1400px;margin:30px auto 0;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;font-size:13px;}
+.ec-whatsapp-float{position:fixed;bottom:30px;right:30px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s;}
+.ec-whatsapp-float:hover{transform:scale(1.1);}
+@media(max-width:1024px){.ec-pdp{grid-template-columns:1fr;gap:30px;}.ec-gallery{position:static;}.ec-related-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.ec-nav-links,.ec-nav-icons{display:none;}.ec-mobile-toggle{display:block;}.ec-related-grid{grid-template-columns:1fr;}.ec-footer-inner{grid-template-columns:1fr;}.ec-footer-bottom{flex-direction:column;gap:10px;}.ec-tab-nav{overflow-x:auto;}}
+</style>
+</head>
+<body>
+<div class="ec-notice-bar">WN Fashion Store — Expert Package | WN-ECOM-FASHION-EXP-001</div>
+<nav class="ec-nav">
+<div class="ec-nav-inner">
+<a href="index.html" class="ec-logo">WN Fashion</a>
+<ul class="ec-nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html" class="ec-active">Shop</a></li>
+<li><a href="size-guide.html">Size Guide</a></li>
+<li><a href="shipping.html">Shipping</a></li>
+<li><a href="returns.html">Returns</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+<div class="ec-nav-icons">
+<a href="account.html" title="Account">&#128100;</a>
+<a href="wishlist.html" title="Wishlist">&#9825;</a>
+<a href="cart.html" title="Cart" class="ec-cart-count">&#128722;<span id="ecCartCount">0</span></a>
+</div>
+<button class="ec-mobile-toggle" onclick="document.querySelector('.ec-nav-links').classList.toggle('ec-show')" aria-label="Menu">&#9776;</button>
+</div>
+</nav>
+
+<div class="ec-breadcrumb"><a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <span id="ecBreadName">Product</span></div>
+
+<div class="ec-pdp">
+<div class="ec-gallery">
+<img class="ec-main-img" id="ecMainImg" src="" alt="Product">
+<div class="ec-thumbs" id="ecThumbs"></div>
+</div>
+<div class="ec-product-detail">
+<h1 id="ecPdpName"></h1>
+<div class="ec-rating" id="ecPdpRating"></div>
+<div class="ec-pdp-price" id="ecPdpPrice"></div>
+<p class="ec-pdp-desc" id="ecPdpDesc"></p>
+<div class="ec-option-group">
+<label>Color</label>
+<div class="ec-color-options" id="ecColorOpts"></div>
+</div>
+<div class="ec-option-group">
+<label>Size</label>
+<div class="ec-size-options" id="ecSizeOpts"></div>
+</div>
+<div class="ec-option-group">
+<label>Quantity</label>
+<div class="ec-qty-row">
+<div class="ec-qty">
+<button onclick="ecChangeQty(-1)">-</button>
+<input type="number" id="ecQty" value="1" min="1" max="10" readonly>
+<button onclick="ecChangeQty(1)">+</button>
+</div>
+</div>
+</div>
+<button class="ec-add-btn" onclick="ecAddToCartPdp()">Add to Cart</button>
+<button class="ec-buy-btn" onclick="ecAddToCartPdp();location.href='cart.html'">Buy Now</button>
+<div class="ec-wish-share">
+<button class="ec-wish-btn" id="ecWishBtn" onclick="ecToggleWishPdp()">? Add to Wishlist</button>
+<button class="ec-share-btn" onclick="navigator.share?navigator.share({title:ecProduct.name,url:location.href}):alert('Share: '+location.href)">? Share</button>
+</div>
+<div class="ec-tabs">
+<div class="ec-tab-nav">
+<button class="ec-tab-btn active" onclick="ecSwitchTab(0,this)">Description</button>
+<button class="ec-tab-btn" onclick="ecSwitchTab(1,this)">Materials & Care</button>
+<button class="ec-tab-btn" onclick="ecSwitchTab(2,this)">Size & Fit</button>
+<button class="ec-tab-btn" onclick="ecSwitchTab(3,this)">Shipping</button>
+<button class="ec-tab-btn" onclick="ecSwitchTab(4,this)">Reviews (<span id="ecReviewCount">0</span>)</button>
+</div>
+<div class="ec-tab-content active" id="ecTab0"></div>
+<div class="ec-tab-content" id="ecTab1"></div>
+<div class="ec-tab-content" id="ecTab2"></div>
+<div class="ec-tab-content" id="ecTab3"></div>
+<div class="ec-tab-content" id="ecTab4"></div>
+</div>
+</div>
+</div>
+
+<div class="ec-related">
+<h2>You May Also Like</h2>
+<div class="ec-related-grid" id="ecRelated"></div>
+</div>
+
+<footer class="ec-footer">
+<div class="ec-footer-inner">
+<div><div class="ec-footer-brand">WN Fashion</div><p style="font-size:14px;">Premium fashion for the modern woman.</p></div>
+<div><h4>Shop</h4><ul class="ec-footer-links"><li><a href="shop.html?category=dresses">Dresses</a></li><li><a href="shop.html?category=tops">Tops</a></li><li><a href="shop.html?category=accessories">Accessories</a></li></ul></div>
+<div><h4>Help</h4><ul class="ec-footer-links"><li><a href="size-guide.html">Size Guide</a></li><li><a href="shipping.html">Shipping</a></li><li><a href="returns.html">Returns</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+<div><h4>Contact</h4><ul class="ec-footer-links"><li><a href="https://wa.me/923281190004" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:support@WN Fashion.pk">Email Us</a></li></ul></div>
+</div>
+<div class="ec-footer-bottom"><span>&copy; 2026 WN Fashion. All rights reserved.</span><span>WN-ECOM-FASHION-EXP-001</span></div>
+</footer>
+<a href="https://wa.me/923281190004?text=Hello%20WebNest%2C%20I%20am%20interested%20in%20Fashion%20E-commerce%20%E2%80%94%20Expert%20Package%20(WN-ECOM-FASHION-EXP-001)." class="ec-whatsapp-float" target="_blank" rel="noopener" title="Chat on WhatsApp">&#128172;</a>
+
+<script src="../shared/js/base.js"></script>
+<script>
+const EC_PRODUCTS=[{id:'V001',name:'Silk Wrap Blouse',category:'tops',price:8500,salePrice:null,image:'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#e8a0b4'],rating:4.8,reviews:45,isNew:true,featured:true,tags:['silk','blouse','wrap'],description:'Crafted from premium mulberry silk, this wrap blouse features a flattering V-neckline and adjustable tie waist. Perfect for both office and evening wear.',materials:'100% Mulberry Silk. Dry clean only. Iron on low heat.'},{id:'V002',name:'Tailored Wool Trousers',category:'bottoms',price:12000,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#1a1a2e','#d4c5a9'],rating:4.7,reviews:38,isNew:false,featured:true,tags:['trousers','wool','tailored'],description:'High-waisted tailored trousers in fine Italian wool. Features pressed creases and a straight-leg silhouette.',materials:'98% Wool, 2% Elastane. Dry clean recommended.'},{id:'V003',name:'Cashmere V-Neck Sweater',category:'tops',price:15000,salePrice:null,image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#c9a96e','#2d2d3f'],rating:4.9,reviews:52,isNew:true,featured:true,tags:['cashmere','sweater','v-neck'],description:'Luxuriously soft Mongolian cashmere sweater with a relaxed fit and deep V-neck. A wardrobe essential.',materials:'100% Grade-A Mongolian Cashmere. Hand wash cold.'},{id:'V004',name:'Pleated Midi Skirt',category:'bottoms',price:9800,salePrice:7800,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0afe0?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#c9a96e'],rating:4.6,reviews:29,isNew:false,featured:false,tags:['skirt','pleated','midi'],isSale:true,description:'Elegant pleated midi skirt with an elasticized waistband. The fluid fabric creates beautiful movement.',materials:'100% Polyester. Machine washable.'},{id:'V005',name:'Structured Blazer',category:'outerwear',price:22000,salePrice:null,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#1a1a2e','#2d2d3f'],rating:4.9,reviews:61,isNew:true,featured:true,tags:['blazer','structured'],description:'Impeccably tailored double-breasted blazer with padded shoulders. A power piece for any wardrobe.',materials:'65% Polyester, 30% Viscose, 5% Elastane. Dry clean.'},{id:'V006',name:'Embroidered Anarkali',category:'dresses',price:35000,salePrice:null,image:'https://images.unsplash.com/photo-1596783074918-c4c381eab5e6?w=600&q=80',sizes:['XS','S','M','L'],colors:['#8b0000','#c9a96e'],rating:4.8,reviews:18,isNew:true,featured:true,tags:['anarkali','embroidered'],description:'Hand-embroidered Anarkali suit with intricate zardozi work. Includes matching churidar and dupatta.',materials:'Pure Georgette with Silk lining. Dry clean only.'},{id:'V007',name:'Leather Crossbody Bag',category:'accessories',price:18000,salePrice:null,image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',sizes:['One Size'],colors:['#8b7355','#1a1a2e'],rating:4.7,reviews:73,isNew:false,featured:true,tags:['bag','leather','crossbody'],description:'Handcrafted Italian leather crossbody with adjustable strap. Gold-tone hardware and suede interior.',materials:'100% Italian Vegetable-Tanned Leather.'},{id:'V008',name:'Satin Slip Dress',category:'dresses',price:16500,salePrice:13000,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#1a1a2e'],rating:4.6,reviews:42,isNew:false,featured:false,tags:['dress','satin','slip'],isSale:true,description:'Bias-cut satin slip dress with adjustable spaghetti straps. Perfect as a standalone or layered piece.',materials:'100% Silk Satin. Dry clean recommended.'},{id:'V009',name:'Gold Statement Earrings',category:'accessories',price:5500,salePrice:null,image:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80',sizes:['One Size'],colors:['#c9a96e'],rating:4.5,reviews:89,isNew:false,featured:true,tags:['earrings','gold','statement'],description:'Bold gold-plated statement earrings with hammered texture. Lightweight and comfortable for all-day wear.',materials:'18K Gold Plated Brass. Hypoallergenic posts.'},{id:'V010',name:'Linen Wide-Leg Pants',category:'bottoms',price:11000,salePrice:null,image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#d4c5a9'],rating:4.7,reviews:34,isNew:true,featured:false,tags:['pants','linen','wide-leg'],description:'Relaxed-fit wide-leg pants in breathable French linen. Elasticized back waist for comfort.',materials:'100% French Linen. Machine washable.'},{id:'V011',name:'Velvet Evening Dress',category:'dresses',price:28000,salePrice:null,image:'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&q=80',sizes:['XS','S','M','L'],colors:['#8b0000','#1a1a2e'],rating:4.9,reviews:27,isNew:true,featured:true,tags:['dress','velvet','evening'],description:'Luxurious velvet evening dress with a sweetheart neckline and fitted bodice. A show-stopping piece.',materials:'100% Silk Velvet. Dry clean only.'},{id:'V012',name:'Wool Cape Coat',category:'outerwear',price:32000,salePrice:null,image:'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#d4c5a9'],rating:4.8,reviews:15,isNew:true,featured:true,tags:['coat','wool','cape'],description:'Dramatic wool cape coat with horn buttons. A statement outerwear piece for cooler months.',materials:'70% Wool, 30% Cashmere. Dry clean.'},{id:'V013',name:'Pearl Pendant Necklace',category:'accessories',price:7500,salePrice:null,image:'https://images.unsplash.com/photo-1515562141589-67f0d569b4f9?w=600&q=80',sizes:['One Size'],colors:['#f5f0e8','#c9a96e'],rating:4.6,reviews:56,isNew:false,featured:false,tags:['necklace','pearl','pendant'],description:'Freshwater pearl pendant on a delicate gold chain. Adjustable length from 16 to 18 inches.',materials:'Freshwater Pearl, 14K Gold Plated Chain.'},{id:'V014',name:'Chiffon Palazzo Pants',category:'bottoms',price:8900,salePrice:6900,image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#1a1a2e'],rating:4.5,reviews:23,isNew:false,featured:false,tags:['pants','chiffon','palazzo'],isSale:true,description:'Flowing chiffon palazzo pants with a comfortable elastic waist. Perfect for warm weather.',materials:'100% Chiffon. Hand wash recommended.'},{id:'V015',name:'Embroidered Juttis',category:'shoes',price:4500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#c9a96e','#8b0000'],rating:4.7,reviews:67,isNew:false,featured:true,tags:['juttis','embroidered'],description:'Handcrafted juttis with intricate thread and mirror work. Cushioned insole for comfort.',materials:'Leather sole, Cotton upper with embroidery.'},{id:'V016',name:'Banarasi Silk Dupatta',category:'accessories',price:6800,salePrice:null,image:'https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#8b0000'],rating:4.8,reviews:34,isNew:false,featured:true,tags:['dupatta','banarasi','silk'],description:'Handwoven Banarasi silk dupatta with gold zari borders. A timeless accessory.',materials:'100% Banarasi Silk. Dry clean only.'},{id:'V017',name:'Zari Work Kurta',category:'tops',price:14000,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#c9a96e','#f5f0e8'],rating:4.6,reviews:21,isNew:true,featured:false,tags:['kurta','zari','work'],description:'Elegant kurta with hand-embroidered zari work on neckline and hem. Relaxed fit.',materials:'100% Cotton. Hand wash recommended.'},{id:'V018',name:'Block Heel Sandals',category:'shoes',price:7500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#c9a96e','#1a1a2e'],rating:4.4,reviews:45,isNew:false,featured:false,tags:['sandals','block-heel'],description:'Classic block heel sandals with adjustable ankle strap. Padded insole for comfort.',materials:'Leather upper and sole.'},{id:'V019',name:'Mirror Work Clutch',category:'accessories',price:3800,salePrice:null,image:'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#1a1a2e'],rating:4.5,reviews:38,isNew:false,featured:false,tags:['clutch','mirror','work'],description:'Handcrafted clutch with traditional mirror work. Detachable chain strap.',materials:'Cotton with mirror embellishment. Silk lining.'},{id:'V020',name:'Georgette A-Line Dress',category:'dresses',price:19000,salePrice:null,image:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#c9a96e'],rating:4.7,reviews:29,isNew:true,featured:false,tags:['dress','georgette','a-line'],description:'Flattering A-line dress in georgette with a fitted bodice and flared skirt.',materials:'100% Georgette. Lined. Dry clean.'},{id:'V021',name:'Organza Festival Set',category:'dresses',price:25000,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0afe0?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#e8a0b4'],rating:4.8,reviews:12,isNew:true,featured:true,tags:['organza','festival'],description:'Three-piece organza set with embroidered blouse, lehenga, and dupatta. Perfect for festive occasions.',materials:'Organza with Silk lining. Dry clean only.'},{id:'V022',name:'Potli Bag',category:'accessories',price:2800,salePrice:null,image:'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#8b0000'],rating:4.3,reviews:52,isNew:false,featured:false,tags:['bag','potli'],description:'Traditional potli bag with drawstring closure and bead embellishment.',materials:'Brocade with satin lining.'},{id:'V023',name:'Mojari Flats',category:'shoes',price:3500,salePrice:2800,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#c9a96e','#8b0000'],rating:4.6,reviews:71,isNew:false,featured:false,tags:['mojari','flats'],isSale:true,description:'Handcrafted mojari flats with traditional Rajasthani embroidery.',materials:'Leather upper and sole.'},{id:'V024',name:'Tiered Maxi Dress',category:'dresses',price:21000,salePrice:null,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#e8a0b4'],rating:4.7,reviews:33,isNew:false,featured:true,tags:['dress','tiered','maxi'],description:'Romantic tiered maxi dress with a smocked bodice and flowy skirt.',materials:'100% Cotton. Machine washable.'},{id:'V025',name:'Sequin Crop Top',category:'tops',price:9500,salePrice:null,image:'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#1a1a2e'],rating:4.4,reviews:28,isNew:true,featured:false,tags:['top','sequin','crop'],description:'Fully sequined crop top with a flattering neckline. Statement piece for evenings.',materials:'Sequins on Mesh. Lined. Hand wash.'},{id:'V026',name:'Leather Kolhapuri',category:'shoes',price:5200,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#8b7355','#1a1a2e'],rating:4.5,reviews:44,isNew:false,featured:false,tags:['kolhapuri','leather'],description:'Hand-stitched Kolhapuri chappals with traditional braided straps.',materials:'100% Leather.'},{id:'V027',name:'Net Embroidered Lehenga',category:'dresses',price:42000,salePrice:null,image:'https://images.unsplash.com/photo-1596783074918-c4c381eab5e6?w=600&q=80',sizes:['XS','S','M','L'],colors:['#8b0000','#c9a96e'],rating:4.9,reviews:9,isNew:true,featured:true,tags:['lehenga','net','embroidered'],description:'Bridal-quality net lehenga with heavy thread and bead embroidery. Includes blouse and dupatta.',materials:'Net with Silk lining. Professional dry clean.'},{id:'V028',name:'Tassel Earrings',category:'accessories',price:2200,salePrice:null,image:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#e8a0b4'],rating:4.3,reviews:63,isNew:false,featured:false,tags:['earrings','tassel'],description:'Playful tassel earrings with gold-tone hooks. Lightweight and eye-catching.',materials:'Silk tassels, Gold-plated hooks.'},{id:'V029',name:'Kalamkari Palazzo Set',category:'dresses',price:16000,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0afe0?w=600&q=80',sizes:['XS','S','M','L'],colors:['#8b0000','#c9a96e'],rating:4.6,reviews:19,isNew:true,featured:false,tags:['kalamkari','palazzo'],description:'Hand-painted Kalamkari kurta with palazzo pants. Each piece is unique.',materials:'100% Cotton. Hand wash recommended.'},{id:'V030',name:'Beaded Jhumka Earrings',category:'accessories',price:3200,salePrice:null,image:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80',sizes:['One Size'],colors:['#c9a96e'],rating:4.7,reviews:41,isNew:false,featured:true,tags:['jhumka','beaded'],description:'Traditional jhumka earrings with intricate bead and pearl detailing.',materials:'Gold-plated metal, Glass beads, Faux pearls.'},{id:'V031',name:'Velvet Evening Gown',category:'dresses',price:45000,salePrice:null,image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#8b0000'],rating:5.0,reviews:8,isNew:true,featured:true,tags:['gown','velvet','evening'],description:'Floor-length velvet evening gown with a dramatic train. A masterpiece of couture design.',materials:'100% Silk Velvet. Professional dry clean.'},{id:'V032',name:'Italian Leather Jacket',category:'outerwear',price:55000,salePrice:45000,image:'https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=600&q=80',sizes:['S','M','L','XL'],colors:['#1a1a2e','#8b7355'],rating:4.9,reviews:6,isNew:true,featured:true,tags:['jacket','leather','italian'],isSale:true,description:'Premium Italian lambskin leather jacket. Asymmetric zip closure with quilted panels.',materials:'100% Italian Lambskin Leather.'},{id:'V033',name:'Sequined Cocktail Dress',category:'dresses',price:28000,salePrice:null,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#1a1a2e'],rating:4.8,reviews:12,isNew:false,featured:false,tags:['dress','sequined','cocktail'],description:'Eye-catching sequined cocktail dress with a fitted silhouette. Party perfect.',materials:'Sequins on Mesh. Polyester lining. Dry clean.'},{id:'V034',name:'Cashmere Wrap Scarf',category:'accessories',price:12000,salePrice:null,image:'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#f5f0e8','#2d2d3f'],rating:4.7,reviews:31,isNew:false,featured:false,tags:['scarf','cashmere','wrap'],description:'Oversized cashmere wrap scarf. Incredibly soft and versatile.',materials:'100% Grade-A Cashmere. Hand wash cold.'},{id:'V035',name:'Pointed-Toe Stiletto Pumps',category:'shoes',price:16000,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#1a1a2e','#c9a96e','#e8a0b4'],rating:4.9,reviews:42,isNew:false,featured:true,tags:['pumps','stiletto','pointed'],description:'Classic pointed-toe stiletto pumps with a 4-inch heel. A timeless silhouette.',materials:'Suede or Leather upper. Leather sole.'},{id:'V036',name:'High-Waist Culottes',category:'bottoms',price:7800,salePrice:6200,image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#d4c5a9'],rating:4.5,reviews:18,isNew:false,featured:false,tags:['culottes','high-waist'],isSale:true,description:'High-waist culottes with a wide leg. Comfortable and chic.',materials:'65% Polyester, 35% Cotton. Machine wash.'},{id:'V037',name:'Lace Panel Camisole',category:'tops',price:5500,salePrice:null,image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#e8a0b4'],rating:4.6,reviews:25,isNew:true,featured:false,tags:['camisole','lace','panel'],description:'Delicate lace panel camisole with adjustable straps. Layering essential.',materials:'95% Polyester, 5% Spandex. Hand wash.'},{id:'V038',name:'Oversized Wool Cardigan',category:'outerwear',price:15000,salePrice:null,image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#d4c5a9','#2d2d3f'],rating:4.7,reviews:14,isNew:true,featured:false,tags:['cardigan','wool','oversized'],description:'Cozy oversized wool cardigan with deep pockets. Perfect for layering.',materials:'70% Wool, 30% Acrylic. Hand wash.'},{id:'V039',name:'Monogram Leather Wallet',category:'accessories',price:8500,salePrice:null,image:'https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80',sizes:['One Size'],colors:['#8b7355','#1a1a2e'],rating:4.8,reviews:37,isNew:false,featured:false,tags:['wallet','leather','monogram'],description:'Personalized leather wallet with monogram embossing. Multiple card slots.',materials:'100% Full-Grain Leather.'},{id:'V040',name:'Printed Silk Scarf',category:'accessories',price:5800,salePrice:null,image:'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#e8a0b4','#4a6fa5'],rating:4.6,reviews:22,isNew:false,featured:false,tags:['scarf','silk','printed'],description:'Hand-printed silk scarf with an artistic floral motif.',materials:'100% Silk Twill. Hand wash.'},{id:'V041',name:'Tailored Jumpsuit',category:'dresses',price:19500,salePrice:null,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#2d2d3f'],rating:4.8,reviews:10,isNew:true,featured:true,tags:['jumpsuit','tailored'],description:'Impeccably tailored jumpsuit with a belted waist. One-and-done dressing.',materials:'65% Polyester, 30% Viscose, 5% Elastane. Dry clean.'},{id:'V042',name:'Embellished Headband',category:'accessories',price:3200,salePrice:null,image:'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#e8a0b4'],rating:4.4,reviews:19,isNew:true,featured:false,tags:['headband','embellished'],description:'Jeweled headband with crystal and pearl embellishment. Crowns any outfit.',materials:'Gold-plated metal, crystals, faux pearls.'},{id:'V043',name:'Canvas Espadrilles',category:'shoes',price:6800,salePrice:5500,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#f5f0e8','#1a1a2e'],rating:4.5,reviews:33,isNew:false,featured:false,tags:['espadrilles','canvas'],isSale:true,description:'Classic canvas espadrilles with jute rope sole. Summer essential.',materials:'Canvas upper, Jute sole.'},{id:'V044',name:'Chain Strap Shoulder Bag',category:'accessories',price:26000,salePrice:null,image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',sizes:['One Size'],colors:['#1a1a2e','#c9a96e'],rating:4.9,reviews:15,isNew:true,featured:true,tags:['bag','shoulder','chain'],description:'Structured shoulder bag with a chain strap. Quilted leather with signature clasp.',materials:'100% Calfskin Leather. Suede interior.'},{id:'V045',name:'Ribbed Knit Midi Dress',category:'dresses',price:13500,salePrice:null,image:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#1a1a2e','#c9a96e','#d4c5a9'],rating:4.7,reviews:28,isNew:false,featured:false,tags:['dress','knit','midi'],description:'Body-hugging ribbed knit midi dress. Comfortable yet sophisticated.',materials:'60% Viscose, 40% Nylon. Hand wash.'}];
+
+const params=new URLSearchParams(window.location.search);
+const productId=params.get('id')||'V001';
+const ecProduct=EC_PRODUCTS.find(p=>p.id===productId)||EC_PRODUCTS[0];
+let ecSelectedSize=ecProduct.sizes[0];
+let ecSelectedColor=ecProduct.colors[0];
+
+document.getElementById('ecBreadName').textContent=ecProduct.name;
+document.title=ecProduct.name+' — WN Fashion';
+document.getElementById('ecMainImg').src=ecProduct.image;
+document.getElementById('ecMainImg').alt=ecProduct.name;
+document.getElementById('ecPdpName').textContent=ecProduct.name;
+document.getElementById('ecPdpRating').innerHTML='?'.repeat(Math.floor(ecProduct.rating))+(ecProduct.rating%1?'½':'')+' <span>('+ecProduct.reviews+' reviews)</span>';
+document.getElementById('ecPdpPrice').innerHTML='Rs. '+(ecProduct.salePrice||ecProduct.price).toLocaleString()+(ecProduct.salePrice?'<span class="ec-original">Rs. '+ecProduct.price.toLocaleString()+'</span>':'');
+document.getElementById('ecPdpDesc').textContent=ecProduct.description||'Premium quality piece from the WN Fashion collection. Crafted with attention to detail and the finest materials.';
+
+const thumbImages=[ecProduct.image,ecProduct.image.replace('w=600','w=400'),ecProduct.image.replace('w=600','w=800')];
+const thumbsContainer=document.getElementById('ecThumbs');
+thumbImages.forEach((src,i)=>{
+const img=document.createElement('img');
+img.src=src;img.className='ec-thumb'+(i===0?' active':'');img.alt='Thumbnail '+(i+1);
+img.onclick=()=>{document.getElementById('ecMainImg').src=src;document.querySelectorAll('.ec-thumb').forEach(t=>t.classList.remove('active'));img.classList.add('active');};
+thumbsContainer.appendChild(img);
+});
+
+const colorsContainer=document.getElementById('ecColorOpts');
+ecProduct.colors.forEach(c=>{
+const div=document.createElement('div');
+div.className='ec-color-opt'+(c===ecSelectedColor?' active':'');
+div.style.background=c;
+div.onclick=()=>{ecSelectedColor=c;document.querySelectorAll('.ec-color-opt').forEach(o=>o.classList.remove('active'));div.classList.add('active');};
+colorsContainer.appendChild(div);
+});
+
+const sizesContainer=document.getElementById('ecSizeOpts');
+ecProduct.sizes.forEach(s=>{
+const btn=document.createElement('button');
+btn.className='ec-size-opt'+(s===ecSelectedSize?' active':'');
+btn.textContent=s;
+btn.onclick=()=>{ecSelectedSize=s;document.querySelectorAll('.ec-size-opt').forEach(b=>b.classList.remove('active'));btn.classList.add('active');};
+sizesContainer.appendChild(btn);
+});
+
+function ecGetCart(){return JSON.parse(localStorage.getItem('ec_cart')||'[]');}
+function ecUpdateCartCount(){const c=ecGetCart();document.getElementById('ecCartCount').textContent=c.reduce((a,b)=>a+b.qty,0);}
+function ecChangeQty(d){const inp=document.getElementById('ecQty');let v=parseInt(inp.value)+d;if(v<1)v=1;if(v>10)v=10;inp.value=v;}
+function ecAddToCartPdp(){
+const qty=parseInt(document.getElementById('ecQty').value);
+const cart=ecGetCart();
+const key=ecProduct.id+'-'+ecSelectedSize+'-'+ecSelectedColor;
+const ex=cart.find(x=>x.key===key);
+if(ex){ex.qty+=qty;}else{cart.push({key,id:ecProduct.id,size:ecSelectedSize,color:ecSelectedColor,qty,name:ecProduct.name,price:ecProduct.salePrice||ecProduct.price,image:ecProduct.image});}
+localStorage.setItem('ec_cart',JSON.stringify(cart));
+ecUpdateCartCount();
+alert('Added to cart!');
+}
+
+function ecToggleWishPdp(){
+let w=JSON.parse(localStorage.getItem('ec_wishlist')||'[]');
+if(w.includes(ecProduct.id)){w=w.filter(x=>x!==ecProduct.id);document.getElementById('ecWishBtn').textContent='? Add to Wishlist';}
+else{w.push(ecProduct.id);document.getElementById('ecWishBtn').textContent='? In Wishlist';}
+localStorage.setItem('ec_wishlist',JSON.stringify(w));
+}
+const ecW=JSON.parse(localStorage.getItem('ec_wishlist')||'[]');
+if(ecW.includes(ecProduct.id))document.getElementById('ecWishBtn').textContent='? In Wishlist';
+
+function ecSwitchTab(idx,btn){
+document.querySelectorAll('.ec-tab-content').forEach((t,i)=>{t.classList.toggle('active',i===idx);});
+document.querySelectorAll('.ec-tab-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+}
+
+document.getElementById('ecTab0').textContent=ecProduct.description||'Premium quality piece from the WN Fashion collection. Each garment is crafted with meticulous attention to detail, using only the finest materials sourced from around the world.';
+document.getElementById('ecTab1').textContent=ecProduct.materials||'Premium materials. For best care, follow the instructions on the garment label.';
+document.getElementById('ecTab2').innerHTML='<p>This item fits true to size. We recommend ordering your usual size.</p><p><strong>Model is wearing:</strong> Size M</p><p><strong>Model measurements:</strong> Height 5\'9" / Bust 34" / Waist 26" / Hips 36"</p><br><a href="size-guide.html" style="color:var(--gold);">View Size Guide ?</a>';
+document.getElementById('ecTab3').innerHTML='<p><strong>Standard Delivery:</strong> 3-5 business days (Free on orders over Rs. 5,000)</p><p><strong>Express Delivery:</strong> 1-2 business days (Rs. 500)</p><p><strong>Same Day Delivery:</strong> Within 4 hours in select cities (Rs. 1,200)</p><br><a href="shipping.html" style="color:var(--gold);">View Full Shipping Policy ?</a>';
+document.getElementById('ecReviewCount').textContent=ecProduct.reviews;
+
+const ecReviews=[
+{author:'Ayesha K.',rating:5,date:'2026-07-15',text:'Absolutely stunning quality! The fabric feels luxurious and the fit is perfect. Will definitely be ordering more.',helpful:12},
+{author:'Sara M.',rating:5,date:'2026-07-02',text:'This is my third purchase from WN Fashion and they never disappoint. Beautiful packaging and fast delivery.',helpful:8},
+{author:'Fatima R.',rating:4,date:'2026-06-28',text:'Love the design and quality. Runs slightly large, so consider sizing down.',helpful:15},
+{author:'Zainab A.',rating:5,date:'2026-06-15',text:'Wore this to a wedding and received so many compliments. Worth every penny!',helpful:6},
+{author:'Hira S.',rating:4,date:'2026-06-01',text:'Beautiful piece. The color is exactly as shown in the pictures. Shipping was quick.',helpful:9},
+{author:'Nadia P.',rating:5,date:'2026-05-20',text:'Premium quality that you can feel immediately. WN Fashion is now my go-to for special occasions.',helpful:11}
+];
+const reviewsTab=document.getElementById('ecTab4');
+ecReviews.forEach(r=>{
+reviewsTab.innerHTML+=`<div class="ec-review"><div class="ec-review-header"><span class="ec-review-author">${r.author}</span><span class="ec-review-date">${r.date}</span></div><div class="ec-review-stars">${'?'.repeat(r.rating)}${'?'.repeat(5-r.rating)}</div><div class="ec-review-text">${r.text}</div><div class="ec-review-helpful">Was this helpful? <button onclick="this.textContent='Thanks! (${r.helpful+1})'">Yes (${r.helpful})</button></div></div>`;
+});
+
+const ecRelatedContainer=document.getElementById('ecRelated');
+EC_PRODUCTS.filter(p=>p.category===ecProduct.category&&p.id!==ecProduct.id).slice(0,3).forEach(p=>{
+const card=document.createElement('a');
+card.href='product.html?id='+p.id;
+card.className='ec-product-card';
+card.innerHTML=`<div class="ec-product-img"><img src="${p.image}" alt="${p.name}" loading="lazy">${p.isNew?'<span class="ec-product-badge ec-badge-new">New</span>':''}${p.isSale?'<span class="ec-product-badge ec-badge-sale">Sale</span>':''}</div><div class="ec-product-info"><h3>${p.name}</h3><div class="ec-product-price"><span class="ec-price-current">Rs. ${(p.salePrice||p.price).toLocaleString()}</span>${p.salePrice?'<span class="ec-price-original">Rs. '+p.price.toLocaleString()+'</span>':''}</div></div>`;
+ecRelatedContainer.appendChild(card);
+});
+
+ecUpdateCartCount();
+</script>
+</body>
+</html>

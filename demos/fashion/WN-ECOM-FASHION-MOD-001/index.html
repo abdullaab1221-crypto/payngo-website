@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WN Fashion � Premium Fashion</title>
+    <link rel="stylesheet" href="../shared/css/base.css">
+    <style>
+        :root {
+            --ec-primary: #1a1a2e;
+            --ec-secondary: #c9a96e;
+            --ec-accent: #e8a0b4;
+            --ec-bg: #faf9f7;
+            --ec-text: #2d2d3f;
+            --ec-light: #f5f0e8;
+            --ec-border: #e5e0d8;
+            --ec-success: #4a7c59;
+            --ec-danger: #c44536;
+            --ec-radius: 8px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--ec-bg); color: var(--ec-text); line-height: 1.6; overflow-x: visible !important; }
+
+        /* Notice Bar */
+        .ec-notice-bar { background: var(--ec-primary); color: #fff; text-align: center; padding: 8px 16px; font-size: 12px; letter-spacing: 1px; }
+
+        /* Header */
+        .ec-header { background: #fff; border-bottom: 1px solid var(--ec-border); position: sticky; top: 0; z-index: 100; }
+        .ec-header-inner { max-width: 1400px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .ec-logo { font-size: 28px; font-weight: 700; color: var(--ec-primary); letter-spacing: 4px; text-decoration: none; }
+        .ec-nav { display: flex; gap: 32px; align-items: center; }
+        .ec-nav a { text-decoration: none; color: var(--ec-text); font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+        .ec-nav a:hover { color: var(--ec-secondary); }
+        .ec-header-actions { display: flex; gap: 20px; align-items: center; }
+        .ec-header-actions a { text-decoration: none; color: var(--ec-text); font-size: 20px; position: relative; }
+        .ec-badge { position: absolute; top: -8px; right: -10px; background: var(--ec-secondary); color: #fff; font-size: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .ec-mobile-toggle { display: none; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--ec-text); line-height: 1; padding: 4px; }
+        .ec-nav.ec-show { display: flex !important; }
+
+        /* Hero */
+        .ec-hero { position: relative; height: 85vh; min-height: 500px; background: linear-gradient(135deg, #1a1a2e 0%, #2d2d3f 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .ec-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80') center/cover; opacity: 0.3; }
+        .ec-hero-content { position: relative; z-index: 1; text-align: center; color: #fff; padding: 0 24px; max-width: 800px; }
+        .ec-hero h1 { font-size: clamp(32px, 6vw, 72px); font-weight: 300; letter-spacing: 8px; margin-bottom: 16px; }
+        .ec-hero p { font-size: 18px; opacity: 0.9; margin-bottom: 32px; letter-spacing: 2px; }
+
+        /* Buttons */
+        .ec-btn { display: inline-block; padding: 14px 40px; background: var(--ec-secondary); color: #fff; text-decoration: none; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: var(--ec-radius); }
+        .ec-btn:hover { background: #b8944f; transform: translateY(-2px); }
+        .ec-btn-outline { background: transparent; border: 1px solid #fff; }
+        .ec-btn-outline:hover { background: #fff; color: var(--ec-primary); }
+
+        /* Sections */
+        .ec-section { max-width: 1400px; margin: 0 auto; padding: 80px 24px; }
+        .ec-section-title { text-align: center; margin-bottom: 48px; }
+        .ec-section-title h2 { font-size: 32px; font-weight: 300; letter-spacing: 4px; color: var(--ec-primary); margin-bottom: 8px; }
+        .ec-section-title p { color: #888; font-size: 14px; letter-spacing: 1px; }
+
+        /* Categories */
+        .ec-categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .ec-cat-card { position: relative; border-radius: var(--ec-radius); overflow: hidden; cursor: pointer; display: block; aspect-ratio: 3/4; }
+        .ec-cat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .ec-cat-card:hover img { transform: scale(1.05); }
+        .ec-cat-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,46,0.8), transparent); display: flex; align-items: flex-end; padding: 24px; }
+        .ec-cat-overlay h3 { color: #fff; font-size: 20px; letter-spacing: 2px; }
+
+        /* Product Grid */
+        .ec-products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .ec-product-card { background: #fff; border-radius: var(--ec-radius); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+        .ec-product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+        .ec-product-img { position: relative; padding-top: 120%; overflow: hidden; }
+        .ec-product-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .ec-product-card:hover .ec-product-img img { transform: scale(1.05); }
+        .ec-product-badge { position: absolute; top: 12px; left: 12px; padding: 4px 12px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; }
+        .ec-badge-new { background: var(--ec-primary); color: #fff; }
+        .ec-badge-sale { background: var(--ec-danger); color: #fff; }
+        .ec-wishlist-btn { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; background: #fff; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .ec-wishlist-btn:hover, .ec-wishlist-btn.active { background: var(--ec-accent); color: #fff; }
+        .ec-product-info { padding: 16px; }
+        .ec-product-info h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+        .ec-product-price { display: flex; gap: 8px; align-items: center; }
+        .ec-price-current { font-size: 16px; font-weight: 600; color: var(--ec-primary); }
+        .ec-price-original { font-size: 14px; color: #999; text-decoration: line-through; }
+        .ec-rating { display: flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 13px; color: #888; }
+        .ec-stars { color: var(--ec-secondary); }
+
+        /* Features */
+        .ec-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+        .ec-feature { text-align: center; padding: 40px 24px; background: #fff; border-radius: var(--ec-radius); }
+        .ec-feature-icon { font-size: 40px; margin-bottom: 16px; }
+        .ec-feature h3 { font-size: 16px; margin-bottom: 8px; letter-spacing: 1px; }
+        .ec-feature p { font-size: 13px; color: #888; }
+
+        /* Newsletter */
+        .ec-newsletter { background: var(--ec-primary); color: #fff; padding: 80px 24px; text-align: center; }
+        .ec-newsletter h2 { font-size: 28px; font-weight: 300; letter-spacing: 4px; margin-bottom: 16px; }
+        .ec-newsletter p { opacity: 0.8; margin-bottom: 32px; }
+        .ec-newsletter-form { display: flex; max-width: 500px; margin: 0 auto; gap: 0; }
+        .ec-newsletter-form input { flex: 1; min-width: 0; padding: 14px 20px; border: none; border-radius: var(--ec-radius) 0 0 var(--ec-radius); font-size: 14px; }
+        .ec-newsletter-form button { padding: 14px 32px; background: var(--ec-secondary); color: #fff; border: none; border-radius: 0 var(--ec-radius) var(--ec-radius) 0; cursor: pointer; font-size: 14px; letter-spacing: 1px; white-space: nowrap; }
+
+        /* Footer */
+        .ec-footer { background: var(--ec-primary); color: #fff; padding: 60px 24px 24px; }
+        .ec-footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+        .ec-footer h4 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; color: var(--ec-secondary); }
+        .ec-footer p, .ec-footer a { color: #aaa; font-size: 13px; text-decoration: none; line-height: 2; display: block; }
+        .ec-footer a:hover { color: #fff; }
+        .ec-footer-bottom { max-width: 1400px; margin: 40px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: #666; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .ec-products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+            .ec-categories { grid-template-columns: repeat(2, 1fr); }
+            .ec-footer-inner { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .ec-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 16px 24px; gap: 12px; border-bottom: 1px solid var(--ec-border); z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+            .ec-nav.ec-show { display: flex; }
+            .ec-mobile-toggle { display: block; }
+            .ec-header-inner { padding: 12px 16px; }
+            .ec-logo { font-size: 22px; letter-spacing: 2px; }
+            .ec-header-actions { gap: 12px; }
+            .ec-hero { height: auto; min-height: 0; aspect-ratio: 16/9; }
+            .ec-hero h1 { letter-spacing: 4px; font-size: clamp(28px, 8vw, 48px); }
+            .ec-products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .ec-categories { grid-template-columns: 1fr; }
+            .ec-cat-card { aspect-ratio: 16/9; }
+            .ec-features { grid-template-columns: 1fr; gap: 16px; padding: 0 16px; }
+            .ec-footer-inner { grid-template-columns: 1fr; gap: 24px; }
+            .ec-section { padding: 48px 16px; }
+            .ec-newsletter { padding: 48px 16px; }
+            .ec-newsletter h2 { font-size: 22px; }
+            .ec-newsletter-form { flex-direction: column; max-width: 100%; }
+            .ec-newsletter-form input { border-radius: var(--ec-radius); }
+            .ec-newsletter-form button { border-radius: var(--ec-radius); }
+            .ec-footer { padding: 40px 16px 20px; }
+            .ec-footer-bottom { font-size: 11px; }
+            .ec-btn { padding: 12px 28px; font-size: 13px; }
+        }
+        @media (max-width: 480px) {
+            .ec-hero { aspect-ratio: 3/4; }
+            .ec-hero h1 { letter-spacing: 2px; }
+            .ec-hero p { font-size: 15px; }
+            .ec-products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .ec-product-info h3 { font-size: 13px; }
+            .ec-price-current { font-size: 14px; }
+            .ec-categories { gap: 12px; }
+            .ec-cat-card { aspect-ratio: 4/3; }
+            .ec-section-title { margin-bottom: 32px; }
+            .ec-section-title h2 { font-size: 24px; letter-spacing: 2px; }
+        }
+        @media (max-width: 359px) {
+            .ec-products-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .ec-product-info { padding: 10px; }
+            .ec-product-info h3 { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ec-notice-bar">WN Fashion Store � Moderate Package | WN-ECOM-FASHION-MOD-001</div>
+    <header class="ec-header">
+        <div class="ec-header-inner">
+            <button class="ec-mobile-toggle" onclick="document.querySelector('.ec-nav').classList.toggle('ec-show')" aria-label="Menu">&#9776;</button>
+            <a href="index.html" class="ec-logo">WN Fashion</a>
+            <nav class="ec-nav">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="shop.html?category=dresses">Dresses</a>
+                <a href="shop.html?category=accessories">Accessories</a>
+            </nav>
+            <div class="ec-header-actions">
+                <a href="search.html" title="Search">??</a>
+                <a href="wishlist.html" title="Wishlist">? <span class="ec-badge" id="ec-wishlist-count">0</span></a>
+                <a href="account.html" title="Account">??</a>
+                <a href="cart.html" title="Cart">?? <span class="ec-badge" id="ec-cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="ec-hero">
+        <div class="ec-hero-bg"></div>
+        <div class="ec-hero-content">
+            <h1>NEW SEASON</h1>
+            <p>Discover timeless elegance for the modern woman</p>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+                <a href="shop.html" class="ec-btn">Shop Collection</a>
+                <a href="shop.html?filter=new" class="ec-btn ec-btn-outline">New Arrivals</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ec-section">
+        <div class="ec-section-title">
+            <h2>SHOP BY CATEGORY</h2>
+            <p>Find your perfect style</p>
+        </div>
+        <div class="ec-categories">
+            <a href="shop.html?category=dresses" class="ec-cat-card">
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80" alt="Dresses">
+                <div class="ec-cat-overlay"><h3>Dresses</h3></div>
+            </a>
+            <a href="shop.html?category=tops" class="ec-cat-card">
+                <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80" alt="Tops">
+                <div class="ec-cat-overlay"><h3>Tops</h3></div>
+            </a>
+            <a href="shop.html?category=bottoms" class="ec-cat-card">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80" alt="Bottoms">
+                <div class="ec-cat-overlay"><h3>Bottoms</h3></div>
+            </a>
+            <a href="shop.html?category=accessories" class="ec-cat-card">
+                <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80" alt="Accessories">
+                <div class="ec-cat-overlay"><h3>Accessories</h3></div>
+            </a>
+        </div>
+    </section>
+
+    <section class="ec-section" style="padding-top:0">
+        <div class="ec-section-title">
+            <h2>FEATURED COLLECTION</h2>
+            <p>Handpicked styles for you</p>
+        </div>
+        <div class="ec-products-grid" id="ec-featured-products"></div>
+        <div style="text-align:center;margin-top:48px">
+            <a href="shop.html" class="ec-btn" style="background:var(--ec-primary)">View All Products</a>
+        </div>
+    </section>
+
+    <section class="ec-features">
+        <div class="ec-feature">
+            <div class="ec-feature-icon">??</div>
+            <h3>Free Shipping</h3>
+            <p>On orders over Rs. 5,000</p>
+        </div>
+        <div class="ec-feature">
+            <div class="ec-feature-icon">??</div>
+            <h3>Easy Returns</h3>
+            <p>30-day return policy</p>
+        </div>
+        <div class="ec-feature">
+            <div class="ec-feature-icon">??</div>
+            <h3>Secure Payment</h3>
+            <p>100% secure checkout</p>
+        </div>
+    </section>
+
+    <section class="ec-newsletter">
+        <h2>JOIN WN Fashion</h2>
+        <p>Subscribe for exclusive offers and style updates</p>
+        <div class="ec-newsletter-form">
+            <input type="email" placeholder="Your email address">
+            <button>Subscribe</button>
+        </div>
+    </section>
+
+    <footer class="ec-footer">
+        <div class="ec-footer-inner">
+            <div>
+                <h4>WN Fashion</h4>
+                <p>Premium fashion for the modern woman. Timeless elegance meets contemporary style.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="shop.html">Shop All</a>
+                <a href="shop.html?category=dresses">Dresses</a>
+                <a href="shop.html?category=tops">Tops</a>
+                <a href="shop.html?category=bottoms">Bottoms</a>
+            </div>
+            <div>
+                <h4>Help</h4>
+                <a href="account.html">My Account</a>
+                <a href="cart.html">Cart</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="admin.html">Admin</a>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>WhatsApp: +92 300 0000000</p>
+                <p>Email: demo@webnest.com</p>
+                <a href="https://wa.me/923281190004?text=Hello%20WebNest%2C%20I%20am%20interested%20in%20Fashion%20E-commerce%20%E2%80%94%20Moderate%20Package%20(WN-ECOM-FASHION-MOD-001)." target="_blank" class="ec-btn" style="margin-top:12px;display:inline-block;font-size:12px;padding:10px 20px">Chat on WhatsApp</a>
+            </div>
+        </div>
+        <div class="ec-footer-bottom">
+            &copy; 2026 WN Fashion. All rights reserved. | WN-ECOM-FASHION-MOD-001
+        </div>
+    </footer>
+
+    <script src="../shared/js/base.js"></script>
+    <script>
+    const EC_PRODUCTS = [
+        {id:'V001',name:'Silk Wrap Dress',category:'dresses',price:12500,salePrice:null,image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#c9a96e'],rating:4.8,reviews:42,isNew:true,featured:true,tags:['dress','silk','wrap']},
+        {id:'V002',name:'Cashmere Blend Coat',category:'outerwear',price:28000,salePrice:22500,image:'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#f5f0e8'],rating:4.9,reviews:35,isNew:false,featured:true,tags:['coat','cashmere','outerwear'],isSale:true},
+        {id:'V003',name:'High-Waist Tailored Trousers',category:'bottoms',price:8500,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#1a1a2e','#2d2d3f'],rating:4.7,reviews:28,isNew:true,featured:false,tags:['trousers','tailored','high-waist']},
+        {id:'V004',name:'Pearl Embellished Blouse',category:'tops',price:7800,salePrice:null,image:'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#e8a0b4'],rating:4.6,reviews:19,isNew:false,featured:false,tags:['blouse','pearl','embellished']},
+        {id:'V005',name:'Leather Crossbody Bag',category:'accessories',price:15000,salePrice:null,image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',sizes:['One Size'],colors:['#8b7355','#1a1a2e'],rating:4.8,reviews:56,isNew:false,featured:true,tags:['bag','leather','crossbody']},
+        {id:'V006',name:'Striped Cotton Shirt',category:'tops',price:5500,salePrice:4200,image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#1a1a2e'],rating:4.5,reviews:33,isNew:false,featured:false,tags:['shirt','cotton','striped'],isSale:true},
+        {id:'V007',name:'A-Line Midi Skirt',category:'bottoms',price:6800,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#2d2d3f','#c9a96e'],rating:4.7,reviews:21,isNew:true,featured:false,tags:['skirt','midi','a-line']},
+        {id:'V008',name:'Suede Block Heels',category:'shoes',price:11000,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#8b7355','#1a1a2e'],rating:4.6,reviews:44,isNew:false,featured:true,tags:['shoes','heels','suede']},
+        {id:'V009',name:'Oversized Wool Blazer',category:'outerwear',price:19500,salePrice:15800,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.9,reviews:38,isNew:false,featured:true,tags:['blazer','wool','oversized'],isSale:true},
+        {id:'V010',name:'Lace Trim Camisole',category:'tops',price:4200,salePrice:null,image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#e8a0b4'],rating:4.4,reviews:27,isNew:true,featured:false,tags:['camisole','lace','trim']},
+        {id:'V011',name:'Wide Leg Palazzo Pants',category:'bottoms',price:7200,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#1a1a2e','#f5f0e8'],rating:4.6,reviews:16,isNew:false,featured:false,tags:['pants','palazzo','wide-leg']},
+        {id:'V012',name:'Quilted Jacket',category:'outerwear',price:16500,salePrice:null,image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#4a7c59'],rating:4.7,reviews:22,isNew:true,featured:false,tags:['jacket','quilted','outerwear']},
+        {id:'V013',name:'Floral Print Dress',category:'dresses',price:9800,salePrice:7500,image:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#f5f0e8'],rating:4.8,reviews:31,isNew:false,featured:true,tags:['dress','floral','print'],isSale:true},
+        {id:'V014',name:'Canvas Sneakers',category:'shoes',price:6500,salePrice:null,image:'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&q=80',sizes:['36','37','38','39','40','41'],colors:['#f5f0e8','#1a1a2e'],rating:4.5,reviews:67,isNew:false,featured:false,tags:['shoes','sneakers','canvas']},
+        {id:'V015',name:'Turtleneck Sweater',category:'tops',price:8200,salePrice:null,image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.7,reviews:24,isNew:true,featured:false,tags:['sweater','turtleneck','knit']},
+        {id:'V016',name:'Leather Belt',category:'accessories',price:3800,salePrice:null,image:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',sizes:['S','M','L'],colors:['#8b7355','#1a1a2e'],rating:4.6,reviews:39,isNew:false,featured:false,tags:['belt','leather','accessory']},
+        {id:'V017',name:'Pleated Tennis Skirt',category:'bottoms',price:5200,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#1a1a2e'],rating:4.5,reviews:18,isNew:true,featured:false,tags:['skirt','pleated','tennis']},
+        {id:'V018',name:'Satin Midi Dress',category:'dresses',price:14500,salePrice:11800,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#1a1a2e'],rating:4.9,reviews:45,isNew:false,featured:true,tags:['dress','satin','midi'],isSale:true},
+        {id:'V019',name:'Ankle Strap Sandals',category:'shoes',price:9500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#c9a96e','#1a1a2e'],rating:4.7,reviews:32,isNew:false,featured:false,tags:['shoes','sandals','ankle-strap']},
+        {id:'V020',name:'Structured Tote Bag',category:'accessories',price:12000,salePrice:null,image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',sizes:['One Size'],colors:['#2d2d3f','#c9a96e'],rating:4.8,reviews:41,isNew:true,featured:true,tags:['bag','tote','structured']},
+        {id:'V021',name:'Draped Jersey Maxi Dress',category:'dresses',price:11800,salePrice:null,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#e8a0b4'],rating:4.6,reviews:15,isNew:true,featured:false,tags:['dress','jersey','maxi']},
+        {id:'V022',name:'Wool Blend Cape Blazer',category:'outerwear',price:21000,salePrice:17500,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.8,reviews:11,isNew:true,featured:true,tags:['blazer','cape','wool']},
+        {id:'V023',name:'Embroidered Silk Blouse',category:'tops',price:9500,salePrice:null,image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#f5f0e8','#c9a96e'],rating:4.7,reviews:23,isNew:false,featured:false,tags:['blouse','silk','embroidered']},
+        {id:'V024',name:'Leather Ankle Boots',category:'shoes',price:18500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#1a1a2e','#8b7355'],rating:4.9,reviews:38,isNew:false,featured:true,tags:['boots','leather','ankle']},
+        {id:'V025',name:'Pleated Chiffon Blouse',category:'tops',price:7200,salePrice:5800,image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#e8a0b4','#f5f0e8'],rating:4.5,reviews:29,isNew:false,featured:false,tags:['blouse','chiffon','pleated'],isSale:true},
+        {id:'V026',name:'Suede Knee-High Boots',category:'shoes',price:24000,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#8b7355','#1a1a2e'],rating:4.8,reviews:19,isNew:true,featured:false,tags:['boots','suede','knee-high']},
+        {id:'V027',name:'Tweed Mini Skirt',category:'bottoms',price:8800,salePrice:null,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#2d2d3f','#c9a96e'],rating:4.6,reviews:21,isNew:true,featured:false,tags:['skirt','tweed','mini']},
+        {id:'V028',name:'Pearl Drop Earrings',category:'accessories',price:6500,salePrice:null,image:'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',sizes:['One Size'],colors:['#f5f0e8','#c9a96e'],rating:4.7,reviews:34,isNew:false,featured:false,tags:['earrings','pearl','drop']},
+        {id:'V029',name:'Double-Layer Tulle Skirt',category:'bottoms',price:10500,salePrice:8500,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#e8a0b4'],rating:4.8,reviews:17,isNew:false,featured:true,tags:['skirt','tulle','double-layer'],isSale:true},
+        {id:'V030',name:'Woven Straw Tote',category:'accessories',price:7800,salePrice:null,image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',sizes:['One Size'],colors:['#d4c5a9','#8b7355'],rating:4.5,reviews:26,isNew:true,featured:false,tags:['bag','straw','tote']}
+    ];
+
+    function ecFormatPrice(p){ return 'Rs. ' + p.toLocaleString(); }
+    function ecGetStars(r){ return '?'.repeat(Math.floor(r)) + (r%1>=0.5?'�':''); }
+    function ecGetCart(){ return JSON.parse(localStorage.getItem('ec_cart')||'[]'); }
+    function ecGetWishlist(){ return JSON.parse(localStorage.getItem('ec_wishlist')||'[]'); }
+    function ecUpdateCounts(){
+        document.getElementById('ec-cart-count').textContent = ecGetCart().reduce((s,i)=>s+i.qty,0);
+        document.getElementById('ec-wishlist-count').textContent = ecGetWishlist().length;
+    }
+    function ecToggleWishlist(id,e){
+        e&&e.stopPropagation();
+        let w=ecGetWishlist(), idx=w.indexOf(id);
+        if(idx>-1) w.splice(idx,1); else w.push(id);
+        localStorage.setItem('ec_wishlist',JSON.stringify(w));
+        ecUpdateCounts();
+        document.querySelectorAll('.ec-wishlist-btn').forEach(b=>{
+            if(b.dataset.id===id) b.classList.toggle('active',w.includes(id));
+        });
+    }
+    function ecRenderProductCard(p){
+        const w=ecGetWishlist();
+        return `<div class="ec-product-card" onclick="location.href='product.html?id=${p.id}'">
+            <div class="ec-product-img">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                ${p.isNew?'<span class="ec-product-badge ec-badge-new">New</span>':''}
+                ${p.isSale?'<span class="ec-product-badge ec-badge-sale">Sale</span>':''}
+                <button class="ec-wishlist-btn ${w.includes(p.id)?'active':''}" data-id="${p.id}" onclick="ecToggleWishlist('${p.id}',event)">?</button>
+            </div>
+            <div class="ec-product-info">
+                <h3>${p.name}</h3>
+                <div class="ec-product-price">
+                    <span class="ec-price-current">${ecFormatPrice(p.salePrice||p.price)}</span>
+                    ${p.salePrice?`<span class="ec-price-original">${ecFormatPrice(p.price)}</span>`:''}
+                </div>
+                <div class="ec-rating"><span class="ec-stars">${ecGetStars(p.rating)}</span> (${p.reviews})</div>
+            </div>
+        </div>`;
+    }
+
+    document.getElementById('ec-featured-products').innerHTML = 
+        EC_PRODUCTS.filter(p=>p.featured).slice(0,8).map(ecRenderProductCard).join('');
+    ecUpdateCounts();
+    </script>
+</body>
+</html>

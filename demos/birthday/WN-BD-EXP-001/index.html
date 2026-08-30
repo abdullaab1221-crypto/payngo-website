@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Zara | WebNest Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    .bd-hero__particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .bd-hero__particle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: bdParticleFloat linear infinite;
+    }
+    @keyframes bdParticleFloat {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      20% { opacity: 0.6; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+    .bd-hero__ring {
+      position: absolute;
+      border: 2px solid rgba(245,166,35,0.15);
+      border-radius: 50%;
+      animation: bdRingPulse 4s ease-in-out infinite;
+    }
+    @keyframes bdRingPulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.15); opacity: 0.1; }
+    }
+    .bd-preview-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      transition: all 0.3s var(--ease);
+    }
+    .bd-preview-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(245,166,35,0.12);
+    }
+    .bd-preview-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    .bd-preview-card__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .bd-preview-card__desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .bd-previews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bd-notice">
+    <strong>WebNest Birthday Demo</strong> — Expert Package &bull; 8 Pages &bull; 20 Photos &bull; Premium Experience
+  </div>
+
+  <header class="bd-header">
+    <div class="bd-container bd-header__inner">
+      <a href="index.html" class="bd-brand">
+        <span class="bd-brand__icon">🎂</span>
+        Zara's Birthday
+      </a>
+      <nav class="bd-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="moments.html">Moments</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="wishes.html">Wishes</a></li>
+          <li><a href="surprise.html">Surprise</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-EXP-001" class="bd-btn bd-btn--whatsapp bd-btn--sm bd-header__cta" target="_blank" rel="noopener">
+        Order on WhatsApp
+      </a>
+      <button class="bd-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="bd-mobile">
+    <a href="index.html" data-link>Home</a>
+    <a href="story.html" data-link>Story</a>
+    <a href="timeline.html" data-link>Timeline</a>
+    <a href="gallery.html" data-link>Gallery</a>
+    <a href="moments.html" data-link>Moments</a>
+    <a href="messages.html" data-link>Messages</a>
+    <a href="wishes.html" data-link>Wishes</a>
+    <a href="surprise.html" data-link>Surprise</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-EXP-001" class="bd-btn bd-btn--whatsapp" target="_blank" rel="noopener">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <section class="bd-hero">
+    <div class="bd-hero__bg" style="background-image: url('https://images.pexels.com/photos/1405766/pexels-photo-1405766.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
+    <div class="bd-hero__overlay"></div>
+    <div class="bd-hero__particles">
+      <div class="bd-hero__particle" style="left:10%;width:6px;height:6px;background:var(--gold);animation-duration:8s;animation-delay:0s"></div>
+      <div class="bd-hero__particle" style="left:25%;width:4px;height:4px;background:var(--coral);animation-duration:10s;animation-delay:1s"></div>
+      <div class="bd-hero__particle" style="left:45%;width:8px;height:8px;background:var(--violet);animation-duration:7s;animation-delay:2s"></div>
+      <div class="bd-hero__particle" style="left:65%;width:5px;height:5px;background:var(--gold-light);animation-duration:9s;animation-delay:0.5s"></div>
+      <div class="bd-hero__particle" style="left:80%;width:7px;height:7px;background:var(--teal);animation-duration:11s;animation-delay:1.5s"></div>
+      <div class="bd-hero__particle" style="left:92%;width:4px;height:4px;background:var(--coral);animation-duration:8s;animation-delay:3s"></div>
+    </div>
+    <div class="bd-hero__ring" style="width:300px;height:300px;top:20%;right:-80px;animation-delay:0s"></div>
+    <div class="bd-hero__ring" style="width:200px;height:200px;bottom:15%;left:-60px;animation-delay:2s"></div>
+    <div class="bd-hero__content">
+      <span class="bd-hero__emoji">🎉</span>
+      <span class="bd-hero__eyebrow">Premium Birthday Experience</span>
+      <h1 class="bd-hero__name">Happy Birthday, Zara!</h1>
+      <p class="bd-hero__message">A celebration as extraordinary as you are. Every page, every photo, every word — crafted with love to honor the incredible person you are.</p>
+      <div class="bd-hero__actions">
+        <a href="story.html" class="bd-btn bd-btn--primary">Begin the Journey</a>
+        <a href="gallery.html" class="bd-btn bd-btn--outline">Explore Gallery</a>
+        <a href="surprise.html" class="bd-btn bd-btn--whatsapp">Open Surprise</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section class="bd-section bd-section--alt">
+    <div class="bd-container bd-section__head">
+      <span class="bd-tag">Countdown</span>
+      <h2 class="bd-title">The Grand Celebration</h2>
+      <p class="bd-desc">Every second brings us closer to the most beautiful celebration of the year.</p>
+    </div>
+    <div class="bd-countdown" data-date="2026-12-25T00:00:00">
+      <div class="bd-countdown__item">
+        <div class="bd-countdown__num">0</div>
+        <div class="bd-countdown__label">Days</div>
+      </div>
+      <div class="bd-countdown__item">
+        <div class="bd-countdown__num">0</div>
+        <div class="bd-countdown__label">Hours</div>
+      </div>
+      <div class="bd-countdown__item">
+        <div class="bd-countdown__num">0</div>
+        <div class="bd-countdown__label">Minutes</div>
+      </div>
+      <div class="bd-countdown__item">
+        <div class="bd-countdown__num">0</div>
+        <div class="bd-countdown__label">Seconds</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview Pages -->
+  <section class="bd-section">
+    <div class="bd-container bd-section__head">
+      <span class="bd-tag">Explore</span>
+      <h2 class="bd-title">Your Birthday Experience</h2>
+      <p class="bd-desc">Eight beautifully crafted pages, each telling a part of Zara's incredible story.</p>
+    </div>
+    <div class="bd-container">
+      <div class="bd-previews">
+        <div class="bd-preview-card bd-reveal">
+          <div class="bd-preview-card__icon">📖</div>
+          <h3 class="bd-preview-card__title">Her Story</h3>
+          <p class="bd-preview-card__desc">A beautifully narrated journey through the chapters of Zara's life.</p>
+          <a href="story.html" class="bd-btn bd-btn--outline bd-btn--sm">Read Story</a>
+        </div>
+        <div class="bd-preview-card bd-reveal" data-delay="1">
+          <div class="bd-preview-card__icon">⏳</div>
+          <h3 class="bd-preview-card__title">Timeline</h3>
+          <p class="bd-preview-card__desc">Milestones and memories mapped across the years of her beautiful life.</p>
+          <a href="timeline.html" class="bd-btn bd-btn--outline bd-btn--sm">View Timeline</a>
+        </div>
+        <div class="bd-preview-card bd-reveal" data-delay="2">
+          <div class="bd-preview-card__icon">📸</div>
+          <h3 class="bd-preview-card__title">Photo Gallery</h3>
+          <p class="bd-preview-card__desc">20 stunning photos capturing the most precious moments of her journey.</p>
+          <a href="gallery.html" class="bd-btn bd-btn--outline bd-btn--sm">Browse Photos</a>
+        </div>
+        <div class="bd-preview-card bd-reveal" data-delay="3">
+          <div class="bd-preview-card__icon">✨</div>
+          <h3 class="bd-preview-card__title">Featured Moments</h3>
+          <p class="bd-preview-card__desc">The highlights that made her life extraordinary and unforgettable.</p>
+          <a href="moments.html" class="bd-btn bd-btn--outline bd-btn--sm">See Moments</a>
+        </div>
+        <div class="bd-preview-card bd-reveal" data-delay="4">
+          <div class="bd-preview-card__icon">💌</div>
+          <h3 class="bd-preview-card__title">Messages</h3>
+          <p class="bd-preview-card__desc">Heartfelt birthday messages from the people who love her most.</p>
+          <a href="messages.html" class="bd-btn bd-btn--outline bd-btn--sm">Read Messages</a>
+        </div>
+        <div class="bd-preview-card bd-reveal" data-delay="5">
+          <div class="bd-preview-card__icon">🙏</div>
+          <h3 class="bd-preview-card__title">Wishes</h3>
+          <p class="bd-preview-card__desc">Blessings and wishes from friends and family around the world.</p>
+          <a href="wishes.html" class="bd-btn bd-btn--outline bd-btn--sm">See Wishes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Photo -->
+  <section class="bd-section bd-section--alt">
+    <div class="bd-container">
+      <div class="bd-story bd-reveal">
+        <div class="bd-story__media">
+          <div class="bd-story__frame">
+            <img src="https://images.pexels.com/photos/3018988/pexels-photo-3018988.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Birthday star">
+            <div class="bd-story__badge">⭐ The Birthday Star</div>
+          </div>
+        </div>
+        <div class="bd-story__body">
+          <span class="bd-tag">Celebrating Zara</span>
+          <h2 class="bd-title">A Soul That Shines</h2>
+          <div class="bd-ornament"></div>
+          <p class="bd-desc" style="margin-bottom: 20px;">
+            Zara is not just a person — she's a force of nature. Her kindness knows no bounds, her laughter is contagious, and her spirit is unbreakable.
+          </p>
+          <p class="bd-desc" style="margin-bottom: 24px;">
+            This premium birthday experience is our way of saying: you are loved, you are valued, and you are celebrated every single day.
+          </p>
+          <a href="surprise.html" class="bd-btn bd-btn--primary">Open Your Surprise</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bd-section">
+    <div class="bd-container">
+      <div class="bd-cta bd-reveal">
+        <h2 class="bd-cta__title">This Is the Expert Experience</h2>
+        <p class="bd-cta__desc">8 pages, 20 photos, animations, and a premium design. The ultimate birthday celebration website.</p>
+        <div class="bd-cta__actions">
+          <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-EXP-001" class="bd-btn bd-btn--whatsapp" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <a href="https://webnestofficial.wuaze.com/" class="bd-btn bd-btn--outline" target="_blank" rel="noopener">Back to WebNest</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bd-final">
+    <span class="bd-final__emoji">🌟</span>
+    <p class="bd-final__text">Today we celebrate the most amazing person we know. Happy Birthday, Zara!</p>
+    <p class="bd-final__sig">With love from WebNest</p>
+  </section>
+
+  <footer class="bd-footer">
+    <div class="bd-container">
+      <div class="bd-footer__inner">
+        <div class="bd-footer__brand">🎂 Zara's Birthday</div>
+        <nav class="bd-footer__nav">
+          <a href="index.html">Home</a>
+          <a href="story.html">Story</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="moments.html">Moments</a>
+          <a href="messages.html">Messages</a>
+          <a href="wishes.html">Wishes</a>
+          <a href="surprise.html">Surprise</a>
+        </nav>
+      </div>
+      <div class="bd-footer__bottom">
+        <p>Crafted with love by <strong>WebNest</strong></p>
+        <span class="bd-footer__tag"> WN-BD-EXP-001 &bull; Expert Package &bull; Premium</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bd-lightbox">
+    <button class="bd-lightbox__close">&times;</button>
+    <img src="" alt="Full view">
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

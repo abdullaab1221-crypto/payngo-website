@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP | Aisha & Omar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+</head>
+<body>
+
+  <div class="wd-notice">
+    <strong>WebNest Wedding Demo</strong> — Moderate Package &bull; 5 Pages &bull; 10 Photos
+  </div>
+
+  <header class="wd-header">
+    <div class="wd-container wd-header__inner">
+      <a href="index.html" class="wd-brand">
+        <span class="wd-brand__icon">&#128141;</span>
+        Aisha & Omar
+      </a>
+      <nav class="wd-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="rsvp.html" class="active">RSVP</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Wedding%20website%20like%20WN-WD-MOD-001" class="wd-btn wd-btn--whatsapp wd-btn--sm wd-header__cta" target="_blank" rel="noopener">
+        Order on WhatsApp
+      </a>
+      <button class="wd-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="wd-mobile">
+    <a href="index.html" data-link>Home</a>
+    <a href="story.html" data-link>Our Story</a>
+    <a href="events.html" data-link>Events</a>
+    <a href="gallery.html" data-link>Gallery</a>
+    <a href="rsvp.html" data-link>RSVP</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Wedding%20website%20like%20WN-WD-MOD-001" class="wd-btn wd-btn--whatsapp" target="_blank" rel="noopener">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <!-- Hero -->
+  <section class="wd-hero">
+    <div class="wd-hero__bg" style="background-image: url('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1600&q=80')"></div>
+    <div class="wd-hero__overlay"></div>
+    <div class="wd-hero__content">
+      <span class="wd-hero__eyebrow">Let Us Know</span>
+      <h1 class="wd-hero__names" style="font-size: clamp(2rem, 5vw, 3.5rem);">RSVP</h1>
+      <p class="wd-hero__message">Please let us know if you'll be joining us on our special day.</p>
+    </div>
+  </section>
+
+  <!-- RSVP Form -->
+  <section class="wd-section">
+    <div class="wd-container">
+      <div class="wd-rsvp wd-reveal">
+        <div class="wd-rsvp__form">
+          <div style="text-align: center; margin-bottom: 32px;">
+            <span class="wd-tag">Respond by January 15, 2027</span>
+            <h2 class="wd-title" style="margin-top: 8px;">Will You Join Us?</h2>
+            <div class="wd-ornament wd-ornament--center"></div>
+          </div>
+
+          <div class="wd-rsvp__field">
+            <label class="wd-rsvp__label">Your Full Name *</label>
+            <input type="text" class="wd-rsvp__input" placeholder="Enter your name" required>
+          </div>
+
+          <div class="wd-rsvp__field">
+            <label class="wd-rsvp__label">Email Address *</label>
+            <input type="email" class="wd-rsvp__input" placeholder="Enter your email" required>
+          </div>
+
+          <div class="wd-rsvp__field">
+            <label class="wd-rsvp__label">Phone Number</label>
+            <input type="tel" class="wd-rsvp__input" placeholder="Enter your phone number">
+          </div>
+
+          <div class="wd-rsvp__field">
+            <label class="wd-rsvp__label">Attending? *</label>
+            <select class="wd-rsvp__select" required>
+              <option value="">Select an option</option>
+              <option value="yes">Joyfully Accepts</option>
+              <option value="no">Respectfully Declines</option>
+            </select>
+          </div>
+
+          <div class="wd-rsvp__field">
+            <label class="wd-rsvp__label">Number of Guests</label>
+            <select class="wd-rsvp__select">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5+ Guests</option>
+            </select>
+          </div>
+
+          <div class="wd-rsvp__field">
+            <label class="wd-rsvp__label">Which Events Will You Attend?</label>
+            <div style="margin-top: 8px;">
+              <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; cursor: pointer;">
+                <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--gold);">
+                <span style="color: var(--text); font-size: 0.9rem;">Mehndi Night (Feb 12)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px; cursor: pointer;">
+                <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--gold);">
+                <span style="color: var(--text); font-size: 0.9rem;">Nikah Ceremony (Feb 14)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--gold);">
+                <span style="color: var(--text); font-size: 0.9rem;">Walima Reception (Feb 15)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="wd-rsvp__field">
+            <label class="wd-rsvp__label">Special Requests or Message</label>
+            <textarea class="wd-rsvp__textarea" placeholder="Any dietary requirements, special needs, or a message for the couple..."></textarea>
+          </div>
+
+          <button type="submit" class="wd-rsvp__submit">Send RSVP</button>
+
+          <p style="text-align: center; margin-top: 16px; font-size: 0.82rem; color: var(--dim);">
+            This is a demo form. In a real wedding website, your response would be sent to the couple.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="wd-section wd-section--alt">
+    <div class="wd-container">
+      <div class="wd-cta wd-reveal">
+        <h2 class="wd-cta__title">Prefer WhatsApp?</h2>
+        <p class="wd-cta__desc">You can also RSVP directly through WhatsApp.</p>
+        <div class="wd-cta__actions">
+          <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Wedding%20website%20like%20WN-WD-MOD-001" class="wd-btn wd-btn--whatsapp" target="_blank" rel="noopener">RSVP on WhatsApp</a>
+          <a href="https://webnestofficial.wuaze.com/" class="wd-btn wd-btn--outline" target="_blank" rel="noopener">Back to WebNest</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final -->
+  <section class="wd-final">
+    <div class="wd-final__ornament"></div>
+    <h2 class="wd-final__names">Aisha & Omar</h2>
+    <p class="wd-final__date">February 14, 2027</p>
+    <p class="wd-final__text">"Your presence is the greatest gift."</p>
+    <p class="wd-final__sig">With love from WebNest</p>
+  </section>
+
+  <footer class="wd-footer">
+    <div class="wd-container">
+      <div class="wd-footer__inner">
+        <div class="wd-footer__brand">&#128141; Aisha & Omar</div>
+        <nav class="wd-footer__nav">
+          <a href="index.html">Home</a>
+          <a href="story.html">Our Story</a>
+          <a href="events.html">Events</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="rsvp.html">RSVP</a>
+        </nav>
+      </div>
+      <div class="wd-footer__bottom">
+        <p>Crafted with love by <strong>WebNest</strong></p>
+        <span class="wd-footer__tag"> WN-WD-MOD-001 &bull; Moderate Package</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wd-lightbox">
+    <button class="wd-lightbox__close">&times;</button>
+    <img src="" alt="Full view">
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

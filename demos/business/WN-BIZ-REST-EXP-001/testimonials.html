@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews | La Maison Restaurant | WN-BIZ-REST-EXP-001</title>
+  <meta name="description" content="Read what our guests say about their dining experience at La Maison Restaurant.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root { --primary: #d97706; --primary-light: #f59e0b; --primary-dark: #b45309; }
+    .biz-hero-page { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 120px 20px 60px; text-align: center; color: #fff; }
+    .biz-hero-page__title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); margin-bottom: 12px; }
+    .biz-hero-page__text { opacity: 0.9; max-width: 600px; margin: 0 auto; }
+    .biz-section { padding: 80px 20px; }
+    .biz-section--alt { background: #f9f5f0; }
+    .biz-rating-summary { text-align: center; margin-bottom: 48px; }
+    .biz-rating-summary__score { font-size: 64px; font-weight: 800; color: var(--primary); font-family: 'Playfair Display', serif; }
+    .biz-rating-summary__stars { color: var(--primary); font-size: 28px; margin-bottom: 8px; }
+    .biz-rating-summary__count { color: #666; }
+    .biz-testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .biz-testimonial { background: #fff; padding: 32px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.3s; }
+    .biz-testimonial:hover { transform: translateY(-4px); }
+    .biz-testimonial__stars { color: var(--primary); margin-bottom: 12px; }
+    .biz-testimonial__text { font-size: 16px; line-height: 1.7; color: #444; margin-bottom: 20px; font-style: italic; }
+    .biz-testimonial__author { display: flex; align-items: center; gap: 12px; }
+    .biz-testimonial__avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--primary-light); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
+    .biz-testimonial__name { font-weight: 700; }
+    .biz-testimonial__role { color: #999; font-size: 13px; }
+    .biz-testimonial__date { color: #bbb; font-size: 12px; margin-top: 2px; }
+    @media (max-width: 768px) { .biz-testimonials-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="biz-notice"><div class="biz-container">Demo: <strong>La Maison Restaurant — Expert Package</strong> | ID: <strong>WN-BIZ-REST-EXP-001</strong></div></div>
+
+  <header class="biz-header">
+    <div class="biz-header__inner">
+      <a href="index.html" class="biz-brand"><span class="biz-brand__icon">🍽</span><span>La Maison</span></a>
+      <nav class="biz-nav"><a href="index.html" class="biz-nav__link">Home</a><a href="menu.html" class="biz-nav__link">Menu</a><a href="gallery.html" class="biz-nav__link">Gallery</a><a href="about.html" class="biz-nav__link">About</a><a href="testimonials.html" class="biz-nav__link biz-nav__link--active">Reviews</a><a href="reservations.html" class="biz-nav__link">Reservations</a><a href="contact.html" class="biz-nav__link">Contact</a></nav>
+      <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!" class="biz-header__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+      <div class="biz-burger"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+  <div class="biz-mobile">
+    <div class="biz-mobile__close">✕</div>
+    <a href="index.html" class="biz-mobile__link">Home</a><a href="menu.html" class="biz-mobile__link">Menu</a><a href="gallery.html" class="biz-mobile__link">Gallery</a><a href="about.html" class="biz-mobile__link">About</a><a href="testimonials.html" class="biz-mobile__link">Reviews</a><a href="reservations.html" class="biz-mobile__link">Reservations</a><a href="offers.html" class="biz-mobile__link">Offers</a><a href="events.html" class="biz-mobile__link">Events</a><a href="contact.html" class="biz-mobile__link">Contact</a>
+    <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!" class="biz-mobile__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+  </div>
+
+  <section class="biz-hero-page"><h1 class="biz-hero-page__title">Guest Reviews</h1><p class="biz-hero-page__text">Hear from our guests about their unforgettable dining experiences.</p></section>
+
+  <section class="biz-section">
+    <div class="biz-rating-summary">
+      <div class="biz-rating-summary__stars">★★★★★</div>
+      <div class="biz-rating-summary__score">4.9</div>
+      <div class="biz-rating-summary__count">Based on 312 reviews</div>
+    </div>
+    <div class="biz-testimonials-grid">
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"An absolutely divine experience. The Wagyu was cooked to perfection and the service was impeccable. La Maison has become our go-to for special occasions."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">FZ</div><div><div class="biz-testimonial__name">Fatima Zahra</div><div class="biz-testimonial__role">Food Critic, Dawn News</div><div class="biz-testimonial__date">August 2026</div></div></div></div>
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"Best restaurant in town, hands down. The tasting menu was a journey through flavors I never knew existed. Chef Omar is a true artist."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">AR</div><div><div class="biz-testimonial__name">Ahmed Raza</div><div class="biz-testimonial__role">Business Executive</div><div class="biz-testimonial__date">July 2026</div></div></div></div>
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"We celebrated our anniversary here and it was magical. The private dining room, the wine pairings, the attentive staff — everything was perfect."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">SK</div><div><div class="biz-testimonial__name">Saima & Kamran</div><div class="biz-testimonial__role">Anniversary Celebration</div><div class="biz-testimonial__date">July 2026</div></div></div></div>
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"The Crème Brûlée alone is worth the visit. But the entire menu is a masterpiece. This is what fine dining should be."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">NI</div><div><div class="biz-testimonial__name">Nadia Irfan</div><div class="biz-testimonial__role">Food Blogger</div><div class="biz-testimonial__date">June 2026</div></div></div></div>
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"Hosted a corporate dinner for 20 guests. The team went above and beyond to accommodate our dietary needs. Truly professional service."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">FH</div><div><div class="biz-testimonial__name">Faisal Hassan</div><div class="biz-testimonial__role">CEO, TechCorp</div><div class="biz-testimonial__date">June 2026</div></div></div></div>
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"From the moment we walked in, we felt special. The ambiance, the aroma, the presentation — every detail is carefully curated."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">MA</div><div><div class="biz-testimonial__name">Maria Ahmed</div><div class="biz-testimonial__role">Regular Guest</div><div class="biz-testimonial__date">May 2026</div></div></div></div>
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"The Chef's Table experience was the highlight of our trip. An intimate, personalized journey through 8 courses of pure art."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">RK</div><div><div class="biz-testimonial__name">Rizwan Khan</div><div class="biz-testimonial__role">Travel Blogger</div><div class="biz-testimonial__date">May 2026</div></div></div></div>
+      <div class="biz-testimonial"><div class="biz-testimonial__stars">★★★★★</div><p class="biz-testimonial__text">"Every visit feels like coming home. The staff remembers our names, our preferences. That's the kind of hospitality you can't fake."</p><div class="biz-testimonial__author"><div class="biz-testimonial__avatar">ZS</div><div><div class="biz-testimonial__name">Zainab Shah</div><div class="biz-testimonial__role">Regular Guest</div><div class="biz-testimonial__date">April 2026</div></div></div></div>
+    </div>
+  </section>
+
+  <section class="biz-section biz-section--alt" style="text-align:center;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;">Share Your Experience</h2>
+    <p style="color:#666;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto;">We'd love to hear about your visit. Leave us a review on WhatsApp!</p>
+    <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20wanted%20to%20share%20my%20review..." class="biz-btn biz-btn--primary" target="_blank" rel="noopener">💬 Leave a Review on WhatsApp</a>
+  </section>
+
+  <footer class="biz-footer">
+    <div class="biz-container biz-footer__grid">
+      <div><div class="biz-brand biz-brand--footer"><span class="biz-brand__icon">🍽</span><span>La Maison</span></div><p class="biz-footer__text">Fine dining in the heart of Downtown.</p></div>
+      <div><h4 class="biz-footer__title">Quick Links</h4><a href="index.html" class="biz-footer__link">Home</a><a href="menu.html" class="biz-footer__link">Menu</a><a href="gallery.html" class="biz-footer__link">Gallery</a><a href="about.html" class="biz-footer__link">About</a><a href="testimonials.html" class="biz-footer__link">Reviews</a><a href="reservations.html" class="biz-footer__link">Reservations</a><a href="offers.html" class="biz-footer__link">Offers</a><a href="events.html" class="biz-footer__link">Events</a><a href="contact.html" class="biz-footer__link">Contact</a></div>
+      <div><h4 class="biz-footer__title">Contact</h4><p class="biz-footer__text">42 Oak Street, Downtown</p><p class="biz-footer__text">+92 321 555 0199</p></div>
+      <div><h4 class="biz-footer__title">Hours</h4><p class="biz-footer__text">Mon-Sat: 12PM - 11PM</p><p class="biz-footer__text">Sunday: 12PM - 10PM</p></div>
+    </div>
+    <div class="biz-footer__bottom"><div class="biz-container"><p>&copy; 2026 La Maison Restaurant. All rights reserved.</p></div></div>
+  </footer>
+
+  <div class="biz-admin-toggle" onclick="toggleAdmin()">⚙️</div>
+  <div class="biz-admin" id="bizAdmin">
+    <div class="biz-admin__sidebar"><div class="biz-admin__sidebar-header"><h3>Admin Panel</h3><div class="biz-admin__close" onclick="toggleAdmin()">✕</div></div><nav class="biz-admin__nav"><a class="biz-admin__nav-link biz-admin__nav-link--active" onclick="showSection('overview')">Overview</a><a class="biz-admin__nav-link" onclick="showSection('menu')">Menu</a><a class="biz-admin__nav-link" onclick="showSection('gallery')">Gallery</a><a class="biz-admin__nav-link" onclick="showSection('testimonials')">Testimonials</a><a class="biz-admin__nav-link" onclick="showSection('reservations')">Reservations</a><a class="biz-admin__nav-link" onclick="showSection('events')">Events</a><a class="biz-admin__nav-link" onclick="showSection('offers')">Offers</a><a class="biz-admin__nav-link" onclick="showSection('inquiries')">Inquiries</a><a class="biz-admin__nav-link" onclick="showSection('settings')">Settings</a></nav></div>
+    <div class="biz-admin__main"><div class="biz-admin__topbar"><h2 class="biz-admin__title">Dashboard</h2><div class="biz-admin__close-mobile" onclick="toggleAdmin()">✕</div></div><div class="biz-admin__content"><div class="biz-admin__section" id="admin-overview"><div class="biz-admin__stats"><div class="biz-admin__stat"><div class="biz-admin__stat-value">312</div><div class="biz-admin__stat-label">Orders</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">95</div><div class="biz-admin__stat-label">Reservations</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">₨890K</div><div class="biz-admin__stat-label">Revenue</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">4.9★</div><div class="biz-admin__stat-label">Rating</div></div></div></div><div class="biz-admin__section" id="admin-menu" style="display:none;"><h3>Menu</h3><p>20 items.</p></div><div class="biz-admin__section" id="admin-gallery" style="display:none;"><h3>Gallery</h3><p>12 photos.</p></div><div class="biz-admin__section" id="admin-testimonials" style="display:none;"><h3>Testimonials</h3><p>8 reviews.</p></div><div class="biz-admin__section" id="admin-reservations" style="display:none;"><h3>Reservations</h3><p>95 total.</p></div><div class="biz-admin__section" id="admin-events" style="display:none;"><h3>Events</h3><p>3 upcoming.</p></div><div class="biz-admin__section" id="admin-offers" style="display:none;"><h3>Offers</h3><p>3 active.</p></div><div class="biz-admin__section" id="admin-inquiries" style="display:none;"><h3>Inquiries</h3><p>No new.</p></div><div class="biz-admin__section" id="admin-settings" style="display:none;"><h3>Settings</h3><p>La Maison — 42 Oak Street</p></div></div></div>
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+  <script>
+    function toggleAdmin() { document.getElementById('bizAdmin').classList.toggle('biz-admin--open'); }
+    function showSection(section) { document.querySelectorAll('.biz-admin__section').forEach(s => s.style.display = 'none'); document.getElementById('admin-' + section).style.display = 'block'; document.querySelectorAll('.biz-admin__nav-link').forEach(l => l.classList.remove('biz-admin__nav-link--active')); event.target.classList.add('biz-admin__nav-link--active'); }
+  </script>
+</body>
+</html>

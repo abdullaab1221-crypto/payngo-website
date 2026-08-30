@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WN Fashion � Premium Fashion | WN-ECOM-FASHION-BAS-001</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root {
+      --primary: #c9a96e;
+      --primary-light: #dfc9a0;
+      --primary-dark: #a8884d;
+      --accent: #e8a0b4;
+    }
+    body{overflow-x:visible !important;}
+
+    /* Hero */
+    .ec-hero { position:relative; height:90vh; min-height:500px; display:flex; align-items:center; background:linear-gradient(135deg,#1a1a2e 0%,#2d2d3f 100%); overflow:hidden; }
+    .ec-hero__bg { position:absolute; inset:0; }
+    .ec-hero__bg img { width:100%; height:100%; object-fit:cover; opacity:0.45; }
+    .ec-hero__content { position:relative; z-index:2; max-width:650px; padding:0 5%; width:100%; }
+    .ec-hero__badge { display:inline-block; background:var(--primary); color:#fff; padding:6px 18px; font-size:0.75rem; letter-spacing:3px; text-transform:uppercase; border-radius:2px; margin-bottom:20px; }
+    .ec-hero__title { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,4.5rem); color:#fff; line-height:1.1; margin-bottom:20px; }
+    .ec-hero__title span { color:var(--primary); }
+    .ec-hero__desc { color:rgba(255,255,255,0.75); font-size:1.1rem; line-height:1.7; margin-bottom:32px; }
+    .ec-hero__actions { display:flex; gap:16px; flex-wrap:wrap; }
+    .ec-hero__actions .ec-btn { padding:14px 36px; }
+
+    /* Sections */
+    .ec-section { padding:80px 5%; }
+    .ec-section--alt { background:#f9f7f4; }
+    .ec-section__header { text-align:center; margin-bottom:48px; }
+    .ec-section__subtitle { color:var(--primary); font-size:0.8rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
+    .ec-section__title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); color:#1a1a2e; }
+
+    /* Product Grid */
+    .ec-product-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+    .ec-product-card { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); transition:transform 0.3s,box-shadow 0.3s; }
+    .ec-product-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+    .ec-product-card__img { position:relative; padding-top:120%; overflow:hidden; }
+    .ec-product-card__img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 0.4s; }
+    .ec-product-card:hover .ec-product-card__img img { transform:scale(1.05); }
+    .ec-product-card__badges { position:absolute; top:12px; left:12px; display:flex; flex-direction:column; gap:6px; }
+    .ec-product-card__badge { padding:4px 10px; font-size:0.7rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; border-radius:2px; }
+    .ec-product-card__badge--new { background:#1a1a2e; color:#fff; }
+    .ec-product-card__badge--sale { background:#e74c3c; color:#fff; }
+    .ec-product-card__body { padding:16px; }
+    .ec-product-card__category { color:#999; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; }
+    .ec-product-card__name { font-size:1rem; font-weight:500; color:#1a1a2e; margin:6px 0; }
+    .ec-product-card__price { display:flex; gap:8px; align-items:center; }
+    .ec-product-card__price--current { font-weight:600; color:var(--primary-dark); }
+    .ec-product-card__price--original { text-decoration:line-through; color:#aaa; font-size:0.85rem; }
+
+    /* Promo */
+    .ec-promo { background:linear-gradient(135deg,#1a1a2e 0%,#2d2d3f 100%); padding:60px 5%; text-align:center; border-radius:12px; margin:0 5%; }
+    .ec-promo__code { display:inline-block; background:var(--primary); color:#fff; padding:12px 32px; font-size:1.3rem; font-weight:700; letter-spacing:3px; border-radius:4px; margin-top:16px; }
+
+    /* Collections */
+    .ec-collections { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .ec-collection { position:relative; border-radius:8px; overflow:hidden; aspect-ratio:4/3; cursor:pointer; }
+    .ec-collection img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s; }
+    .ec-collection:hover img { transform:scale(1.08); }
+    .ec-collection__overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65),transparent); display:flex; align-items:flex-end; padding:24px; }
+    .ec-collection__title { color:#fff; font-family:'Playfair Display',serif; font-size:1.5rem; }
+
+    /* Newsletter */
+    .ec-newsletter { background:#f9f7f4; padding:60px 5%; text-align:center; }
+    .ec-newsletter__form { display:flex; max-width:480px; margin:20px auto 0; gap:8px; }
+    .ec-newsletter__input { flex:1; min-width:0; padding:14px 18px; border:1px solid #ddd; border-radius:4px; font-size:1rem; font-family:'Inter',sans-serif; }
+    .ec-newsletter__btn { padding:14px 28px; background:var(--primary); color:#fff; border:none; border-radius:4px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+    .ec-newsletter__btn:hover { background:var(--primary-dark); }
+
+    /* Reveal */
+    .ec-reveal { opacity:0; transform:translateY(30px); transition:opacity 0.6s,transform 0.6s; }
+    .ec-reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* Footer overrides */
+    .ec-footer__inner { max-width:1200px; margin:0 auto; padding:60px 5% 30px; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
+    .ec-footer__brand { font-family:'Playfair Display',serif; font-size:1.3rem; color:#fff; margin-bottom:16px; }
+    .ec-footer__desc { font-size:0.85rem; line-height:1.7; margin-bottom:20px; }
+    .ec-footer__heading { font-size:0.9rem; font-weight:600; color:#fff; margin-bottom:16px; }
+    .ec-footer__link { display:block; font-size:0.85rem; color:rgba(255,255,255,0.6); padding:4px 0; transition:color 0.2s; }
+    .ec-footer__link:hover { color:var(--primary); }
+    .ec-footer__bottom { max-width:1200px; margin:0 auto; padding:20px 5%; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; font-size:0.8rem; }
+
+    /* Responsive */
+    @media(max-width:1024px){
+      .ec-product-grid{grid-template-columns:repeat(3,1fr);gap:20px;}
+      .ec-footer__inner{grid-template-columns:repeat(2,1fr);gap:32px;}
+      .ec-admin-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+    }
+
+    @media(max-width:768px){
+      .ec-hero{height:auto;min-height:0;aspect-ratio:16/9;padding:60px 0;}
+      .ec-hero__title{font-size:clamp(1.8rem,7vw,3rem);}
+      .ec-hero__desc{font-size:1rem;}
+      .ec-header__nav{display:none;}
+      .ec-collections{grid-template-columns:repeat(2,1fr);}
+      .ec-collection{aspect-ratio:1/1;}
+      .ec-newsletter__form{flex-direction:column;}
+      .ec-newsletter__btn{width:100%;}
+      .ec-promo{margin:0 2%;padding:40px 5%;}
+      .ec-section{padding:48px 5%;}
+      .ec-footer__inner{grid-template-columns:1fr 1fr;gap:32px;}
+      .ec-footer__bottom{text-align:center;}
+      .ec-cart-drawer{width:100%;max-width:100vw;}
+      .ec-admin-sidebar{width:100%;}
+      .ec-admin-content{padding:12px;}
+      .ec-admin-stats{grid-template-columns:repeat(2,1fr);gap:8px;}
+      .ec-admin-table{font-size:0.75rem;}
+      .ec-admin-table th,.ec-admin-table td{padding:6px 8px;}
+    }
+
+    @media(max-width:480px){
+      .ec-hero{aspect-ratio:3/4;padding:40px 0;}
+      .ec-hero__badge{font-size:0.65rem;padding:4px 12px;}
+      .ec-hero__title{font-size:1.8rem;}
+      .ec-hero__desc{font-size:0.9rem;margin-bottom:24px;}
+      .ec-hero__actions{flex-direction:column;width:100%;}
+      .ec-hero__actions .ec-btn{width:100%;text-align:center;}
+      .ec-collections{grid-template-columns:1fr;}
+      .ec-promo__code{font-size:1rem;padding:10px 20px;}
+      .ec-section{padding:36px 5%;}
+      .ec-section__header{margin-bottom:28px;}
+      .ec-footer__inner{grid-template-columns:1fr;}
+      .ec-newsletter{padding:40px 5%;}
+    }
+
+    @media(max-width:359px){
+      .ec-product-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+      .ec-product-card__body{padding:10px;}
+      .ec-product-card__name{font-size:0.85rem;}
+    }
+  </style>
+</head>
+<body>
+  <div class="ec-notice-bar">
+    <p>WN Fashion Store � Basic Package | WN-ECOM-FASHION-BAS-001</p>
+  </div>
+
+  <header class="ec-header ec-header--sticky">
+    <div class="ec-header__inner">
+      <a href="index.html" class="ec-header__brand">WN Fashion</a>
+      <nav class="ec-header__nav">
+        <a href="index.html" class="ec-header__link ec-header__link--active">Home</a>
+        <a href="shop.html" class="ec-header__link">Shop</a>
+      </nav>
+      <div class="ec-header__actions">
+        <button class="ec-header__icon ec-search-toggle" aria-label="Search">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="cart.html" class="ec-header__icon ec-cart-toggle" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="ec-header__badge ec-cart-count">0</span>
+        </a>
+        <button class="ec-header__icon ec-burger" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ec-mobile-menu">
+    <div class="ec-mobile-menu__header">
+      <span class="ec-mobile-menu__brand">WN Fashion</span>
+      <button class="ec-mobile-menu__close">&times;</button>
+    </div>
+    <nav class="ec-mobile-menu__nav">
+      <a href="index.html" class="ec-mobile-menu__link ec-mobile-menu__link--active">Home</a>
+      <a href="shop.html" class="ec-mobile-menu__link">Shop</a>
+      <a href="cart.html" class="ec-mobile-menu__link">Cart</a>
+      <a href="admin.html" class="ec-mobile-menu__link">Admin</a>
+    </nav>
+  </div>
+
+  <div class="ec-overlay ec-mobile-overlay"></div>
+
+  <div class="ec-search-overlay">
+    <div class="ec-search-overlay__inner">
+      <button class="ec-search-overlay__close">&times;</button>
+      <input type="text" class="ec-search-overlay__input" placeholder="Search products..." id="ecSearchInput">
+      <div class="ec-search-overlay__results" id="ecSearchResults"></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="ec-hero">
+      <div class="ec-hero__bg">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1400&q=80" alt="Fashion Hero">
+      </div>
+      <div class="ec-hero__content ec-reveal">
+        <span class="ec-hero__badge">New Season 2026</span>
+        <h1 class="ec-hero__title">Discover Your <span>Signature Style</span></h1>
+        <p class="ec-hero__desc">Curated collections of premium fashion pieces designed for the modern woman. Timeless elegance meets contemporary design.</p>
+        <div class="ec-hero__actions">
+          <a href="shop.html" class="ec-btn ec-btn--primary">Shop Collection</a>
+          <a href="shop.html?filter=new" class="ec-btn ec-btn--outline ec-btn--white">New Arrivals</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ec-section ec-section--alt">
+      <div class="ec-section__header ec-reveal">
+        <p class="ec-section__subtitle">Curated For You</p>
+        <h2 class="ec-section__title">Featured Collection</h2>
+      </div>
+      <div class="ec-product-grid" id="ecFeaturedGrid"></div>
+    </section>
+
+    <section class="ec-section">
+      <div class="ec-promo ec-reveal">
+        <p class="ec-section__subtitle" style="color:var(--primary-light);">Limited Time Offer</p>
+        <h2 class="ec-section__title" style="color:#fff;font-size:2rem;">Get 20% Off Your First Order</h2>
+        <p style="color:rgba(255,255,255,0.7);margin-top:12px;">Use code at checkout and enjoy premium fashion at exclusive prices.</p>
+        <div class="ec-promo__code">STYLE20</div>
+      </div>
+    </section>
+
+    <section class="ec-section ec-section--alt">
+      <div class="ec-section__header ec-reveal">
+        <p class="ec-section__subtitle">Just Arrived</p>
+        <h2 class="ec-section__title">New Arrivals</h2>
+      </div>
+      <div class="ec-product-grid" id="ecNewArrivalsGrid"></div>
+    </section>
+
+    <section class="ec-section">
+      <div class="ec-section__header ec-reveal">
+        <p class="ec-section__subtitle">Explore</p>
+        <h2 class="ec-section__title">Our Collections</h2>
+      </div>
+      <div class="ec-collections ec-reveal">
+        <a href="shop.html?category=dresses" class="ec-collection">
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80" alt="Women">
+          <div class="ec-collection__overlay"><span class="ec-collection__title">Women</span></div>
+        </a>
+        <a href="shop.html?category=outerwear" class="ec-collection">
+          <img src="https://images.unsplash.com/photo-1507680434567-5739c80be1ac?w=600&q=80" alt="Men">
+          <div class="ec-collection__overlay"><span class="ec-collection__title">Outerwear</span></div>
+        </a>
+        <a href="shop.html?category=accessories" class="ec-collection">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80" alt="Accessories">
+          <div class="ec-collection__overlay"><span class="ec-collection__title">Accessories</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="ec-newsletter ec-reveal">
+      <div class="ec-section__header">
+        <p class="ec-section__subtitle">Stay Connected</p>
+        <h2 class="ec-section__title">Join Our Newsletter</h2>
+      </div>
+      <form class="ec-newsletter__form" onsubmit="event.preventDefault();alert('Thank you for subscribing!');">
+        <input type="email" class="ec-newsletter__input" placeholder="Enter your email" required>
+        <button type="submit" class="ec-newsletter__btn">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="ec-footer">
+    <div class="ec-footer__inner">
+      <div class="ec-footer__col">
+        <h4 class="ec-footer__brand">WN Fashion</h4>
+        <p class="ec-footer__desc">Premium fashion for the modern woman. Curated collections of timeless elegance and contemporary design.</p>
+      </div>
+      <div class="ec-footer__col">
+        <h4 class="ec-footer__heading">Quick Links</h4>
+        <a href="index.html" class="ec-footer__link">Home</a>
+        <a href="shop.html" class="ec-footer__link">Shop</a>
+        <a href="cart.html" class="ec-footer__link">Cart</a>
+        <a href="admin.html" class="ec-footer__link">Admin</a>
+      </div>
+      <div class="ec-footer__col">
+        <h4 class="ec-footer__heading">Contact</h4>
+        <a href="https://wa.me/923281190004?text=Hello%20WebNest%2C%20I%20am%20interested%20in%20Fashion%20E-commerce%20%E2%80%94%20Basic%20Package%20(WN-ECOM-FASHION-BAS-001)." class="ec-footer__link" target="_blank" rel="noopener">WhatsApp</a>
+        <p class="ec-footer__link">demo@webnest.com</p>
+      </div>
+    </div>
+    <div class="ec-footer__bottom">
+      <p>&copy; 2026 WN Fashion. WN-ECOM-FASHION-BAS-001. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="ec-cart-drawer">
+    <div class="ec-cart-drawer__header">
+      <h3>Your Cart</h3>
+      <button class="ec-cart-drawer__close">&times;</button>
+    </div>
+    <div class="ec-cart-drawer__items" id="ecCartDrawerItems">
+      <p class="ec-cart-drawer__empty">Your cart is empty</p>
+    </div>
+    <div class="ec-cart-drawer__footer">
+      <div class="ec-cart-drawer__total">
+        <span>Total</span>
+        <span id="ecCartDrawerTotal">Rs. 0</span>
+      </div>
+      <a href="cart.html" class="ec-btn ec-btn--primary ec-btn--full">View Cart</a>
+      <a href="checkout.html" class="ec-btn ec-btn--outline ec-btn--full" style="margin-top:8px;">Checkout</a>
+    </div>
+  </div>
+  <div class="ec-overlay ec-cart-overlay"></div>
+
+  <button class="ec-admin-toggle" id="ecAdminToggle">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+  </button>
+
+  <div class="ec-admin-overlay" id="ecAdminOverlay">
+    <div class="ec-admin-sidebar">
+      <div class="ec-admin-sidebar__header">
+        <h3>Admin Panel</h3>
+        <button class="ec-admin-close" id="ecAdminClose">&times;</button>
+      </div>
+      <nav class="ec-admin-sidebar__nav">
+        <button class="ec-admin-nav ec-admin-nav--active" data-section="dashboard">Dashboard</button>
+        <button class="ec-admin-nav" data-section="products">Products</button>
+        <button class="ec-admin-nav" data-section="orders">Orders</button>
+        <button class="ec-admin-nav" data-section="customers">Customers</button>
+        <button class="ec-admin-nav" data-section="inventory">Inventory</button>
+        <button class="ec-admin-nav" data-section="discounts">Discounts</button>
+        <button class="ec-admin-nav" data-section="settings">Settings</button>
+      </nav>
+    </div>
+    <div class="ec-admin-content" id="ecAdminContent">
+      <div class="ec-admin-section ec-admin-section--active" id="admin-dashboard">
+        <h2>Dashboard</h2>
+        <div class="ec-admin-stats">
+          <div class="ec-admin-stat"><span class="ec-admin-stat__value">Rs. 485,000</span><span class="ec-admin-stat__label">Revenue</span></div>
+          <div class="ec-admin-stat"><span class="ec-admin-stat__value">127</span><span class="ec-admin-stat__label">Orders</span></div>
+          <div class="ec-admin-stat"><span class="ec-admin-stat__value">89</span><span class="ec-admin-stat__label">Customers</span></div>
+          <div class="ec-admin-stat"><span class="ec-admin-stat__value">20</span><span class="ec-admin-stat__label">Products</span></div>
+        </div>
+        <h3 style="margin:24px 0 12px;">Recent Orders</h3>
+        <div class="ec-admin-table-wrap">
+          <table class="ec-admin-table">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>ORD-2026-0001</td><td>Ayesha Khan</td><td>Rs. 27,700</td><td><span class="ec-status ec-status--delivered">Delivered</span></td></tr>
+              <tr><td>ORD-2026-0002</td><td>Fatima Ali</td><td>Rs. 18,900</td><td><span class="ec-status ec-status--shipped">Shipped</span></td></tr>
+              <tr><td>ORD-2026-0003</td><td>Zara Ahmed</td><td>Rs. 12,500</td><td><span class="ec-status ec-status--processing">Processing</span></td></tr>
+              <tr><td>ORD-2026-0004</td><td>Sana Malik</td><td>Rs. 32,000</td><td><span class="ec-status ec-status--pending">Pending</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ec-admin-section" id="admin-products">
+        <h2>Products</h2>
+        <div class="ec-admin-table-wrap">
+          <table class="ec-admin-table" id="ecAdminProductTable">
+            <thead><tr><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ec-admin-section" id="admin-orders">
+        <h2>Orders</h2>
+        <div class="ec-admin-table-wrap">
+          <table class="ec-admin-table">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>ORD-2026-0001</td><td>Ayesha Khan</td><td>2026-08-01</td><td>Rs. 27,700</td><td><span class="ec-status ec-status--delivered">Delivered</span></td></tr>
+              <tr><td>ORD-2026-0002</td><td>Fatima Ali</td><td>2026-08-03</td><td>Rs. 18,900</td><td><span class="ec-status ec-status--shipped">Shipped</span></td></tr>
+              <tr><td>ORD-2026-0003</td><td>Zara Ahmed</td><td>2026-08-05</td><td>Rs. 12,500</td><td><span class="ec-status ec-status--processing">Processing</span></td></tr>
+              <tr><td>ORD-2026-0004</td><td>Sana Malik</td><td>2026-08-07</td><td>Rs. 32,000</td><td><span class="ec-status ec-status--pending">Pending</span></td></tr>
+              <tr><td>ORD-2026-0005</td><td>Hira Raza</td><td>2026-08-08</td><td>Rs. 9,200</td><td><span class="ec-status ec-status--delivered">Delivered</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ec-admin-section" id="admin-customers">
+        <h2>Customers</h2>
+        <div class="ec-admin-table-wrap">
+          <table class="ec-admin-table">
+            <thead><tr><th>Name</th><th>Email</th><th>Orders</th><th>Spent</th></tr></thead>
+            <tbody>
+              <tr><td>Ayesha Khan</td><td>ayesha@email.com</td><td>5</td><td>Rs. 67,500</td></tr>
+              <tr><td>Fatima Ali</td><td>fatima@email.com</td><td>3</td><td>Rs. 45,200</td></tr>
+              <tr><td>Zara Ahmed</td><td>zara@email.com</td><td>7</td><td>Rs. 89,000</td></tr>
+              <tr><td>Sana Malik</td><td>sana@email.com</td><td>2</td><td>Rs. 32,000</td></tr>
+              <tr><td>Hira Raza</td><td>hira@email.com</td><td>4</td><td>Rs. 56,800</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ec-admin-section" id="admin-inventory">
+        <h2>Inventory</h2>
+        <div class="ec-admin-table-wrap">
+          <table class="ec-admin-table" id="ecAdminInventoryTable">
+            <thead><tr><th>Product</th><th>SKU</th><th>In Stock</th><th>Reserved</th><th>Available</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ec-admin-section" id="admin-discounts">
+        <h2>Discounts</h2>
+        <div class="ec-admin-table-wrap">
+          <table class="ec-admin-table">
+            <thead><tr><th>Code</th><th>Type</th><th>Value</th><th>Min Order</th><th>Uses</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>STYLE20</td><td>Percentage</td><td>20%</td><td>Rs. 5,000</td><td>156</td><td><span class="ec-status ec-status--delivered">Active</span></td></tr>
+              <tr><td>SAVE10</td><td>Percentage</td><td>10%</td><td>Rs. 3,000</td><td>312</td><td><span class="ec-status ec-status--delivered">Active</span></td></tr>
+              <tr><td>FLAT2000</td><td>Fixed</td><td>Rs. 2,000</td><td>Rs. 15,000</td><td>45</td><td><span class="ec-status ec-status--delivered">Active</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="ec-admin-section" id="admin-settings">
+        <h2>Settings</h2>
+        <form class="ec-admin-form" onsubmit="event.preventDefault();alert('Settings saved!');">
+          <label>Store Name</label>
+          <input type="text" value="WN Fashion" required>
+          <label>Email</label>
+          <input type="email" value="demo@webnest.com" required>
+          <label>Phone</label>
+          <input type="tel" value="+92 300 0000000">
+          <label>Address</label>
+          <textarea rows="3">123 Demo Street, Lahore, Pakistan</textarea>
+          <button type="submit" class="ec-btn ec-btn--primary">Save Settings</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="ec-toast" id="ecToast"></div>
+  <div class="ec-lightbox" id="ecLightbox">
+    <button class="ec-lightbox__close">&times;</button>
+    <img class="ec-lightbox__img" id="ecLightboxImg" src="" alt="Product">
+  </div>
+
+  <script>
+  window.EC_PRODUCTS = [
+    {id:'V001',name:'Silk Wrap Dress',category:'dresses',price:12500,salePrice:null,image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#c9a96e','#1a1a2e'],rating:4.8,reviews:24,isNew:true,featured:true,tags:['silk','dress','evening']},
+    {id:'V002',name:'Cashmere Blend Blazer',category:'outerwear',price:18900,salePrice:15900,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#8b7355'],rating:4.9,reviews:18,isNew:false,featured:true,tags:['blazer','cashmere','formal']},
+    {id:'V003',name:'High-Waist Tailored Trousers',category:'bottoms',price:8500,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#d4c5a9'],rating:4.7,reviews:31,isNew:true,featured:false,tags:['trousers','tailored','high-waist']},
+    {id:'V004',name:'Oversized Linen Shirt',category:'tops',price:6800,salePrice:null,image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#8b7355'],rating:4.6,reviews:42,isNew:false,featured:true,tags:['shirt','linen','oversized']},
+    {id:'V005',name:'Pleated Midi Skirt',category:'bottoms',price:7200,salePrice:5800,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#1a1a2e'],rating:4.5,reviews:19,isNew:false,featured:false,tags:['skirt','pleated','midi'],isSale:true},
+    {id:'V006',name:'Structured Leather Tote',category:'accessories',price:22500,salePrice:null,image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',sizes:['One Size'],colors:['#8b7355','#1a1a2e'],rating:4.9,reviews:56,isNew:false,featured:true,tags:['bag','leather','tote']},
+    {id:'V007',name:'Merino Wool Coat',category:'outerwear',price:28000,salePrice:22000,image:'https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.8,reviews:12,isNew:true,featured:true,tags:['coat','wool','merino'],isSale:true},
+    {id:'V008',name:'Ribbed Knit Tank Top',category:'tops',price:3800,salePrice:null,image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#c9a96e','#1a1a2e'],rating:4.4,reviews:67,isNew:false,featured:false,tags:['tank','knit','ribbed']},
+    {id:'V009',name:'Wide-Leg Palazzo Pants',category:'bottoms',price:9200,salePrice:null,image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#d4c5a9'],rating:4.7,reviews:28,isNew:true,featured:false,tags:['pants','palazzo','wide-leg']},
+    {id:'V010',name:'Embellished Evening Clutch',category:'accessories',price:15800,salePrice:null,image:'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#e8a0b4'],rating:4.6,reviews:14,isNew:false,featured:false,tags:['clutch','evening','embellished']},
+    {id:'V011',name:'V-Neck Cashmere Sweater',category:'tops',price:11500,salePrice:9200,image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#c9a96e','#f5f0e8','#2d2d3f'],rating:4.8,reviews:35,isNew:false,featured:true,tags:['sweater','cashmere','v-neck'],isSale:true},
+    {id:'V012',name:'Leather Belt with Gold Buckle',category:'accessories',price:4500,salePrice:null,image:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',sizes:['S','M','L'],colors:['#8b7355','#1a1a2e'],rating:4.5,reviews:48,isNew:false,featured:false,tags:['belt','leather','gold']},
+    {id:'V013',name:'Satin Slip Dress',category:'dresses',price:14200,salePrice:null,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#1a1a2e'],rating:4.9,reviews:22,isNew:true,featured:true,tags:['dress','satin','slip']},
+    {id:'V014',name:'Double-Breasted Trench Coat',category:'outerwear',price:32000,salePrice:null,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#d4c5a9','#2d2d3f'],rating:4.9,reviews:9,isNew:true,featured:false,tags:['trench','coat','double-breasted']},
+    {id:'V015',name:'Cropped Denim Jacket',category:'outerwear',price:9800,salePrice:7900,image:'https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#4a6fa5','#1a1a2e'],rating:4.6,reviews:41,isNew:false,featured:false,tags:['denim','jacket','cropped'],isSale:true},
+    {id:'V016',name:'Floral Print Maxi Dress',category:'dresses',price:16500,salePrice:null,image:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#c9a96e'],rating:4.7,reviews:16,isNew:true,featured:false,tags:['dress','floral','maxi']},
+    {id:'V017',name:'Tailored Wool Vest',category:'tops',price:7800,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L'],colors:['#2d2d3f','#d4c5a9'],rating:4.5,reviews:20,isNew:false,featured:false,tags:['vest','wool','tailored']},
+    {id:'V018',name:'Platform Suede Heels',category:'shoes',price:13500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#8b7355','#1a1a2e'],rating:4.8,reviews:33,isNew:false,featured:true,tags:['heels','suede','platform']},
+    {id:'V019',name:'Gold Chain Necklace',category:'accessories',price:8900,salePrice:null,image:'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',sizes:['One Size'],colors:['#c9a96e'],rating:4.7,reviews:27,isNew:true,featured:false,tags:['necklace','gold','chain']},
+    {id:'V020',name:'Quilted Crossbody Bag',category:'accessories',price:19500,salePrice:16500,image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',sizes:['One Size'],colors:['#1a1a2e','#c9a96e','#e8a0b4'],rating:4.9,reviews:44,isNew:false,featured:true,tags:['bag','crossbody','quilted'],isSale:true}
+  ];
+  </script>
+  <script src="../shared/js/base.js"></script>
+  <script>
+  (function(){
+    var featured=window.EC_PRODUCTS.filter(function(p){return p.featured;}).slice(0,8);
+    var grid=document.getElementById('ecFeaturedGrid');
+    if(grid) featured.forEach(function(p){grid.innerHTML+=buildProductCard(p);});
+
+    var newArrivals=window.EC_PRODUCTS.filter(function(p){return p.isNew;}).slice(0,4);
+    var nGrid=document.getElementById('ecNewArrivalsGrid');
+    if(nGrid) newArrivals.forEach(function(p){nGrid.innerHTML+=buildProductCard(p);});
+
+    function buildProductCard(p){
+      var badges='';
+      if(p.isNew) badges+='<span class="ec-product-card__badge ec-product-card__badge--new">New</span>';
+      if(p.isSale) badges+='<span class="ec-product-card__badge ec-product-card__badge--sale">Sale</span>';
+      var priceHtml='<span class="ec-product-card__price--current">Rs. '+(p.salePrice||p.price).toLocaleString()+'</span>';
+      if(p.salePrice) priceHtml+='<span class="ec-product-card__price--original">Rs. '+p.price.toLocaleString()+'</span>';
+      return '<a href="product.html?id='+p.id+'" class="ec-product-card"><div class="ec-product-card__img"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy"><div class="ec-product-card__badges">'+badges+'</div></div><div class="ec-product-card__body"><p class="ec-product-card__category">'+p.category+'</p><h3 class="ec-product-card__name">'+p.name+'</h3><div class="ec-product-card__price">'+priceHtml+'</div></div></a>';
+    }
+
+    var reveals=document.querySelectorAll('.ec-reveal');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
+    },{threshold:0.1});
+    reveals.forEach(function(r){observer.observe(r);});
+  })();
+  </script>
+</body>
+</html>

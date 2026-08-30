@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Alex &amp; Mia | WebNest Demo (Moderate)</title>
+  <meta name="description" content="The love story of Alex and Mia. WebNest demo, Demo ID WN-CL-MOD-001.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/moderate.css">
+</head>
+<body>
+
+  <div class="cl-notice">Demo Preview — Your names, photos and content will be replaced after ordering.</div>
+
+  <header class="cl-header" id="clHeader">
+    <div class="cl-container cl-header__inner">
+      <a href="index.html" class="cl-brand" aria-label="Alex and Mia home">
+        <span class="cl-brand__mark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+        </span>
+        <span class="cl-brand__script">Alex &amp; Mia</span>
+      </a>
+      <nav class="cl-nav" aria-label="Main navigation">
+        <ul>
+          <li><a class="cl-nav__link" href="index.html">Home</a></li>
+          <li><a class="cl-nav__link" href="story.html">Our Story</a></li>
+          <li><a class="cl-nav__link" href="timeline.html">Timeline</a></li>
+          <li><a class="cl-nav__link" href="memories.html">Memories</a></li>
+          <li><a class="cl-nav__link" href="message.html">Final Message</a></li>
+        </ul>
+      </nav>
+      <a href="memories.html" class="cl-btn cl-btn--primary cl-btn--sm cl-header__cta">Our Memories</a>
+      <button class="cl-burger" id="clBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="cl-mobile" id="clMobile" aria-hidden="true">
+    <ul>
+      <li><a href="index.html" data-link>Home</a></li>
+      <li><a href="story.html" data-link>Our Story</a></li>
+      <li><a href="timeline.html" data-link>Timeline</a></li>
+      <li><a href="memories.html" data-link>Memories</a></li>
+      <li><a href="message.html" data-link>Final Message</a></li>
+    </ul>
+    <a href="memories.html" class="cl-btn cl-btn--primary">Our Memories</a>
+  </div>
+
+  <main class="cl-page">
+    <section class="cl-hero" style="min-height:62vh;padding:150px 24px 80px;">
+      <div class="cl-hero__orb cl-hero__orb--1" aria-hidden="true"></div>
+      <div class="cl-hero__orb cl-hero__orb--2" aria-hidden="true"></div>
+      <div class="cl-hero__stars" aria-hidden="true"></div>
+      <div class="cl-hearts" aria-hidden="true"></div>
+      <div class="cl-hero__content">
+        <span class="cl-hero__eyebrow">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+          Our Story
+        </span>
+        <h1 class="cl-hero__script">A Story in Two Chapters</h1>
+        <p class="cl-hero__sub">How we went from strangers to soulmates</p>
+      </div>
+    </section>
+
+    <section class="cl-section">
+      <div class="cl-container">
+        <div class="cl-story">
+          <div class="cl-story__media cl-reveal">
+            <div class="cl-story__frame">
+              <img src="https://images.pexels.com/photos/1149363/pexels-photo-1149363.jpeg?auto=compress&cs=tinysrgb&w=760&h=900&fit=crop" alt="Alex and Mia sharing a moment" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+              <div class="cl-story__badge">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+                Chapter One
+              </div>
+              <p class="cl-story__quote">&ldquo;It began with rain, and it never stopped being a storm of the best kind.&rdquo;</p>
+            </div>
+          </div>
+          <div class="cl-story__body">
+            <span class="cl-tag cl-reveal">Chapter One</span>
+            <h2 class="cl-title cl-reveal" data-delay="1">Where It All Began</h2>
+            <div class="cl-ornament cl-reveal" data-delay="1" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+            </div>
+            <p class="cl-desc cl-reveal" data-delay="2">Mia was sitting by the window of a small cafe in Karachi, working on a story she could never quite finish. Alex walked in, drenched, ordered the last cinnamon latte — and her heart decided the story was worth rewriting.</p>
+            <p class="cl-desc cl-reveal" data-delay="2">They talked about everything except the obvious: that neither of them wanted the evening to end. The cafe closed at eleven; they left at midnight, still talking under the rain.</p>
+            <p class="cl-desc cl-reveal" data-delay="2">That week, Alex found every excuse to pass by that cafe. By spring, the window table had become theirs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cl-section cl-section--alt">
+      <div class="cl-container">
+        <div class="cl-story">
+          <div class="cl-story__body">
+            <span class="cl-tag cl-reveal">Chapter Two</span>
+            <h2 class="cl-title cl-reveal" data-delay="1">Growing Together</h2>
+            <div class="cl-ornament cl-reveal" data-delay="1" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+            </div>
+            <p class="cl-desc cl-reveal" data-delay="2">Love, we learned, is not one moment — it is a thousand small ones. Sharing umbrellas, learning each other's favourite songs, fighting over the last slice of pizza, and making up before the pizza got cold.</p>
+            <p class="cl-desc cl-reveal" data-delay="2">We grew in the same direction, never apart. Mia's stories started getting published. Alex started his own little business. And every single milestone, we celebrated together — because what is success if not shared?</p>
+            <div class="cl-chips cl-reveal" data-delay="3">
+              <span class="cl-chip"><svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg> We built dreams together</span>
+              <span class="cl-chip"><svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg> And our love only grew</span>
+            </div>
+          </div>
+          <div class="cl-story__media cl-reveal" data-delay="1">
+            <div class="cl-story__frame">
+              <img src="https://images.pexels.com/photos/3727657/pexels-photo-3727657.jpeg?auto=compress&cs=tinysrgb&w=760&h=900&fit=crop" alt="Alex and Mia growing together" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+              <div class="cl-story__badge">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+                Chapter Two
+              </div>
+              <p class="cl-story__quote">&ldquo;Home is not a place. It is a person, and mine is yours.&rdquo;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cl-section">
+      <div class="cl-container">
+        <div class="cl-cta cl-reveal">
+          <h2 class="cl-cta__title">Every Milestone, Remembered</h2>
+          <p class="cl-cta__desc">Walk through the timeline of our journey — every moment that made us who we are.</p>
+          <div class="cl-cta__actions">
+            <a href="timeline.html" class="cl-btn cl-btn--primary">Explore Our Timeline</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cl-footer">
+    <div class="cl-container">
+      <div class="cl-footer__top">
+        <a href="index.html" class="cl-footer__brand">
+          <span class="cl-brand__mark">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+          </span>
+          Alex &amp; Mia
+        </a>
+        <nav class="cl-footer__nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="story.html">Our Story</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="memories.html">Memories</a>
+          <a href="message.html">Final Message</a>
+          <a href="https://webnestofficial.wuaze.com/" rel="noopener">WebNest Showroom</a>
+        </nav>
+      </div>
+      <div class="cl-footer__bottom">
+        <p>Made with <span class="cl-footer__heart">&#10084;</span> by <a href="https://webnestofficial.wuaze.com/" rel="noopener">WebNest</a> &middot; Demo ID: WN-CL-MOD-001 &middot; Moderate Package</p>
+        <span class="cl-footer__tag">Demo Preview — Your names, photos and content will be replaced after ordering.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cl-lightbox" id="clLightbox" aria-hidden="true">
+    <button class="cl-lightbox__close" aria-label="Close">&#10005;</button>
+    <img src="" alt="Photo preview">
+    <div class="cl-lightbox__cap"></div>
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+  <script src="../shared/js/moderate.js"></script>
+</body>
+</html>

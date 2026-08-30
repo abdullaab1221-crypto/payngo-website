@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Finale | Expert Digital Gift</title>
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    .dg-notice {
+      background: #ffd700;
+      color: #1a1a2e;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .dg-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .dg-header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .dg-header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .dg-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      text-decoration: none;
+    }
+    
+    .dg-brand__icon {
+      font-size: 1.5rem;
+    }
+    
+    .dg-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .dg-nav a {
+      color: #444;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .dg-nav a:hover {
+      color: #ffd700;
+    }
+    
+    .dg-header__cta {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .dg-burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    
+    .dg-burger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #1a1a2e;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    .dg-mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 26, 46, 0.98);
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    .dg-mobile a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    
+    .dg-hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+    }
+    
+    .dg-hero__eyebrow {
+      color: #ffd700;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+    }
+    
+    .dg-hero__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      font-family: 'Georgia', serif;
+    }
+    
+    .dg-hero__subtitle {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .dg-finale {
+      padding: 6rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+    }
+    
+    .dg-finale__emoji {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    .dg-finale__title {
+      font-size: clamp(3rem, 8vw, 5rem);
+      margin-bottom: 2rem;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #ffd700, #ffaa00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .dg-finale__message {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      opacity: 0.9;
+    }
+    
+    .dg-finale__brand {
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      opacity: 0.7;
+    }
+    
+    .dg-finale__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .dg-btn {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(135deg, #ffd700, #ffaa00);
+      color: #1a1a2e;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .dg-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+    }
+    
+    .dg-btn--secondary {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+    
+    .dg-btn--secondary:hover {
+      border-color: #ffd700;
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+    }
+    
+    .dg-footer {
+      background: #0f1419;
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+    
+    .dg-footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .dg-footer__brand {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    .dg-footer__nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .dg-footer__nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .dg-footer__nav a:hover {
+      color: #ffd700;
+    }
+    
+    .dg-footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .dg-footer__tag {
+      color: #ffd700;
+      font-size: 0.8rem;
+    }
+    
+    @media (max-width: 768px) {
+      .dg-nav, .dg-header__cta {
+        display: none;
+      }
+      .dg-burger {
+        display: block;
+      }
+      .dg-footer__inner, .dg-footer__bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dg-notice">
+    <strong>WebNest Digital Gift Demo</strong> — Expert Package &bull; 8 Pages &bull; 20 Photos
+  </div>
+
+  <header class="dg-header">
+    <div class="dg-container dg-header__inner">
+      <a href="index.html" class="dg-brand">
+        <span class="dg-brand__icon">&#127873;</span>
+        Your Special Gift
+      </a>
+      <nav class="dg-nav">
+        <ul>
+          <li><a href="index.html">Begin</a></li>
+          <li><a href="message.html">For You</a></li>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="moments.html">Moments</a></li>
+          <li><a href="surprise.html">Surprise</a></li>
+          <li><a href="final.html">Finale</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Digital%20Gift%20website%20like%20WN-DG-EXP-001" class="dg-btn dg-btn--whatsapp dg-btn--sm dg-header__cta" target="_blank" rel="noopener">
+        Order on WhatsApp
+      </a>
+      <button class="dg-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="dg-mobile">
+    <a href="index.html" data-link>Begin</a>
+    <a href="message.html" data-link>For You</a>
+    <a href="story.html" data-link>Our Story</a>
+    <a href="timeline.html" data-link>Timeline</a>
+    <a href="gallery.html" data-link>Gallery</a>
+    <a href="moments.html" data-link>Moments</a>
+    <a href="surprise.html" data-link>Surprise</a>
+    <a href="final.html" data-link>Finale</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Digital%20Gift%20website%20like%20WN-DG-EXP-001" class="dg-btn dg-btn--whatsapp" target="_blank" rel="noopener">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <section class="dg-hero">
+    <div class="dg-container">
+      <p class="dg-hero__eyebrow">With All Our Heart</p>
+      <h1 class="dg-hero__title">The Grand Finale</h1>
+      <p class="dg-hero__subtitle">The final chapter of our beautiful journey</p>
+    </div>
+  </section>
+
+  <section class="dg-finale">
+    <div class="dg-finale__emoji">&#127873;</div>
+    <h1 class="dg-finale__title">Thank You</h1>
+    <p class="dg-finale__message">
+      This gift was made with love, just for you. Every page, every photo, every word — chosen with care to show you how much you mean to me.
+    </p>
+    <p class="dg-finale__brand">Crafted with love by WebNest</p>
+    
+    <div class="dg-finale__actions">
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Digital%20Gift%20website%20like%20WN-DG-EXP-001" class="dg-btn" target="_blank" rel="noopener">
+        Order Your Own Gift
+      </a>
+      <a href="index.html" class="dg-btn dg-btn--secondary">
+        Start Over
+      </a>
+    </div>
+  </section>
+
+  <footer class="dg-footer">
+    <div class="dg-container">
+      <div class="dg-footer__inner">
+        <div class="dg-footer__brand">&#127873; Your Special Gift</div>
+        <nav class="dg-footer__nav">
+          <a href="index.html">Begin</a>
+          <a href="message.html">For You</a>
+          <a href="story.html">Our Story</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="moments.html">Moments</a>
+          <a href="surprise.html">Surprise</a>
+          <a href="final.html">Finale</a>
+        </nav>
+      </div>
+      <div class="dg-footer__bottom">
+        <p>Crafted with love by <strong>WebNest</strong></p>
+        <span class="dg-footer__tag"> WN-DG-EXP-001 &bull; Expert Package</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="dg-lightbox">
+    <button class="dg-lightbox__close">&times;</button>
+    <img src="" alt="Full view">
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>
