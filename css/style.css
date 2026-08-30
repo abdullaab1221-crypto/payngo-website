@@ -141,6 +141,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
 
 /* --- Buttons --- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:var(--w-semibold);font-size:var(--fs-base);padding:10px 20px;border-radius:var(--r-md);transition:all var(--dur-base) var(--ease);white-space:nowrap;cursor:pointer;border:1px solid transparent;min-height:42px;letter-spacing:-0.01em;line-height:1}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .btn:active{transform:scale(0.97)}
 
 .btn--fill{background:var(--brand);color:var(--text-on-brand);border-color:var(--brand)}
@@ -158,6 +159,19 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .btn--white-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.5)}
 
 .btn--sm{padding:7px 14px;font-size:var(--fs-sm);min-height:34px}
+/* Hero CTA buttons — white on dark hero background */
+.btn--hero{background:var(--white);color:var(--brand);border-color:var(--white)}
+.btn--hero svg{fill:var(--brand)}
+.btn--hero:hover{background:var(--surface-alt);border-color:var(--surface-alt);box-shadow:0 4px 20px rgba(255,255,255,0.2);color:var(--brand-dark)}
+.btn--hero:hover svg{fill:var(--brand-dark)}
+.btn--hero:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+.btn--hero:active{transform:scale(0.97);background:var(--snow);color:var(--brand-dark)}
+
+.btn--hero-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.35)}
+.btn--hero-ghost:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6);color:var(--white)}
+.btn--hero-ghost:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+.btn--hero-ghost:active{transform:scale(0.97);background:rgba(255,255,255,0.15)}
+
 .btn--lg{padding:13px 26px;font-size:var(--fs-md)}
 .btn--xl{padding:15px 32px;font-size:var(--fs-md);min-height:50px}
 .btn--block{width:100%}
@@ -218,7 +232,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .hero__proof{display:flex;gap:var(--sp-8);padding-top:var(--sp-6);border-top:1px solid rgba(255,255,255,0.1)}
 .hero__proof-item{display:flex;flex-direction:column}
 .hero__proof-val{font-size:var(--fs-xl);font-weight:var(--w-bold);color:var(--white);letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
-.hero__proof-lbl{font-size:var(--fs-xs);color:rgba(255,255,255,0.5);margin-top:2px;letter-spacing:0.02em}
+.hero__proof-lbl{font-size:var(--fs-xs);color:rgba(255,255,255,0.65);margin-top:2px;letter-spacing:0.02em}
 
 /* Right — Fintech Dashboard Visual */
 .hero__right{position:relative;display:flex;justify-content:center}
