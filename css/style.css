@@ -374,10 +374,11 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .cta__phone{position:relative;display:flex;justify-content:center;z-index:1}
 .cta__phone-frame{width:200px;height:400px;background:var(--ink-3);border:1.5px solid rgba(255,255,255,0.08);border-radius:28px;position:relative;overflow:hidden;box-shadow:var(--sh-xl)}
 .cta__phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:22px;background:var(--ink);border-radius:0 0 12px 12px;z-index:3}
-.cta__phone-scr{position:absolute;inset:28px 10px 10px;background:linear-gradient(180deg,rgba(16,185,129,0.06),transparent);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.cta__phone-scr{position:absolute;inset:28px 10px 10px;background:linear-gradient(180deg,rgba(16,185,129,0.06),transparent);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;overflow:hidden}
 .cta__phone-ic{font-size:2rem}
 .cta__phone-t{font-size:var(--fs-sm);font-weight:var(--w-bold);color:var(--white)}
 .cta__phone-s{font-size:var(--fs-xs);color:var(--mist)}
+.cta__phone-img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 
 /* ========================================
    FAQ
