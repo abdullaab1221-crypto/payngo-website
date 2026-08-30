@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Deletion Request — PayNGo</title>
+  <meta name="description" content="Request deletion of your PayNGo account and personal data. Follow our verified account deletion process.">
+  <meta property="og:title" content="Account Deletion Request — PayNGo">
+  <meta property="og:description" content="Request deletion of your PayNGo account and personal data.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://payngo.site/account-deletion.html">
+  <link rel="canonical" href="https://payngo.site/account-deletion.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hdr" id="header">
+  <div class="wrap hdr__row">
+    <a href="index.html" class="hdr__brand" aria-label="PayNGo Home">
+      <div class="hdr__mark" aria-hidden="true">P</div>
+      <span class="hdr__name">PayNGo</span>
+    </a>
+    <nav class="hdr__nav" aria-label="Main">
+      <a href="index.html#exchange-rate" class="hdr__link">Exchange Rate</a>
+      <a href="index.html#how-it-works" class="hdr__link">How It Works</a>
+      <a href="about.html" class="hdr__link">About</a>
+      <a href="faq.html" class="hdr__link">FAQ</a>
+      <a href="account-deletion.html" class="hdr__link on">Account Deletion</a>
+      <a href="contact.html" class="hdr__link">Contact</a>
+    </nav>
+    <a href="index.html#download" class="btn btn--fill btn--sm hdr__cta">Get the App</a>
+    <button class="hdr__burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+      <i></i><i></i><i></i>
+    </button>
+  </div>
+</header>
+<div class="drawer" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <nav class="drawer__list">
+    <a href="index.html#exchange-rate" class="drawer__link">Exchange Rate</a>
+    <a href="index.html#how-it-works" class="drawer__link">How It Works</a>
+    <a href="about.html" class="drawer__link">About</a>
+    <a href="faq.html" class="drawer__link">FAQ</a>
+    <a href="account-deletion.html" class="drawer__link">Account Deletion</a>
+    <a href="contact.html" class="drawer__link">Contact</a>
+  </nav>
+  <a href="index.html#download" class="btn btn--fill drawer__cta">Get the App</a>
+</div>
+
+<main class="page-content">
+  <div class="wrap">
+    <div class="page-header rv">
+      <a href="index.html" class="page-back">&larr; Back to Home</a>
+      <h1 class="page-title">Account Deletion Request</h1>
+      <p class="page-subtitle">Request deletion of your PayNGo account and personal data. Our support team will process your request after identity verification.</p>
+    </div>
+
+    <div class="page-body rv rv--d1">
+
+      <section class="content-section">
+        <h2>Request Account Deletion</h2>
+        <p>Fill out the form below to request deletion of your PayNGo account. Please note that account deletion is handled manually by our support team to ensure security and proper verification.</p>
+      </section>
+
+      <section class="content-section">
+        <form class="page-form" action="https://formsubmit.co/support@payngo.site" method="POST">
+          <input type="hidden" name="_subject" value="Account Deletion Request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_next" value="https://payngo.site/account-deletion.html?submitted=true">
+
+          <div class="page-form__row">
+            <label class="page-form__label" for="del-name">Full Name <span class="page-form__req">*</span></label>
+            <input type="text" id="del-name" name="Full Name" class="page-form__input" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="page-form__row">
+            <label class="page-form__label" for="del-email">Email Address <span class="page-form__req">*</span></label>
+            <input type="email" id="del-email" name="Email" class="page-form__input" placeholder="Enter your email address" required>
+          </div>
+
+          <div class="page-form__row">
+            <label class="page-form__label" for="del-reg-email">Registered Email <span class="page-form__req">*</span></label>
+            <input type="email" id="del-reg-email" name="Registered Email" class="page-form__input" placeholder="Email used during PayNGo registration" required>
+          </div>
+
+          <div class="page-form__row">
+            <label class="page-form__label" for="del-reason">Reason for Deletion</label>
+            <textarea id="del-reason" name="Reason" class="page-form__textarea" placeholder="Optional — tell us why you're deleting your account" rows="4"></textarea>
+          </div>
+
+          <div class="page-form__row page-form__row--check">
+            <label class="page-form__check">
+              <input type="checkbox" name="Confirmation" required>
+              <span class="page-form__check-box"></span>
+              <span class="page-form__check-text">I understand that account deletion is permanent and cannot be undone. I confirm I am the account owner.</span>
+            </label>
+          </div>
+
+          <div class="page-form__row">
+            <button type="submit" class="btn btn--fill btn--lg btn--block">Submit Deletion Request</button>
+          </div>
+        </form>
+
+        <div class="page-form__success" id="formSuccess" style="display:none">
+          <div class="page-form__success-icon">✓</div>
+          <h3>Request Submitted</h3>
+          <p>Your account deletion request has been received. Our support team will review your request and contact you within 5–7 business days for identity verification.</p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Before You Delete</h2>
+        <p>Consider the following before submitting your deletion request:</p>
+        <ul class="check-list">
+          <li>Ensure all pending transfers are completed or cancelled</li>
+          <li>Withdraw any remaining balance from your account</li>
+          <li>Download any receipts or records you wish to keep</li>
+          <li>Account deletion is permanent and cannot be undone</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>What Gets Deleted</h2>
+        <p>Upon successful account deletion, the following data will be permanently removed:</p>
+        <ul class="check-list">
+          <li>Your account profile and personal information</li>
+          <li>Saved recipient details</li>
+          <li>Transaction history (subject to legal retention requirements)</li>
+          <li>Payment methods and linked accounts</li>
+          <li>App preferences and settings</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Data Retention</h2>
+        <p>Some information may be retained as required by law or for legitimate business purposes:</p>
+        <ul class="check-list">
+          <li>Transaction records may be retained for regulatory compliance (SECP, BNM requirements)</li>
+          <li>Anti-fraud and security logs may be retained for a limited period</li>
+          <li>Aggregated, anonymized data may be retained for analytics purposes</li>
+        </ul>
+      </section>
+
+      <section class="content-section">
+        <h2>Need Help?</h2>
+        <p>If you have questions about the account deletion process, contact our support team:</p>
+        <div class="contact-card">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:support@payngo.site">support@payngo.site</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Phone</span>
+            <a href="tel:+923416161374">+92 341 616 1374</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <div class="foot__logo">
+          <div class="hdr__mark" aria-hidden="true">P</div> PayNGo
+        </div>
+        <p class="foot__brand-d">Fast, transparent money transfers from Malaysia to Pakistan. Real-time rates, no hidden fees, delivered in minutes.</p>
+        <div class="foot__social">
+          <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+          <a href="https://x.com/" aria-label="X" target="_blank" rel="noopener">X</a>
+          <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">&#x1F4F7;</a>
+          <a href="https://tiktok.com/" aria-label="TikTok" target="_blank" rel="noopener">&#x266A;</a>
+        </div>
+      </div>
+      <div class="foot__col">
+        <div class="foot__col-t">Product</div>
+        <ul>
+          <li><a href="index.html#exchange-rate">Exchange Rate</a></li>
+          <li><a href="index.html#calculator">Calculator</a></li>
+          <li><a href="index.html#download">Download App</a></li>
+          <li><a href="index.html#features">Features</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <div class="foot__col-t">Support</div>
+        <ul>
+          <li><a href="tel:+923416161374">+92 341 616 1374</a></li>
+          <li><a href="mailto:support@payngo.site">support@payngo.site</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <div class="foot__col-t">Legal</div>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="cookies.html">Cookie Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="account-deletion.html">Account Deletion</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <p>&copy; 2025 PayNGo. All rights reserved. Powered by Vortex Digital Solutions Pvt Ltd. SECP License #: SECP/ISB/0299106/2025</p>
+      <div class="foot__bottom-links">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="account-deletion.html">Account Deletion</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
