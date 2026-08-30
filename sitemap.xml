@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://payngo.com/</loc>
-    <lastmod>2026-08-29</lastmod>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/</loc>
+    <lastmod>2025-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/about.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/faq.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/contact.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/privacy-policy.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/terms.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/cookies.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/disclaimer.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://abdullaab1221-crypto.github.io/payngo-website/account-deletion.html</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /demos/
-Disallow: /orders/
-Disallow: /prompts/
 
-Sitemap: https://payngo.com/sitemap.xml
+Sitemap: https://abdullaab1221-crypto.github.io/payngo-website/sitemap.xml
