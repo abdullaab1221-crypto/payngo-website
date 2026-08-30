@@ -326,7 +326,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
    HOW IT WORKS — Timeline
    ======================================== */
 .how{padding:var(--section) 0}
-.how__timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-8);margin-top:var(--sp-10);position:relative}
+.how__timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-8);margin-top:var(--sp-10);position:relative}
 .how__step{text-align:center;position:relative}
 .how__num{width:52px;height:52px;border-radius:50%;background:var(--ink-3);border:1.5px solid rgba(255,255,255,0.08);display:grid;place-items:center;font-size:var(--fs-lg);font-weight:var(--w-bold);color:var(--mint);margin:0 auto var(--sp-5);position:relative;z-index:2}
 .how__step-title{font-size:var(--fs-base);font-weight:var(--w-semibold);color:var(--white);margin-bottom:var(--sp-2)}
@@ -432,6 +432,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
 @media(min-width:768px){
   .xr__chart-box{height:300px}
   .cta__phone-frame{width:220px;height:440px}
+  .how__timeline{grid-template-columns:repeat(2,1fr)}
 }
 @media(min-width:1024px){
   .hdr__nav{display:flex}
