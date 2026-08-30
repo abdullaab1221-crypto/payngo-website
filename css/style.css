@@ -160,17 +160,17 @@ input{font-family:inherit;border:none;outline:none;background:none}
 
 .btn--sm{padding:7px 14px;font-size:var(--fs-sm);min-height:34px}
 /* Hero CTA buttons — white on dark hero background */
-.btn--hero{background:var(--white);color:var(--brand);border-color:var(--white)}
-.btn--hero svg{fill:var(--brand)}
-.btn--hero:hover{background:var(--surface-alt);border-color:var(--surface-alt);box-shadow:0 4px 20px rgba(255,255,255,0.2);color:var(--brand-dark)}
-.btn--hero:hover svg{fill:var(--brand-dark)}
+.btn--hero{background:var(--white);color:var(--brand);border-color:var(--white);-webkit-text-fill-color:var(--brand)}
+.btn--hero svg,.btn--hero svg path{fill:var(--brand)}
+.btn--hero:hover{background:var(--surface-alt);border-color:var(--surface-alt);box-shadow:0 4px 20px rgba(255,255,255,0.2);color:var(--brand-dark);-webkit-text-fill-color:var(--brand-dark)}
+.btn--hero:hover svg,.btn--hero:hover svg path{fill:var(--brand-dark)}
 .btn--hero:focus-visible{outline:2px solid var(--white);outline-offset:2px}
-.btn--hero:active{transform:scale(0.97);background:var(--snow);color:var(--brand-dark)}
+.btn--hero:active{transform:scale(0.97);background:var(--snow);color:var(--brand-dark);-webkit-text-fill-color:var(--brand-dark)}
 
-.btn--hero-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.35)}
-.btn--hero-ghost:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6);color:var(--white)}
+.btn--hero-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.35);-webkit-text-fill-color:var(--white)}
+.btn--hero-ghost:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6);color:var(--white);-webkit-text-fill-color:var(--white)}
 .btn--hero-ghost:focus-visible{outline:2px solid var(--white);outline-offset:2px}
-.btn--hero-ghost:active{transform:scale(0.97);background:rgba(255,255,255,0.15)}
+.btn--hero-ghost:active{transform:scale(0.97);background:rgba(255,255,255,0.15);color:var(--white);-webkit-text-fill-color:var(--white)}
 
 .btn--lg{padding:13px 26px;font-size:var(--fs-md)}
 .btn--xl{padding:15px 32px;font-size:var(--fs-md);min-height:50px}
@@ -546,6 +546,9 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hdr__logo{height:30px}
   .foot__logo-img{height:34px}
   .hero__btns{flex-direction:column;align-items:stretch}
+  .hero__btns .btn{text-align:center;justify-content:center;color:var(--brand);-webkit-text-fill-color:var(--brand);background:var(--white);border-color:var(--white)}
+  .hero__btns .btn svg,.hero__btns .btn svg path{fill:var(--brand)}
+  .hero__btns .btn--hero-ghost{color:var(--white);-webkit-text-fill-color:var(--white);background:transparent;border-color:rgba(255,255,255,0.35)}
   .hero__proof{gap:var(--sp-3)}
   .hero__proof-val{font-size:var(--fs-lg)}
   .conv__box{padding:14px}
