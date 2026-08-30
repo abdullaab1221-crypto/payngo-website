@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Message for Aisha | WebNest Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    .bd-message-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bd-message-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 8rem;
+      font-family: var(--font-display);
+      color: rgba(245,166,35,0.08);
+      line-height: 1;
+    }
+    .bd-message-card__text {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.8;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .bd-message-card__author {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .bd-message-card__role {
+      font-size: 0.82rem;
+      color: var(--dim);
+      margin-top: 4px;
+    }
+    .bd-messages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bd-notice">
+    <strong>WebNest Birthday Demo</strong> — Moderate Package &bull; 5 Pages &bull; 10 Photos
+  </div>
+
+  <header class="bd-header">
+    <div class="bd-container bd-header__inner">
+      <a href="index.html" class="bd-brand">
+        <span class="bd-brand__icon">🎂</span>
+        Aisha's Birthday
+      </a>
+      <nav class="bd-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="message.html" class="active">Message</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-MOD-001" class="bd-btn bd-btn--whatsapp bd-btn--sm bd-header__cta" target="_blank" rel="noopener">
+        Order on WhatsApp
+      </a>
+      <button class="bd-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="bd-mobile">
+    <a href="index.html" data-link>Home</a>
+    <a href="story.html" data-link>Story</a>
+    <a href="timeline.html" data-link>Timeline</a>
+    <a href="gallery.html" data-link>Gallery</a>
+    <a href="message.html" data-link>Message</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-MOD-001" class="bd-btn bd-btn--whatsapp" target="_blank" rel="noopener">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <section class="bd-hero" style="min-height: 70vh;">
+    <div class="bd-hero__bg" style="background-image: url('https://images.pexels.com/photos/2526105/pexels-photo-2526105.jpeg?auto=compress&cs=tinysrgb&w=1600')"></div>
+    <div class="bd-hero__overlay"></div>
+    <div class="bd-hero__content">
+      <span class="bd-hero__eyebrow">Heartfelt Wishes</span>
+      <h1 class="bd-hero__name">Messages for You</h1>
+      <p class="bd-hero__message">Words from the heart, written with love, just for you on your special day.</p>
+    </div>
+  </section>
+
+  <!-- Main Message -->
+  <section class="bd-section">
+    <div class="bd-container bd-section__head">
+      <span class="bd-tag">From the Heart</span>
+      <h2 class="bd-title">A Special Birthday Message</h2>
+    </div>
+    <div class="bd-container">
+      <div class="bd-message-card bd-reveal">
+        <p class="bd-message-card__text">
+          Dear Aisha, on this special day, I want you to know how much you mean to all of us. Your kindness, your warmth, and your incredible spirit make the world a better place. May this year bring you all the happiness you deserve and more. Happy Birthday!
+        </p>
+        <p class="bd-message-card__author">With All Our Love</p>
+        <p class="bd-message-card__role">Family & Friends</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Messages -->
+  <section class="bd-section bd-section--alt">
+    <div class="bd-container bd-section__head">
+      <span class="bd-tag">Wishes</span>
+      <h2 class="bd-title">Birthday Wishes</h2>
+      <p class="bd-desc">Messages from the people who love you most.</p>
+    </div>
+    <div class="bd-container">
+      <div class="bd-messages-grid">
+        <div class="bd-message-card bd-reveal">
+          <p class="bd-message-card__text" style="font-size: 1.1rem;">
+            Wishing you a day that's as amazing as you are. May all your dreams come true this year!
+          </p>
+          <p class="bd-message-card__author">Mom & Dad</p>
+          <p class="bd-message-card__role">With love</p>
+        </div>
+        <div class="bd-message-card bd-reveal" data-delay="1">
+          <p class="bd-message-card__text" style="font-size: 1.1rem;">
+            Happy Birthday to the most wonderful sister! May your year be filled with joy and adventure.
+          </p>
+          <p class="bd-message-card__author">Your Siblings</p>
+          <p class="bd-message-card__role">Forever by your side</p>
+        </div>
+        <div class="bd-message-card bd-reveal" data-delay="2">
+          <p class="bd-message-card__text" style="font-size: 1.1rem;">
+            Here's to another year of laughter, fun, and unforgettable moments. You deserve the world!
+          </p>
+          <p class="bd-message-card__author">Best Friends</p>
+          <p class="bd-message-card__role">Always here for you</p>
+        </div>
+        <div class="bd-message-card bd-reveal" data-delay="3">
+          <p class="bd-message-card__text" style="font-size: 1.1rem;">
+            May your birthday be as bright and beautiful as your smile. Cheers to you!
+          </p>
+          <p class="bd-message-card__author">Colleagues</p>
+          <p class="bd-message-card__role">Work family</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bd-section">
+    <div class="bd-container">
+      <div class="bd-cta bd-reveal">
+        <h2 class="bd-cta__title">Add Your Own Message</h2>
+        <p class="bd-cta__desc">Get a personalized birthday website from WebNest with custom messages and memories.</p>
+        <div class="bd-cta__actions">
+          <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Birthday%20website%20like%20WN-BD-MOD-001" class="bd-btn bd-btn--whatsapp" target="_blank" rel="noopener">Order on WhatsApp</a>
+          <a href="index.html" class="bd-btn bd-btn--outline">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bd-final">
+    <span class="bd-final__emoji">💌</span>
+    <p class="bd-final__text">Every word written here comes straight from the heart. You are loved beyond measure!</p>
+    <p class="bd-final__sig">With love from WebNest</p>
+  </section>
+
+  <footer class="bd-footer">
+    <div class="bd-container">
+      <div class="bd-footer__inner">
+        <div class="bd-footer__brand">🎂 Aisha's Birthday</div>
+        <nav class="bd-footer__nav">
+          <a href="index.html">Home</a>
+          <a href="story.html">Story</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="message.html">Message</a>
+        </nav>
+      </div>
+      <div class="bd-footer__bottom">
+        <p>Crafted with love by <strong>WebNest</strong></p>
+        <span class="bd-footer__tag"> WN-BD-MOD-001 &bull; Moderate Package</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bd-lightbox">
+    <button class="bd-lightbox__close">&times;</button>
+    <img src="" alt="Full view">
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

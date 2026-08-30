@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed — WN Fashion</title>
+    <link rel="stylesheet" href="../shared/css/base.css">
+    <style>
+        :root{--ec-primary:#1a1a2e;--ec-secondary:#c9a96e;--ec-accent:#e8a0b4;--ec-bg:#faf9f7;--ec-text:#2d2d3f;--ec-light:#f5f0e8;--ec-border:#e5e0d8;--ec-success:#4a7c59;--ec-danger:#c44536;--ec-radius:8px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--ec-bg);color:var(--ec-text);line-height:1.6}
+        .ec-notice-bar{background:var(--ec-primary);color:#fff;text-align:center;padding:8px 16px;font-size:12px;letter-spacing:1px}
+        .ec-header{background:#fff;border-bottom:1px solid var(--ec-border);position:sticky;top:0;z-index:100}
+        .ec-header-inner{max-width:1400px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+        .ec-logo{font-size:28px;font-weight:700;color:var(--ec-primary);letter-spacing:4px;text-decoration:none}
+        .ec-header-inner .ec-steps{display:flex;gap:8px;align-items:center}
+        .ec-step{display:flex;align-items:center;gap:6px;font-size:13px;color:#888}
+        .ec-step-done{color:var(--ec-success)}
+        .ec-step-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;border:1px solid #ccc}
+        .ec-step-done .ec-step-num{background:var(--ec-success);color:#fff;border-color:var(--ec-success)}
+        .ec-confirmation{max-width:700px;margin:0 auto;padding:60px 24px;text-align:center}
+        .ec-success-icon{width:80px;height:80px;border-radius:50%;background:var(--ec-success);color:#fff;font-size:36px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+        .ec-confirmation h1{font-size:28px;font-weight:300;letter-spacing:2px;margin-bottom:8px}
+        .ec-confirmation .ec-order-id{font-size:16px;color:var(--ec-secondary);font-weight:600;margin-bottom:24px}
+        .ec-confirmation p{color:#888;margin-bottom:8px}
+        .ec-order-details{background:#fff;border-radius:var(--ec-radius);border:1px solid var(--ec-border);padding:32px;margin:32px 0;text-align:left}
+        .ec-order-details h2{font-size:18px;font-weight:500;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--ec-border)}
+        .ec-detail-row{display:flex;justify-content:space-between;padding:8px 0;font-size:14px}
+        .ec-detail-label{color:#888}
+        .ec-order-items{margin-top:20px;border-top:1px solid var(--ec-border);padding-top:16px}
+        .ec-order-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f0f0f0}
+        .ec-order-item:last-child{border:none}
+        .ec-order-item-img{width:60px;height:60px;border-radius:6px;overflow:hidden;flex-shrink:0}
+        .ec-order-item-img img{width:100%;height:100%;object-fit:cover}
+        .ec-order-item-info{flex:1}
+        .ec-order-item-info h4{font-size:14px;font-weight:500}
+        .ec-order-item-info p{font-size:12px;color:#888}
+        .ec-order-item-price{font-size:14px;font-weight:600}
+        .ec-actions{display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+        .ec-btn{display:inline-block;padding:14px 32px;background:var(--ec-secondary);color:#fff;text-decoration:none;font-size:14px;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;border-radius:var(--ec-radius);transition:all .3s}
+        .ec-btn:hover{background:#b8944f}
+        .ec-btn-outline{background:transparent;border:1px solid var(--ec-border);color:var(--ec-text)}
+        .ec-btn-outline:hover{background:var(--ec-primary);color:#fff;border-color:var(--ec-primary)}
+        .ec-whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;background:#25d366;color:#fff;text-decoration:none;font-size:14px;letter-spacing:1px;border-radius:var(--ec-radius);margin-top:16px}
+        .ec-footer{background:var(--ec-primary);color:#fff;padding:60px 24px 24px;margin-top:60px}
+        .ec-footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+        .ec-footer h4{font-size:14px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;color:var(--ec-secondary)}
+        .ec-footer p,.ec-footer a{color:#aaa;font-size:13px;text-decoration:none;line-height:2}
+        .ec-footer a:hover{color:#fff}
+        .ec-footer-bottom{max-width:1400px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:12px;color:#666}
+        @media(max-width:768px){.ec-header-inner .ec-steps{display:none}.ec-footer-inner{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="ec-notice-bar">WN Fashion Store — Moderate Package | WN-ECOM-FASHION-MOD-001</div>
+    <header class="ec-header">
+        <div class="ec-header-inner">
+            <a href="index.html" class="ec-logo">WN Fashion</a>
+            <div class="ec-steps">
+                <div class="ec-step ec-step-done"><span class="ec-step-num">?</span> Cart</div>
+                <span style="color:#ccc">?</span>
+                <div class="ec-step ec-step-done"><span class="ec-step-num">?</span> Checkout</div>
+                <span style="color:#ccc">?</span>
+                <div class="ec-step ec-step-done"><span class="ec-step-num">?</span> Confirmation</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="ec-confirmation" id="ec-confirmation"></div>
+
+    <footer class="ec-footer">
+        <div class="ec-footer-inner">
+            <div><h4>WN Fashion</h4><p>Premium fashion for the modern woman.</p></div>
+            <div><h4>Quick Links</h4><a href="shop.html">Shop All</a><br><a href="shop.html?category=dresses">Dresses</a></div>
+            <div><h4>Help</h4><a href="account.html">My Account</a><br><a href="cart.html">Cart</a></div>
+            <div><h4>Contact</h4><p>WhatsApp: +92 300 0000000</p></div>
+        </div>
+        <div class="ec-footer-bottom">&copy; 2026 WN Fashion. All rights reserved. | WN-ECOM-FASHION-MOD-001</div>
+    </footer>
+
+    <script src="../shared/js/base.js"></script>
+    <script>
+    function ecFormatPrice(p){return'Rs. '+p.toLocaleString()}
+    const params=new URLSearchParams(window.location.search);
+    const orderId=params.get('id')||'ORD-DEMO';
+    const orders=JSON.parse(localStorage.getItem('ec_orders')||'[]');
+    const order=orders.find(o=>o.id===orderId)||orders[0];
+    if(order){
+        document.getElementById('ec-confirmation').innerHTML=`
+            <div class="ec-success-icon">?</div>
+            <h1>Thank You!</h1>
+            <div class="ec-order-id">${order.id}</div>
+            <p>Your order has been placed successfully.</p>
+            <p>We'll send a confirmation to ${order.shipping?.email||'your email'}.</p>
+            <div class="ec-order-details">
+                <h2>Order Details</h2>
+                <div class="ec-detail-row"><span class="ec-detail-label">Name</span><span>${order.shipping?.name||'N/A'}</span></div>
+                <div class="ec-detail-row"><span class="ec-detail-label">Phone</span><span>${order.shipping?.phone||'N/A'}</span></div>
+                <div class="ec-detail-row"><span class="ec-detail-label">Address</span><span>${order.shipping?.address||'N/A'}, ${order.shipping?.city||''}</span></div>
+                <div class="ec-detail-row"><span class="ec-detail-label">Payment</span><span>${order.payment==='cod'?'Cash on Delivery':order.payment==='bank'?'Bank Transfer':'JazzCash'}</span></div>
+                <div class="ec-detail-row"><span class="ec-detail-label">Total</span><span style="font-weight:600">${ecFormatPrice(order.total)}</span></div>
+                <div class="ec-order-items">
+                    ${(order.items||[]).map(item=>`
+                    <div class="ec-order-item">
+                        <div class="ec-order-item-img"><img src="${item.image}" alt="${item.name}"></div>
+                        <div class="ec-order-item-info"><h4>${item.name}</h4><p>Qty: ${item.qty} | Size: ${item.size}</p></div>
+                        <div class="ec-order-item-price">${ecFormatPrice(item.price*item.qty)}</div>
+                    </div>`).join('')}
+                </div>
+            </div>
+            <div class="ec-actions">
+                <a href="shop.html" class="ec-btn">Continue Shopping</a>
+                <a href="account.html" class="ec-btn ec-btn-outline">My Account</a>
+            </div>
+            <a href="https://wa.me/923281190004?text=Hello%20WebNest%2C%20I%20am%20interested%20in%20Fashion%20E-commerce%20%E2%80%94%20Moderate%20Package%20(WN-ECOM-FASHION-MOD-001)." target="_blank" class="ec-whatsapp-btn">?? Contact us on WhatsApp</a>
+        `;
+    } else {
+        document.getElementById('ec-confirmation').innerHTML=`
+            <div class="ec-success-icon">?</div>
+            <h1>Order Confirmed!</h1>
+            <p>Thank you for shopping with WN Fashion.</p>
+            <div class="ec-actions">
+                <a href="shop.html" class="ec-btn">Continue Shopping</a>
+                <a href="account.html" class="ec-btn ec-btn-outline">My Account</a>
+            </div>
+        `;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Nexus Digital Agency | WN-BIZ-AGENCY-BAS-001</title>
+  <meta name="description" content="Explore our portfolio of successful projects including web design, branding, marketing campaigns, and app development.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root {
+      --primary: #06b6d4;
+      --primary-light: #22d3ee;
+      --primary-dark: #0891b2;
+    }
+  </style>
+</head>
+<body>
+  <div class="biz-notice">
+    <div class="biz-container">
+      Demo: <strong>Nexus Digital — Basic Package</strong> | ID: <strong>WN-BIZ-AGENCY-BAS-001</strong>
+    </div>
+  </div>
+
+  <header class="biz-header">
+    <div class="biz-container biz-header__inner">
+      <a href="index.html" class="biz-header__logo">
+        <span class="biz-header__logo-icon">N</span>
+        <span class="biz-header__logo-text">Nexus Digital</span>
+      </a>
+      <nav class="biz-nav" id="bizNav">
+        <a href="index.html" class="biz-nav__link">Home</a>
+        <a href="services.html" class="biz-nav__link">Services</a>
+        <a href="portfolio.html" class="biz-nav__link biz-nav__link--active">Portfolio</a>
+        <a href="contact.html" class="biz-nav__link">Contact</a>
+        <a href="admin.html" class="biz-nav__link biz-nav__link--admin">Admin</a>
+      </nav>
+      <button class="biz-header__toggle" id="bizMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="biz-mobile" id="bizMobile">
+    <div class="biz-mobile__overlay" id="bizMobileOverlay"></div>
+    <div class="biz-mobile__panel">
+      <button class="biz-mobile__close" id="bizMobileClose">&times;</button>
+      <nav class="biz-mobile__nav">
+        <a href="index.html" class="biz-mobile__link">Home</a>
+        <a href="services.html" class="biz-mobile__link">Services</a>
+        <a href="portfolio.html" class="biz-mobile__link">Portfolio</a>
+        <a href="contact.html" class="biz-mobile__link">Contact</a>
+        <a href="admin.html" class="biz-mobile__link">Admin</a>
+        <a href="https://wa.me/923281190004?text=Hi%20Nexus%20Digital!%20I%20need%20help%20with%20a%20project." class="biz-mobile__link biz-mobile__link--cta" target="_blank">WhatsApp Us</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="biz-hero biz-hero--page" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80');">
+    <div class="biz-hero__overlay"></div>
+    <div class="biz-container biz-hero__content">
+      <p class="biz-hero__tag">Our Work</p>
+      <h1 class="biz-hero__title">Portfolio</h1>
+      <p class="biz-hero__desc">Explore our collection of successful projects that delivered real results for our clients.</p>
+    </div>
+  </section>
+
+  <section class="biz-portfolio">
+    <div class="biz-container">
+      <div class="biz-section__header">
+        <p class="biz-section__tag">Case Studies</p>
+        <h2 class="biz-section__title">Featured Projects</h2>
+        <p class="biz-section__desc">Each project represents a unique challenge and a creative solution that delivered measurable business results.</p>
+      </div>
+
+      <div class="biz-portfolio__filters">
+        <button class="biz-portfolio__filter biz-portfolio__filter--active" data-filter="all">All</button>
+        <button class="biz-portfolio__filter" data-filter="web">Web Design</button>
+        <button class="biz-portfolio__filter" data-filter="brand">Branding</button>
+        <button class="biz-portfolio__filter" data-filter="marketing">Marketing</button>
+        <button class="biz-portfolio__filter" data-filter="app">App Development</button>
+      </div>
+
+      <div class="biz-portfolio__grid">
+        <article class="biz-portfolio__item" data-category="web">
+          <div class="biz-portfolio__image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="E-Commerce Redesign" loading="lazy">
+          </div>
+          <div class="biz-portfolio__body">
+            <div class="biz-portfolio__category">Web Design</div>
+            <h3 class="biz-portfolio__title">E-Commerce Redesign</h3>
+            <p class="biz-portfolio__desc">Complete redesign of an e-commerce platform resulting in 40% increase in conversions and Rs. 8 lakh revenue increase.</p>
+            <div class="biz-portfolio__stats">
+              <span class="biz-portfolio__stat">+40% Conversions</span>
+              <span class="biz-portfolio__stat">Rs. 8L Revenue</span>
+            </div>
+          </div>
+        </article>
+        <article class="biz-portfolio__item" data-category="brand">
+          <div class="biz-portfolio__image">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Brand Launch Campaign" loading="lazy">
+          </div>
+          <div class="biz-portfolio__body">
+            <div class="biz-portfolio__category">Branding</div>
+            <h3 class="biz-portfolio__title">Brand Launch Campaign</h3>
+            <p class="biz-portfolio__desc">Complete brand identity and launch campaign achieving 200% brand awareness boost in the target market.</p>
+            <div class="biz-portfolio__stats">
+              <span class="biz-portfolio__stat">+200% Awareness</span>
+              <span class="biz-portfolio__stat">Market Leader</span>
+            </div>
+          </div>
+        </article>
+        <article class="biz-portfolio__item" data-category="app">
+          <div class="biz-portfolio__image">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Mobile App Development" loading="lazy">
+          </div>
+          <div class="biz-portfolio__body">
+            <div class="biz-portfolio__category">App Development</div>
+            <h3 class="biz-portfolio__title">Mobile App Development</h3>
+            <p class="biz-portfolio__desc">Custom mobile application that reached 50K downloads within the first three months of launch.</p>
+            <div class="biz-portfolio__stats">
+              <span class="biz-portfolio__stat">50K Downloads</span>
+              <span class="biz-portfolio__stat">4.8 Rating</span>
+            </div>
+          </div>
+        </article>
+        <article class="biz-portfolio__item" data-category="marketing">
+          <div class="biz-portfolio__image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SEO Optimization" loading="lazy">
+          </div>
+          <div class="biz-portfolio__body">
+            <div class="biz-portfolio__category">Marketing</div>
+            <h3 class="biz-portfolio__title">SEO Optimization</h3>
+            <p class="biz-portfolio__desc">Comprehensive SEO strategy that increased organic traffic by 300% and improved search rankings.</p>
+            <div class="biz-portfolio__stats">
+              <span class="biz-portfolio__stat">+300% Traffic</span>
+              <span class="biz-portfolio__stat">Page 1 Rankings</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-cta">
+    <div class="biz-container biz-cta__inner">
+      <h2 class="biz-cta__title">Want to Be Our Next Success Story?</h2>
+      <p class="biz-cta__desc">Let's create something amazing together. Share your project idea and we'll show you how we can help.</p>
+      <div class="biz-cta__actions">
+        <a href="contact.html" class="biz-btn biz-btn--primary">Start Your Project</a>
+        <a href="https://wa.me/923281190004?text=Hi%20Nexus%20Digital!%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project." class="biz-btn biz-btn--whatsapp" target="_blank">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="biz-footer">
+    <div class="biz-container biz-footer__grid">
+      <div class="biz-footer__col">
+        <a href="index.html" class="biz-footer__logo">
+          <span class="biz-footer__logo-icon">N</span>
+          <span>Nexus Digital</span>
+        </a>
+        <p class="biz-footer__text">Creative digital agency crafting exceptional digital experiences for businesses worldwide.</p>
+      </div>
+      <div class="biz-footer__col">
+        <h4 class="biz-footer__heading">Quick Links</h4>
+        <ul class="biz-footer__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="biz-footer__col">
+        <h4 class="biz-footer__heading">Services</h4>
+        <ul class="biz-footer__links">
+          <li><a href="services.html">Web Design</a></li>
+          <li><a href="services.html">Brand Identity</a></li>
+          <li><a href="services.html">Digital Marketing</a></li>
+          <li><a href="services.html">App Development</a></li>
+        </ul>
+      </div>
+      <div class="biz-footer__col">
+        <h4 class="biz-footer__heading">Contact Info</h4>
+        <ul class="biz-footer__contact">
+          <li>📍 12 Innovation Hub, Johar Town, Lahore</li>
+          <li>📞 +92 322 888 4567</li>
+          <li>✉️ hello@nexusdigital.pk</li>
+          <li>🕐 Mon-Fri 9AM-6PM, Sat 10AM-2PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="biz-footer__bottom">
+      <div class="biz-container">
+        <p>&copy; 2026 Nexus Digital. All rights reserved. | WN-BIZ-AGENCY-BAS-001</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/923281190004?text=Hi%20Nexus%20Digital!%20I%20need%20help%20with%20a%20project." class="biz-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <div class="biz-lightbox" id="bizLightbox">
+    <button class="biz-lightbox__close" id="bizLightboxClose">&times;</button>
+    <div class="biz-lightbox__content">
+      <img src="" alt="" id="bizLightboxImg">
+    </div>
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

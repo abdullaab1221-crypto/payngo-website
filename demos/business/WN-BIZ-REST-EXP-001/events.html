@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Events | La Maison Restaurant | WN-BIZ-REST-EXP-001</title>
+  <meta name="description" content="Host your special events at La Maison Restaurant. Private dining, corporate events, weddings, and celebrations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root { --primary: #d97706; --primary-light: #f59e0b; --primary-dark: #b45309; }
+    .biz-hero-page { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 120px 20px 60px; text-align: center; color: #fff; }
+    .biz-hero-page__title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); margin-bottom: 12px; }
+    .biz-hero-page__text { opacity: 0.9; max-width: 600px; margin: 0 auto; }
+    .biz-section { padding: 80px 20px; }
+    .biz-section--alt { background: #f9f5f0; }
+    .biz-venues { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .biz-venue { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.4s; }
+    .biz-venue:hover { transform: translateY(-8px); }
+    .biz-venue__img { width: 100%; height: 220px; object-fit: cover; }
+    .biz-venue__body { padding: 32px; }
+    .biz-venue__title { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 12px; }
+    .biz-venue__text { color: #666; line-height: 1.7; margin-bottom: 16px; }
+    .biz-venue__details { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; color: #888; }
+    .biz-venue__detail { display: flex; align-items: center; gap: 6px; }
+    .biz-event-types { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .biz-event-type { text-align: center; padding: 36px 24px; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .biz-event-type__icon { font-size: 48px; margin-bottom: 16px; }
+    .biz-event-type__title { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 8px; }
+    .biz-event-type__text { color: #666; font-size: 14px; }
+    .biz-inquiry-form { max-width: 800px; margin: 0 auto; }
+    .biz-form-group { margin-bottom: 20px; }
+    .biz-form-label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #333; }
+    .biz-form-input, .biz-form-select, .biz-form-textarea { width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; font-family: inherit; transition: border-color 0.3s; box-sizing: border-box; }
+    .biz-form-input:focus, .biz-form-select:focus, .biz-form-textarea:focus { outline: none; border-color: var(--primary); }
+    .biz-form-textarea { min-height: 120px; resize: vertical; }
+    .biz-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 768px) { .biz-venues, .biz-event-types { grid-template-columns: 1fr; } .biz-form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="biz-notice"><div class="biz-container">Demo: <strong>La Maison Restaurant — Expert Package</strong> | ID: <strong>WN-BIZ-REST-EXP-001</strong></div></div>
+
+  <header class="biz-header">
+    <div class="biz-header__inner">
+      <a href="index.html" class="biz-brand"><span class="biz-brand__icon">🍽</span><span>La Maison</span></a>
+      <nav class="biz-nav"><a href="index.html" class="biz-nav__link">Home</a><a href="menu.html" class="biz-nav__link">Menu</a><a href="gallery.html" class="biz-nav__link">Gallery</a><a href="about.html" class="biz-nav__link">About</a><a href="testimonials.html" class="biz-nav__link">Reviews</a><a href="reservations.html" class="biz-nav__link">Reservations</a><a href="contact.html" class="biz-nav__link">Contact</a></nav>
+      <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20would%20like%20to%20inquire%20about%20hosting%20a%20private%20event." class="biz-header__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+      <div class="biz-burger"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+  <div class="biz-mobile">
+    <div class="biz-mobile__close">✕</div>
+    <a href="index.html" class="biz-mobile__link">Home</a><a href="menu.html" class="biz-mobile__link">Menu</a><a href="gallery.html" class="biz-mobile__link">Gallery</a><a href="about.html" class="biz-mobile__link">About</a><a href="testimonials.html" class="biz-mobile__link">Reviews</a><a href="reservations.html" class="biz-mobile__link">Reservations</a><a href="offers.html" class="biz-mobile__link">Offers</a><a href="events.html" class="biz-mobile__link">Events</a><a href="contact.html" class="biz-mobile__link">Contact</a>
+    <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20would%20like%20to%20inquire%20about%20hosting%20a%20private%20event." class="biz-mobile__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+  </div>
+
+  <section class="biz-hero-page"><h1 class="biz-hero-page__title">Private Events</h1><p class="biz-hero-page__text">Create unforgettable memories with our exceptional private dining and event services.</p></section>
+
+  <section class="biz-section">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px;"><div style="color:var(--primary);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:14px;margin-bottom:12px;">Our Venues</div><h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);">Event Spaces</h2></div>
+    <div class="biz-venues">
+      <div class="biz-venue">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Private Dining Room" class="biz-venue__img">
+        <div class="biz-venue__body">
+          <h3 class="biz-venue__title">The Salon Privé</h3>
+          <p class="biz-venue__text">An intimate private dining room perfect for executive dinners, birthday celebrations, and romantic evenings.</p>
+          <div class="biz-venue__details">
+            <span class="biz-venue__detail">👥 Up to 12 guests</span>
+            <span class="biz-venue__detail">📍 Main Floor</span>
+            <span class="biz-venue__detail">🍽 Custom Menu</span>
+          </div>
+        </div>
+      </div>
+      <div class="biz-venue">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" alt="Wine Cellar" class="biz-venue__img">
+        <div class="biz-venue__body">
+          <h3 class="biz-venue__title">The Wine Cellar</h3>
+          <p class="biz-venue__text">Our exclusive wine cellar offers a unique setting surrounded by over 200 labels. Ideal for wine dinners and intimate gatherings.</p>
+          <div class="biz-venue__details">
+            <span class="biz-venue__detail">👥 Up to 8 guests</span>
+            <span class="biz-venue__detail">📍 Underground</span>
+            <span class="biz-venue__detail">🍷 Wine Pairing</span>
+          </div>
+        </div>
+      </div>
+      <div class="biz-venue">
+        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=800&q=80" alt="Grand Hall" class="biz-venue__img">
+        <div class="biz-venue__body">
+          <h3 class="biz-venue__title">The Grand Hall</h3>
+          <p class="biz-venue__text">Our spacious event hall is perfect for weddings, corporate events, and large celebrations with a dedicated events team.</p>
+          <div class="biz-venue__details">
+            <span class="biz-venue__detail">👥 Up to 80 guests</span>
+            <span class="biz-venue__detail">📍 Private Wing</span>
+            <span class="biz-venue__detail">🎉 Full Service</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section biz-section--alt">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px;"><div style="color:var(--primary);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:14px;margin-bottom:12px;">Event Types</div><h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);">What We Host</h2></div>
+    <div class="biz-event-types">
+      <div class="biz-event-type"><div class="biz-event-type__icon">🎉</div><h3 class="biz-event-type__title">Birthday</h3><p class="biz-event-type__text">Celebrate your special day with a customized menu and festive décor.</p></div>
+      <div class="biz-event-type"><div class="biz-event-type__icon">💍</div><h3 class="biz-event-type__title">Weddings</h3><p class="biz-event-type__text">Reception dinners and intimate wedding celebrations in elegant spaces.</p></div>
+      <div class="biz-event-type"><div class="biz-event-type__icon">💼</div><h3 class="biz-event-type__title">Corporate</h3><p class="biz-event-type__text">Business dinners, team celebrations, and client entertainment.</p></div>
+      <div class="biz-event-type"><div class="biz-event-type__icon">🥂</div><h3 class="biz-event-type__title">Anniversaries</h3><p class="biz-event-type__text">Romantic settings with wine pairings and special touches for couples.</p></div>
+    </div>
+  </section>
+
+  <section class="biz-section">
+    <div class="biz-inquiry-form">
+      <h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:24px;text-align:center;">Event Inquiry</h2>
+      <form onsubmit="handleEventInquiry(event)">
+        <div class="biz-form-row">
+          <div class="biz-form-group"><label class="biz-form-label">Your Name *</label><input type="text" class="biz-form-input" placeholder="Full name" required></div>
+          <div class="biz-form-group"><label class="biz-form-label">Email *</label><input type="email" class="biz-form-input" placeholder="your@email.com" required></div>
+        </div>
+        <div class="biz-form-row">
+          <div class="biz-form-group"><label class="biz-form-label">Phone *</label><input type="tel" class="biz-form-input" placeholder="+92 3XX XXX XXXX" required></div>
+          <div class="biz-form-group"><label class="biz-form-label">Event Type *</label><select class="biz-form-select" required><option value="">Select type</option><option>Birthday</option><option>Anniversary</option><option>Wedding Reception</option><option>Corporate Dinner</option><option>Other</option></select></div>
+        </div>
+        <div class="biz-form-row">
+          <div class="biz-form-group"><label class="biz-form-label">Preferred Date *</label><input type="date" class="biz-form-input" required></div>
+          <div class="biz-form-group"><label class="biz-form-label">Number of Guests *</label><select class="biz-form-select" required><option value="">Select</option><option>10-20</option><option>20-40</option><option>40-60</option><option>60-80</option><option>80+</option></select></div>
+        </div>
+        <div class="biz-form-group"><label class="biz-form-label">Additional Details</label><textarea class="biz-form-textarea" placeholder="Tell us about your event - special requests, dietary needs, budget..."></textarea></div>
+        <button type="submit" class="biz-btn biz-btn--primary" style="width:100%;">Submit Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="biz-section biz-section--alt" style="text-align:center;">
+    <h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;">Need Immediate Assistance?</h2>
+    <p style="color:#666;margin-bottom:24px;">Our events team is available to help plan your perfect occasion.</p>
+    <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20would%20like%20to%20inquire%20about%20hosting%20a%20private%20event." class="biz-btn biz-btn--primary" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+  </section>
+
+  <footer class="biz-footer">
+    <div class="biz-container biz-footer__grid">
+      <div><div class="biz-brand biz-brand--footer"><span class="biz-brand__icon">🍽</span><span>La Maison</span></div><p class="biz-footer__text">Fine dining in the heart of Downtown.</p></div>
+      <div><h4 class="biz-footer__title">Quick Links</h4><a href="index.html" class="biz-footer__link">Home</a><a href="menu.html" class="biz-footer__link">Menu</a><a href="gallery.html" class="biz-footer__link">Gallery</a><a href="about.html" class="biz-footer__link">About</a><a href="testimonials.html" class="biz-footer__link">Reviews</a><a href="reservations.html" class="biz-footer__link">Reservations</a><a href="offers.html" class="biz-footer__link">Offers</a><a href="events.html" class="biz-footer__link">Events</a><a href="contact.html" class="biz-footer__link">Contact</a></div>
+      <div><h4 class="biz-footer__title">Contact</h4><p class="biz-footer__text">42 Oak Street, Downtown</p><p class="biz-footer__text">+92 321 555 0199</p></div>
+      <div><h4 class="biz-footer__title">Hours</h4><p class="biz-footer__text">Mon-Sat: 12PM - 11PM</p><p class="biz-footer__text">Sunday: 12PM - 10PM</p></div>
+    </div>
+    <div class="biz-footer__bottom"><div class="biz-container"><p>&copy; 2026 La Maison Restaurant. All rights reserved.</p></div></div>
+  </footer>
+
+  <div class="biz-admin-toggle" onclick="toggleAdmin()">⚙️</div>
+  <div class="biz-admin" id="bizAdmin">
+    <div class="biz-admin__sidebar"><div class="biz-admin__sidebar-header"><h3>Admin Panel</h3><div class="biz-admin__close" onclick="toggleAdmin()">✕</div></div><nav class="biz-admin__nav"><a class="biz-admin__nav-link biz-admin__nav-link--active" onclick="showSection('overview')">Overview</a><a class="biz-admin__nav-link" onclick="showSection('menu')">Menu</a><a class="biz-admin__nav-link" onclick="showSection('gallery')">Gallery</a><a class="biz-admin__nav-link" onclick="showSection('testimonials')">Testimonials</a><a class="biz-admin__nav-link" onclick="showSection('reservations')">Reservations</a><a class="biz-admin__nav-link" onclick="showSection('events')">Events</a><a class="biz-admin__nav-link" onclick="showSection('offers')">Offers</a><a class="biz-admin__nav-link" onclick="showSection('inquiries')">Inquiries</a><a class="biz-admin__nav-link" onclick="showSection('settings')">Settings</a></nav></div>
+    <div class="biz-admin__main"><div class="biz-admin__topbar"><h2 class="biz-admin__title">Dashboard</h2><div class="biz-admin__close-mobile" onclick="toggleAdmin()">✕</div></div><div class="biz-admin__content"><div class="biz-admin__section" id="admin-overview"><div class="biz-admin__stats"><div class="biz-admin__stat"><div class="biz-admin__stat-value">312</div><div class="biz-admin__stat-label">Orders</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">95</div><div class="biz-admin__stat-label">Reservations</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">₨890K</div><div class="biz-admin__stat-label">Revenue</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">4.9★</div><div class="biz-admin__stat-label">Rating</div></div></div></div><div class="biz-admin__section" id="admin-menu" style="display:none;"><h3>Menu</h3><p>20 items.</p></div><div class="biz-admin__section" id="admin-gallery" style="display:none;"><h3>Gallery</h3><p>12 photos.</p></div><div class="biz-admin__section" id="admin-testimonials" style="display:none;"><h3>Testimonials</h3><p>8 reviews.</p></div><div class="biz-admin__section" id="admin-reservations" style="display:none;"><h3>Reservations</h3><p>95 total.</p></div><div class="biz-admin__section" id="admin-events" style="display:none;"><h3>Events</h3><p>3 upcoming.</p></div><div class="biz-admin__section" id="admin-offers" style="display:none;"><h3>Offers</h3><p>3 active.</p></div><div class="biz-admin__section" id="admin-inquiries" style="display:none;"><h3>Inquiries</h3><p>No new.</p></div><div class="biz-admin__section" id="admin-settings" style="display:none;"><h3>Settings</h3><p>La Maison — 42 Oak Street</p></div></div></div>
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+  <script>
+    function handleEventInquiry(e) { e.preventDefault(); alert('Thank you for your event inquiry! Our events team will contact you within 24 hours to discuss your requirements.'); e.target.reset(); }
+    function toggleAdmin() { document.getElementById('bizAdmin').classList.toggle('biz-admin--open'); }
+    function showSection(section) { document.querySelectorAll('.biz-admin__section').forEach(s => s.style.display = 'none'); document.getElementById('admin-' + section).style.display = 'block'; document.querySelectorAll('.biz-admin__nav-link').forEach(l => l.classList.remove('biz-admin__nav-link--active')); event.target.classList.add('biz-admin__nav-link--active'); }
+  </script>
+</body>
+</html>

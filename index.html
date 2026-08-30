@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayNGo — Send Money with Confidence</title>
+  <meta name="description" content="Check live MYR to PKR exchange rates instantly. Send money from Malaysia to Pakistan with confidence. No login required to view rates.">
+  <meta property="og:title" content="PayNGo — Send Money with Confidence">
+  <meta property="og:description" content="Check live MYR to PKR exchange rates instantly. No login required.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2310b981'/><text x='50' y='68' font-size='50' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>P</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="hdr" id="header">
+    <div class="wrap hdr__row">
+      <a href="#" class="hdr__brand" aria-label="PayNGo Home">
+        <span class="hdr__mark">P</span>
+        <span class="hdr__name">PayNGo</span>
+      </a>
+      <nav class="hdr__nav" aria-label="Main navigation">
+        <a href="#home" class="hdr__link on">Home</a>
+        <a href="#rates" class="hdr__link">Live Rates</a>
+        <a href="#how" class="hdr__link">How It Works</a>
+        <a href="#why" class="hdr__link">Why PayNGo</a>
+        <a href="#faq" class="hdr__link">FAQ</a>
+      </nav>
+      <a href="#rates" class="btn btn--fill btn--sm hdr__cta">See Live Rates</a>
+      <button class="hdr__burger" id="burgerBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE DRAWER ========== -->
+  <div class="drawer" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <div class="drawer__list">
+        <a href="#home" class="drawer__link">Home</a>
+        <a href="#rates" class="drawer__link">Live Rates</a>
+        <a href="#how" class="drawer__link">How It Works</a>
+        <a href="#why" class="drawer__link">Why PayNGo</a>
+        <a href="#faq" class="drawer__link">FAQ</a>
+      </div>
+      <a href="#rates" class="btn btn--fill drawer__cta">See Live Rates</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="hero__bg">
+        <div class="hero__bg-glow hero__bg-glow--1"></div>
+        <div class="hero__bg-glow hero__bg-glow--2"></div>
+        <div class="hero__bg-dots"></div>
+      </div>
+      <div class="wrap hero__grid">
+        <!-- Left — Text -->
+        <div class="hero__left rv">
+          <div class="hero__pill">
+            <span class="hero__pill-dot"></span>
+            Live MYR / PKR Exchange Rates
+          </div>
+          <h1 class="hero__h1">Send Money<br>with <em>Confidence</em></h1>
+          <p class="hero__sub">Check live exchange rates before you log in. Fast, transparent transfers from Malaysia to Pakistan &mdash; powered by real-time market data.</p>
+          <div class="hero__btns">
+            <a href="#rates" class="btn btn--fill btn--lg">See Live Rates</a>
+            <a href="#rates" class="btn btn--outline btn--lg">Get Started</a>
+          </div>
+          <div class="hero__proof">
+            <div class="hero__proof-item rv rv--d1">
+              <span class="hero__proof-val">53.42</span>
+              <span class="hero__proof-lbl">Current Rate</span>
+            </div>
+            <div class="hero__proof-item rv rv--d2">
+              <span class="hero__proof-val">RM 1,000+</span>
+              <span class="hero__proof-lbl">Min. Transfer</span>
+            </div>
+            <div class="hero__proof-item rv rv--d3">
+              <span class="hero__proof-val">24/7</span>
+              <span class="hero__proof-lbl">Rate Updates</span>
+            </div>
+          </div>
+        </div>
+        <!-- Right — Dashboard Card -->
+        <div class="hero__right rv">
+          <div class="dash">
+            <div class="dash__card">
+              <div class="dash__top">
+                <span class="dash__top-title">MYR / PKR</span>
+                <span class="dash__top-live">Live</span>
+              </div>
+              <div class="dash__rate">
+                <div class="dash__rate-label">Exchange Rate</div>
+                <div class="dash__rate-num" id="heroRate">53.42</div>
+                <div class="dash__rate-cur">1 MYR &asymp; PKR 53.42</div>
+              </div>
+              <div class="dash__row">
+                <span class="dash__row-l">24H High</span>
+                <span class="dash__row-v dash__row-v--g" id="heroHigh">53.68</span>
+              </div>
+              <div class="dash__row">
+                <span class="dash__row-l">24H Low</span>
+                <span class="dash__row-v dash__row-v--b" id="heroLow">53.18</span>
+              </div>
+              <div class="dash__row">
+                <span class="dash__row-l">Send RM 1,000</span>
+                <span class="dash__row-v dash__row-v--g" id="heroSend">PKR 53,420</span>
+              </div>
+              <div class="dash__spark">
+                <svg viewBox="0 0 200 48" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 40 Q10 38 20 35 T40 30 T60 32 T80 26 T100 22 T120 18 T140 15 T160 12 T180 10 T200 8" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+                  <path d="M0 40 Q10 38 20 35 T40 30 T60 32 T80 26 T100 22 T120 18 T140 15 T160 12 T180 10 T200 8 V48 H0Z" fill="url(#sparkGrad)" opacity="0.15"/>
+                  <defs>
+                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <!-- Floating pills — desktop only -->
+            <div class="float float--tl">
+              <div class="float__l">Today's Trend</div>
+              <div class="float__v float__v--g">&#9650; +0.12%</div>
+            </div>
+            <div class="float float--br">
+              <div class="float__l">Last Updated</div>
+              <div class="float__v">Just Now</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TICKER ========== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <div class="ticker__item"><span>MYR/PKR</span> <strong>53.42</strong> <span class="up">&#9650; +0.08%</span></div>
+        <div class="ticker__item"><span>USD/PKR</span> <strong>278.50</strong> <span class="dn">&#9660; -0.05%</span></div>
+        <div class="ticker__item"><span>EUR/PKR</span> <strong>302.15</strong> <span class="up">&#9650; +0.11%</span></div>
+        <div class="ticker__item"><span>GBP/PKR</span> <strong>354.80</strong> <span class="up">&#9650; +0.03%</span></div>
+        <div class="ticker__item"><span>SAR/PKR</span> <strong>74.22</strong> <span class="dn">&#9660; -0.02%</span></div>
+        <div class="ticker__item"><span>AED/PKR</span> <strong>75.90</strong> <span class="up">&#9650; +0.06%</span></div>
+        <!-- Duplicate for seamless scroll -->
+        <div class="ticker__item"><span>MYR/PKR</span> <strong>53.42</strong> <span class="up">&#9650; +0.08%</span></div>
+        <div class="ticker__item"><span>USD/PKR</span> <strong>278.50</strong> <span class="dn">&#9660; -0.05%</span></div>
+        <div class="ticker__item"><span>EUR/PKR</span> <strong>302.15</strong> <span class="up">&#9650; +0.11%</span></div>
+        <div class="ticker__item"><span>GBP/PKR</span> <strong>354.80</strong> <span class="up">&#9650; +0.03%</span></div>
+        <div class="ticker__item"><span>SAR/PKR</span> <strong>74.22</strong> <span class="dn">&#9660; -0.02%</span></div>
+        <div class="ticker__item"><span>AED/PKR</span> <strong>75.90</strong> <span class="up">&#9650; +0.06%</span></div>
+      </div>
+    </div>
+
+    <!-- ========== SEE RATES BEFORE LOGIN ========== -->
+    <section class="before-login" id="before-login">
+      <div class="wrap">
+        <div class="before-login__card rv">
+          <div class="before-login__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="before-login__text">
+            <h2 class="before-login__title">See Live Rates Before Login</h2>
+            <p class="before-login__desc">Check current exchange rates instantly. No login required.</p>
+          </div>
+          <div class="before-login__benefits">
+            <span class="before-login__benefit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live rates</span>
+            <span class="before-login__benefit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No login required</span>
+            <span class="before-login__benefit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Clear conversion</span>
+          </div>
+          <a href="#rates" class="btn btn--fill btn--sm before-login__cta">View Live Rates</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== EXCHANGE RATE SECTION ========== -->
+    <section class="xr" id="rates">
+      <div class="wrap">
+        <span class="s-tag rv">Live Exchange Rate</span>
+        <h2 class="s-title rv">Real-Time MYR to PKR</h2>
+        <p class="s-desc rv">Monitor live rates, track trends and calculate your transfer amount with real-time market data.</p>
+
+        <div class="xr__card rv">
+          <div class="xr__head">
+            <div class="xr__pair">
+              <span class="xr__flag">&#127482;&#127480;</span>
+              <span class="xr__arr">&rarr;</span>
+              <span class="xr__flag">&#127477;&#127485;</span>
+              <div>
+                <div class="xr__pair-name">MYR / PKR</div>
+                <div class="xr__pair-sub">Malaysian Ringgit to Pakistani Rupee</div>
+              </div>
+            </div>
+            <div class="xr__big">
+              <span class="xr__big-val" id="exchangeRateValue">53.42</span>
+              <span class="xr__chg xr__chg--up" id="exchangeRateChange">+0.08%</span>
+            </div>
+            <div class="xr__meta">
+              <span class="xr__live">Live</span>
+              <span>Updated <span id="exchangeRateUpdated">just now</span></span>
+              <span>1 MYR &asymp; PKR <span id="exchangeRateAvg">53.42</span></span>
+            </div>
+          </div>
+
+          <div class="xr__chart-wrap">
+            <div class="xr__tfs" role="tablist">
+              <button class="xr__tf" role="tab" aria-selected="false" data-days="1">1D</button>
+              <button class="xr__tf on" role="tab" aria-selected="true" data-days="7">1W</button>
+              <button class="xr__tf" role="tab" aria-selected="false" data-days="30">1M</button>
+              <button class="xr__tf" role="tab" aria-selected="false" data-days="90">3M</button>
+              <button class="xr__tf" role="tab" aria-selected="false" data-days="365">1Y</button>
+            </div>
+            <div class="xr__chart-box">
+              <canvas id="rateChart"></canvas>
+              <div class="xr__tip" id="chartTip">
+                <div class="xr__tip-t"></div>
+                <div class="xr__tip-v"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="xr__stats">
+            <div class="xr__stat">
+              <div class="xr__stat-l">24H High</div>
+              <div class="xr__stat-v" id="exchangeRateHigh">53.68</div>
+            </div>
+            <div class="xr__stat">
+              <div class="xr__stat-l">24H Low</div>
+              <div class="xr__stat-v" id="exchangeRateLow">53.18</div>
+            </div>
+            <div class="xr__stat">
+              <div class="xr__stat-l">24H Avg</div>
+              <div class="xr__stat-v" id="exchangeRateAvg2">53.42</div>
+            </div>
+          </div>
+          <div class="xr__note">Rates are indicative and update every few seconds. Actual transfer rates may vary.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CALCULATOR ========== -->
+    <section class="conv" id="converter">
+      <div class="wrap">
+        <div class="conv__box rv">
+          <span class="s-tag" style="margin-bottom:16px">Quick Converter</span>
+          <div class="conv__field">
+            <label class="conv__lbl" for="calcSendInput">You Send</label>
+            <div class="conv__inp-wrap">
+              <span class="conv__ccy">&#127482;&#127480; MYR</span>
+              <input type="number" class="conv__inp" id="calcSendInput" value="1000" min="0" step="1" placeholder="0.00" aria-label="Send amount in MYR">
+            </div>
+          </div>
+          <button class="conv__swap" id="calcSwapBtn" aria-label="Swap currencies">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+          </button>
+          <div class="conv__field">
+            <label class="conv__lbl">They Receive</label>
+            <div class="conv__out">
+              <div class="conv__out-val">53,420</div>
+              <div class="conv__out-cur">PKR</div>
+            </div>
+          </div>
+          <div class="conv__rate">Rate: <b>1 MYR = 53.42 PKR</b></div>
+          <div class="conv__fee">No hidden fees. Competitive exchange rates guaranteed.</div>
+          <div class="conv__btns">
+            <a href="#" class="btn btn--fill btn--block">Send Money Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHY PAYNGO ========== -->
+    <section class="why" id="why">
+      <div class="wrap">
+        <span class="s-tag rv">Why PayNGo</span>
+        <h2 class="s-title rv">Why People Choose PayNGo</h2>
+        <p class="s-desc rv">Built for the Malaysian-Pakistani community. Fast, fair, and transparent.</p>
+        <div class="why__row">
+          <div class="why__text rv">
+            <h3 style="font-size:var(--fs-2xl);font-weight:var(--w-bold);color:var(--white);line-height:1.2;letter-spacing:-0.03em">A better way to send money home.</h3>
+            <p style="font-size:var(--fs-base);color:var(--mist);line-height:1.7;margin-top:var(--sp-4)">PayNGo gives you real-time exchange rates, transparent pricing and a simple transfer experience. No surprises, no hidden charges.</p>
+          </div>
+          <div class="why__list rv">
+            <div class="why__item">
+              <div class="why__item-icon why__item-icon--g">&#9889;</div>
+              <div>
+                <div class="why__item-title">Instant Rate Updates</div>
+                <div class="why__item-desc">Live MYR/PKR rates refresh every few seconds so you always get the latest market data.</div>
+              </div>
+            </div>
+            <div class="why__item">
+              <div class="why__item-icon why__item-icon--b">&#128274;</div>
+              <div>
+                <div class="why__item-title">Secure Transfers</div>
+                <div class="why__item-desc">Bank-grade security protects every transaction. Your money arrives safely, every time.</div>
+              </div>
+            </div>
+            <div class="why__item">
+              <div class="why__item-icon why__item-icon--v">&#127919;</div>
+              <div>
+                <div class="why__item-title">Competitive Rates</div>
+                <div class="why__item-desc">We consistently offer better rates than traditional banks and money transfer services.</div>
+              </div>
+            </div>
+            <div class="why__item">
+              <div class="why__item-icon why__item-icon--y">&#128100;</div>
+              <div>
+                <div class="why__item-title">No Login Required</div>
+                <div class="why__item-desc">Check live rates and calculate transfers without creating an account. Start sending when you're ready.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <span class="s-tag rv">Simple Process</span>
+        <h2 class="s-title rv">How It Works</h2>
+        <p class="s-desc rv">Three simple steps to send money from Malaysia to Pakistan.</p>
+        <div class="how__timeline">
+          <div class="how__step rv">
+            <div class="how__num">1</div>
+            <h3 class="how__step-title">Check the Rate</h3>
+            <p class="how__step-desc">View live MYR/PKR exchange rates anytime. No login required.</p>
+          </div>
+          <div class="how__step rv rv--d1">
+            <div class="how__num">2</div>
+            <h3 class="how__step-title">Enter Amount</h3>
+            <p class="how__step-desc">Enter how much you want to send and see the exact PKR conversion instantly.</p>
+          </div>
+          <div class="how__step rv rv--d2">
+            <div class="how__num">3</div>
+            <h3 class="how__step-title">Send Money</h3>
+            <p class="how__step-desc">Sign up, confirm your transfer and your money is on its way to Pakistan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== APP SHOWCASE ========== -->
+    <section class="showcase" id="showcase">
+      <div class="wrap">
+        <div class="showcase__grid">
+          <div class="showcase__phone-area rv">
+            <div class="phone">
+              <div class="phone__notch"></div>
+              <div class="phone__scr">
+                <img src="assets/images/payngo-app-home.png" alt="PayNGo App Home Screen" class="phone__img" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <div class="showcase__info rv">
+            <span class="s-tag">Mobile Experience</span>
+            <h2 class="s-title">Your Money, Your&nbsp;Phone.</h2>
+            <p class="s-desc" style="max-width:100%">Manage transfers, track rates and send money home from anywhere in Malaysia. The PayNGo experience is designed for your mobile life.</p>
+            <div class="showcase__checks">
+              <div class="showcase__chk">
+                <span class="showcase__chk-ic">&#10003;</span>
+                <span class="showcase__chk-t">Real-time rate notifications on your phone</span>
+              </div>
+              <div class="showcase__chk">
+                <span class="showcase__chk-ic">&#10003;</span>
+                <span class="showcase__chk-t">Quick transfer to any Pakistani bank account</span>
+              </div>
+              <div class="showcase__chk">
+                <span class="showcase__chk-ic">&#10003;</span>
+                <span class="showcase__chk-t">Track every transfer with instant status updates</span>
+              </div>
+              <div class="showcase__chk">
+                <span class="showcase__chk-ic">&#10003;</span>
+                <span class="showcase__chk-t">Secure PIN and biometric login</span>
+              </div>
+            </div>
+            <a href="#rates" class="btn btn--fill btn--lg">Try the Converter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TRUST ========== -->
+    <section class="trust" id="trust">
+      <div class="wrap">
+        <span class="s-tag rv">Trusted &amp; Secure</span>
+        <h2 class="s-title rv">Your Money is Safe with PayNGo</h2>
+        <p class="s-desc rv">Built with security and transparency at its core.</p>
+        <div class="trust__grid">
+          <div class="trust__card rv">
+            <div class="trust__card-ic">&#128737;</div>
+            <h3 class="trust__card-t">Bank-Level Security</h3>
+            <p class="trust__card-d">256-bit encryption protects every transaction and piece of personal data.</p>
+          </div>
+          <div class="trust__card rv rv--d1">
+            <div class="trust__card-ic">&#128179;</div>
+            <h3 class="trust__card-t">Licensed &amp; Regulated</h3>
+            <p class="trust__card-d">Fully compliant with Malaysian financial regulations and international standards.</p>
+          </div>
+          <div class="trust__card rv rv--d2">
+            <div class="trust__card-ic">&#128200;</div>
+            <h3 class="trust__card-t">Real-Time Tracking</h3>
+            <p class="trust__card-d">Track your transfer from start to finish with live status updates and notifications.</p>
+          </div>
+          <div class="trust__card rv rv--d3">
+            <div class="trust__card-ic">&#128172;</div>
+            <h3 class="trust__card-t">24/7 Support</h3>
+            <p class="trust__card-d">Our support team is available around the clock to help with any questions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FINAL CTA ========== -->
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta__card rv">
+          <div class="cta__glow"></div>
+          <div class="cta__text">
+            <h2 class="cta__title">Ready to Send Money&nbsp;Home?</h2>
+            <p class="cta__desc">Join thousands of Malaysians sending money to Pakistan with confidence. Check today's rate and start your first transfer.</p>
+            <div class="cta__btns">
+              <a href="#rates" class="btn btn--fill btn--lg">Check Live Rate</a>
+              <a href="#" class="btn btn--outline btn--lg">Sign Up Free</a>
+            </div>
+          </div>
+          <div class="cta__phone">
+            <div class="cta__phone-frame">
+              <div class="cta__phone-notch"></div>
+              <div class="cta__phone-scr">
+                <div class="cta__phone-ic">&#128176;</div>
+                <div class="cta__phone-t">PayNGo</div>
+                <div class="cta__phone-s">Send. Save. Smile.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq" id="faq">
+      <div class="wrap">
+        <span class="s-tag rv">FAQ</span>
+        <h2 class="s-title rv">Frequently Asked Questions</h2>
+        <div class="faq__list">
+          <div class="faq__item rv">
+            <button class="faq__q" aria-expanded="false">
+              <span>Do I need to log in to see exchange rates?</span>
+              <span class="faq__q-icon">+</span>
+            </button>
+            <div class="faq__a">
+              <p>No. PayNGo lets you check live MYR/PKR exchange rates without creating an account. Simply visit the homepage and view real-time rates anytime.</p>
+            </div>
+          </div>
+          <div class="faq__item rv">
+            <button class="faq__q" aria-expanded="false">
+              <span>How often do the exchange rates update?</span>
+              <span class="faq__q-icon">+</span>
+            </button>
+            <div class="faq__a">
+              <p>Our rates update every few seconds based on live market data. You always see the most current MYR to PKR exchange rate available.</p>
+            </div>
+          </div>
+          <div class="faq__item rv">
+            <button class="faq__q" aria-expanded="false">
+              <span>What is the minimum transfer amount?</span>
+              <span class="faq__q-icon">+</span>
+            </button>
+            <div class="faq__a">
+              <p>You can start sending from as little as RM 100. There are no minimum balance requirements to check rates or use the converter.</p>
+            </div>
+          </div>
+          <div class="faq__item rv">
+            <button class="faq__q" aria-expanded="false">
+              <span>How long does a transfer take?</span>
+              <span class="faq__q-icon">+</span>
+            </button>
+            <div class="faq__a">
+              <p>Most transfers are completed within minutes. Bank deposits to major Pakistani banks are typically received same-day during business hours.</p>
+            </div>
+          </div>
+          <div class="faq__item rv">
+            <button class="faq__q" aria-expanded="false">
+              <span>Are there any hidden fees?</span>
+              <span class="faq__q-icon">+</span>
+            </button>
+            <div class="faq__a">
+              <p>No. PayNGo offers transparent pricing with no hidden fees. The rate you see is the rate you get. We display all costs upfront before you confirm any transfer.</p>
+            </div>
+          </div>
+          <div class="faq__item rv">
+            <button class="faq__q" aria-expanded="false">
+              <span>Is my money safe with PayNGo?</span>
+              <span class="faq__q-icon">+</span>
+            </button>
+            <div class="faq__a">
+              <p>Absolutely. PayNGo uses bank-level 256-bit encryption and is fully licensed and regulated. Your funds are held in segregated accounts and every transaction is monitored for security.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="foot" id="contact">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div class="foot__brand">
+          <div class="foot__logo">
+            <span class="hdr__mark">P</span>
+            <span>PayNGo</span>
+          </div>
+          <p class="foot__brand-d">Send money from Malaysia to Pakistan with confidence. Real-time rates, transparent pricing and secure transfers.</p>
+          <div class="foot__social">
+            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          </div>
+        </div>
+        <div class="foot__col">
+          <h4 class="foot__col-t">Product</h4>
+          <ul>
+            <li><a href="#rates">Live Rates</a></li>
+            <li><a href="#converter">Converter</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#showcase">Mobile App</a></li>
+          </ul>
+        </div>
+        <div class="foot__col">
+          <h4 class="foot__col-t">Company</h4>
+          <ul>
+            <li><a href="#why">About PayNGo</a></li>
+            <li><a href="#trust">Security</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="foot__col">
+          <h4 class="foot__col-t">Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot__bottom">
+        <p>&copy; 2026 PayNGo. All rights reserved.</p>
+        <div class="foot__bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

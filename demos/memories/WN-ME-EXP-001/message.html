@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Message For You | The Chen Family</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    .me-message {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+    }
+    .me-message__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.3);
+    }
+    .me-message__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,15,18,0.4) 0%, rgba(15,15,18,0.8) 60%, rgba(15,15,18,0.95) 100%);
+    }
+    .me-message__content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+    .me-message__ornament {
+      width: 80px;
+      height: 1px;
+      background: var(--grad-gold);
+      margin: 0 auto 32px;
+    }
+    .me-message__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .me-message__subtitle {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 32px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .me-message__text {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .me-message__text:last-of-type {
+      margin-bottom: 48px;
+    }
+    .me-message__sig {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .me-message__date {
+      font-size: 0.85rem;
+      color: var(--dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+    .me-message__gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto 48px;
+    }
+    .me-message__gallery-img {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+    .me-message__gallery-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+    .me-message__gallery-img:hover img {
+      transform: scale(1.06);
+    }
+    .me-message__gallery-img:nth-child(1) {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+    .me-message__actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .me-message { padding: 100px 16px 60px; }
+      .me-message__gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      .me-message__gallery-img:nth-child(1) {
+        grid-column: span 2;
+      }
+    }
+    @media (max-width: 480px) {
+      .me-message__gallery {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="me-notice">
+    <strong>WebNest Memories Demo</strong> — Expert Package &bull; 8 Pages &bull; 20 Photos &bull; Premium Experience
+  </div>
+
+  <header class="me-header">
+    <div class="me-container me-header__inner">
+      <a href="index.html" class="me-brand">
+        <span class="me-brand__icon">&#128248;</span>
+        The Chen Family
+      </a>
+      <nav class="me-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="chapters.html">Chapters</a></li>
+          <li><a href="moments.html">Moments</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="message.html" class="active">Message</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Memories%20website%20like%20WN-ME-EXP-001" class="me-btn me-btn--whatsapp me-btn--sm me-header__cta" target="_blank" rel="noopener">
+        Order on WhatsApp
+      </a>
+      <button class="me-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="me-mobile">
+    <a href="index.html" data-link>Home</a>
+    <a href="story.html" data-link>Story</a>
+    <a href="timeline.html" data-link>Timeline</a>
+    <a href="chapters.html" data-link>Chapters</a>
+    <a href="moments.html" data-link>Moments</a>
+    <a href="gallery.html" data-link>Gallery</a>
+    <a href="message.html" data-link>Message</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Memories%20website%20like%20WN-ME-EXP-001" class="me-btn me-btn--whatsapp" target="_blank" rel="noopener">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <!-- Full Message -->
+  <section class="me-message">
+    <div class="me-message__bg" style="background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1600&q=80')"></div>
+    <div class="me-message__overlay"></div>
+    <div class="me-message__content me-reveal">
+      <div class="me-message__ornament"></div>
+      <p class="me-message__subtitle">A Letter From the Heart</p>
+      <h1 class="me-message__title">Some Moments Pass</h1>
+      <p class="me-message__text">
+        But the memories stay. They live in the photographs on our walls, in the stories we tell at dinner tables, in the laughter that echoes through our home when we remember.
+      </p>
+      <p class="me-message__text">
+        This is more than a collection of photos. It is proof that we lived, that we loved, that we built something beautiful together — one moment at a time.
+      </p>
+      <p class="me-message__text">
+        To everyone who has been part of our story: thank you. You are the reason these memories exist. You are the reason our hearts are full.
+      </p>
+      <div class="me-message__gallery">
+        <div class="me-message__gallery-img me-reveal">
+          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80" alt="Family" loading="lazy">
+        </div>
+        <div class="me-message__gallery-img me-reveal" data-delay="1">
+          <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=400&q=80" alt="Adventure" loading="lazy">
+        </div>
+        <div class="me-message__gallery-img me-reveal" data-delay="2">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80" alt="Celebration" loading="lazy">
+        </div>
+      </div>
+      <p class="me-message__text" style="font-size: 1.5rem; color: #fff; font-weight: 600; font-style: normal;">
+        "We didn't realize we were making memories.<br>We just knew we were having fun."
+      </p>
+      <p class="me-message__sig">With all our love,</p>
+      <p class="me-message__sig" style="font-size: 1.6rem;">The Chen Family</p>
+      <p class="me-message__date">2010 — Present</p>
+      <div class="me-message__actions">
+        <a href="gallery.html" class="me-btn me-btn--outline">View Gallery Again</a>
+        <a href="index.html" class="me-btn me-btn--primary">Back to Beginning</a>
+        <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Memories%20website%20like%20WN-ME-EXP-001" class="me-btn me-btn--whatsapp" target="_blank" rel="noopener">Order on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="me-footer">
+    <div class="me-container">
+      <div class="me-footer__inner">
+        <div class="me-footer__brand">&#128248; The Chen Family</div>
+        <nav class="me-footer__nav">
+          <a href="index.html">Home</a>
+          <a href="story.html">Story</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="chapters.html">Chapters</a>
+          <a href="moments.html">Moments</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="message.html">Message</a>
+        </nav>
+      </div>
+      <div class="me-footer__bottom">
+        <p>Crafted with love by <strong>WebNest</strong></p>
+        <span class="me-footer__tag"> WN-ME-EXP-001 &bull; Expert Package &bull; Premium</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

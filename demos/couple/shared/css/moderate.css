@@ -1,0 +1,62 @@
+/* ================================================================
+   WebNest Couple & Love — Moderate level extras (WN-CL-MOD-001)
+   ================================================================ */
+
+/* Rich hero gradient + drifting glow */
+.cl-hero {
+  background:
+    radial-gradient(900px 480px at 15% 0%, rgba(255, 93, 143, 0.28), transparent 55%),
+    radial-gradient(760px 460px at 90% 20%, rgba(255, 209, 102, 0.16), transparent 55%),
+    radial-gradient(700px 500px at 50% 120%, rgba(201, 24, 74, 0.3), transparent 55%),
+    linear-gradient(180deg, #0e0916 0%, #0b0710 100%);
+}
+
+/* Shimmering script names */
+.cl-hero__script {
+  background: linear-gradient(120deg, #ffd166 0%, #ff8fab 30%, #ff5d8f 55%, #ffd166 80%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: clShimmer 6s linear infinite;
+}
+@keyframes clShimmer { to { background-position: 220% center; } }
+
+/* Floating orbs */
+.cl-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: clDrift 14s ease-in-out infinite;
+  pointer-events: none;
+}
+.cl-hero__orb--1 { width: 240px; height: 240px; background: var(--rose-deep); top: 15%; left: 8%; }
+.cl-hero__orb--2 { width: 180px; height: 180px; background: var(--gold); bottom: 18%; right: 10%; animation-delay: -6s; }
+@keyframes clDrift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+
+/* Gallery polaroid tilt on hover */
+.cl-photo { transition: transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease); }
+.cl-photo:hover { transform: rotate(-1.2deg) translateY(-8px) scale(1.02); box-shadow: 0 30px 80px rgba(255, 93, 143, 0.22); }
+.cl-photo:nth-child(even):hover { transform: rotate(1.2deg) translateY(-8px) scale(1.02); }
+
+/* Message section decoration */
+.cl-message--decor {
+  background:
+    radial-gradient(500px 260px at 50% -30%, rgba(255, 93, 143, 0.2), transparent 60%),
+    linear-gradient(160deg, #241226 0%, #171021 55%, #1e152b 100%);
+}
+
+/* Timeline item stagger via reveal already handled */
+
+/* CTA band gold trim */
+.cl-cta { position: relative; }
+.cl-cta::after {
+  content: '';
+  position: absolute;
+  top: -2px; left: 50%;
+  transform: translateX(-50%);
+  width: 180px; height: 3px;
+  border-radius: 2px;
+  background: var(--grad-deep);
+}

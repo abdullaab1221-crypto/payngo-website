@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex &amp; Mia — Our Love Story | WebNest Demo (Basic)</title>
+  <meta name="description" content="A romantic couple website demo by WebNest. Demo ID WN-CL-BAS-001 — Basic package.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/basic.css">
+</head>
+<body>
+
+  <div class="cl-notice">Demo Preview — Your names, photos and content will be replaced after ordering.</div>
+
+  <header class="cl-header" id="clHeader">
+    <div class="cl-container cl-header__inner">
+      <a href="index.html" class="cl-brand" aria-label="Alex and Mia home">
+        <span class="cl-brand__mark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+        </span>
+        <span class="cl-brand__script">Alex &amp; Mia</span>
+      </a>
+      <nav class="cl-nav" aria-label="Main navigation">
+        <ul>
+          <li><a class="cl-nav__link" href="index.html">Home</a></li>
+          <li><a class="cl-nav__link" href="story.html">Our Story</a></li>
+          <li><a class="cl-nav__link" href="memories.html">Memories</a></li>
+        </ul>
+      </nav>
+      <a href="memories.html" class="cl-btn cl-btn--primary cl-btn--sm cl-header__cta">Our Memories</a>
+      <button class="cl-burger" id="clBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="cl-mobile" id="clMobile" aria-hidden="true">
+    <ul>
+      <li><a href="index.html" data-link>Home</a></li>
+      <li><a href="story.html" data-link>Our Story</a></li>
+      <li><a href="memories.html" data-link>Memories</a></li>
+    </ul>
+    <a href="memories.html" class="cl-btn cl-btn--primary">Our Memories</a>
+  </div>
+
+  <main class="cl-page">
+    <section class="cl-hero">
+      <div class="cl-hero__stars" aria-hidden="true"></div>
+      <div class="cl-hero__halo" aria-hidden="true"></div>
+      <div class="cl-hearts" aria-hidden="true"></div>
+
+      <div class="cl-hero__content">
+        <span class="cl-hero__eyebrow">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+          A Love Story &middot; Since 2018
+        </span>
+        <h1 class="cl-hero__script">
+          Alex <span class="cl-hero__amp">&amp;</span> Mia
+        </h1>
+        <p class="cl-hero__sub">Two hearts, one beautiful journey</p>
+        <div class="cl-hero__meta">
+          <span>Celebrating our forever</span>
+          <span class="sep">&bull;</span>
+          <span class="cl-hero__date">&#10084; 14 February</span>
+        </div>
+        <div class="cl-hero__actions">
+          <a href="story.html" class="cl-btn cl-btn--primary cl-btn--lg">Read Our Story</a>
+          <a href="memories.html" class="cl-btn cl-btn--outline cl-btn--lg">View Memories</a>
+        </div>
+      </div>
+
+      <div class="cl-hero__scroll"><span>Scroll</span><div class="cl-hero__scroll-line"></div></div>
+    </section>
+
+    <section class="cl-section">
+      <div class="cl-container">
+        <div class="cl-story">
+          <div class="cl-story__media cl-reveal">
+            <div class="cl-story__frame">
+              <img src="https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=760&h=900&fit=crop" alt="Alex and Mia together" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy">
+              <div class="cl-story__badge">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+                Since 2018
+              </div>
+              <p class="cl-story__quote">&ldquo;In all the world, there is no heart for me like yours.&rdquo;</p>
+            </div>
+          </div>
+          <div class="cl-story__body">
+            <span class="cl-tag cl-reveal">Our Love</span>
+            <h2 class="cl-title cl-reveal" data-delay="1">Every Love Story Is Beautiful</h2>
+            <div class="cl-ornament cl-reveal" data-delay="1" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+            </div>
+            <p class="cl-desc cl-reveal" data-delay="2">Ours began on a crisp autumn evening in 2018 — a chance meeting that turned into coffee, and coffee turned into every single day since.</p>
+            <p class="cl-desc cl-reveal" data-delay="2">From late-night conversations to sunrise walks, we grew together into the people we are today. This little website holds the moments that made us.</p>
+            <p class="cl-story__sig cl-reveal" data-delay="3">Forever yours, Alex &amp; Mia</p>
+            <a href="story.html" class="cl-btn cl-btn--primary cl-reveal" data-delay="4">Continue Our Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cl-section cl-section--alt">
+      <div class="cl-container">
+        <div class="cl-section__head">
+          <span class="cl-tag cl-reveal">Memories</span>
+          <h2 class="cl-title cl-reveal" data-delay="1">Moments We Treasure</h2>
+          <p class="cl-desc cl-reveal" data-delay="2">A few of our favourite snapshots — click any photo to view it closer.</p>
+          <div class="cl-ornament cl-reveal" data-delay="2" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+          </div>
+        </div>
+        <div class="cl-gallery">
+          <figure class="cl-photo cl-reveal" data-cap="Our first sunset together">
+            <span class="cl-photo__art">&#128151;</span>
+            <img src="https://images.pexels.com/photos/2379179/pexels-photo-2379179.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="Our first sunset together" loading="lazy">
+            <figcaption class="cl-photo__caption">Our first sunset together</figcaption>
+          </figure>
+          <figure class="cl-photo cl-reveal" data-delay="1" data-cap="A weekend by the sea">
+            <span class="cl-photo__art">&#127754;</span>
+            <img src="https://images.pexels.com/photos/1024984/pexels-photo-1024984.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="A weekend by the sea" loading="lazy">
+            <figcaption class="cl-photo__caption">A weekend by the sea</figcaption>
+          </figure>
+          <figure class="cl-photo cl-reveal" data-delay="2" data-cap="Coffee dates, always">
+            <span class="cl-photo__art">&#9749;</span>
+            <img src="https://images.pexels.com/photos/1464565/pexels-photo-1464565.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="Coffee dates, always" loading="lazy">
+            <figcaption class="cl-photo__caption">Coffee dates, always</figcaption>
+          </figure>
+          <figure class="cl-photo cl-reveal" data-cap="Golden hour walks">
+            <span class="cl-photo__art">&#127747;</span>
+            <img src="https://images.pexels.com/photos/4557401/pexels-photo-4557401.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="Golden hour walks" loading="lazy">
+            <figcaption class="cl-photo__caption">Golden hour walks</figcaption>
+          </figure>
+          <figure class="cl-photo cl-reveal" data-delay="1" data-cap="Celebrating our love">
+            <span class="cl-photo__art">&#127881;</span>
+            <img src="https://images.pexels.com/photos/2943909/pexels-photo-2943909.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop" alt="Celebrating our love" loading="lazy">
+            <figcaption class="cl-photo__caption">Celebrating our love</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="cl-section">
+      <div class="cl-container">
+        <div class="cl-cta cl-reveal">
+          <h2 class="cl-cta__title">Ready to Make a Memory?</h2>
+          <p class="cl-cta__desc">This demo belongs to the WebNest Couple &amp; Love family. Create your own romantic website with your names, photos and story.</p>
+          <div class="cl-cta__actions">
+            <a href="../WN-CL-MOD-001/index.html" class="cl-btn cl-btn--gold">See Moderate Demo</a>
+            <a href="../WN-CL-EXP-001/index.html" class="cl-btn cl-btn--outline">See Expert Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cl-footer">
+    <div class="cl-container">
+      <div class="cl-footer__top">
+        <a href="index.html" class="cl-footer__brand">
+          <span class="cl-brand__mark">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.3-9.3-8.1C.6 9.9 2 6.5 5.2 6c2-.3 3.6.7 4.6 2.2L12 10.5l2.2-2.3c1-1.5 2.6-2.5 4.6-2.2 3.2.5 4.6 3.9 2.5 6.9C18.7 16.7 12 21 12 21z"/></svg>
+          </span>
+          Alex &amp; Mia
+        </a>
+        <nav class="cl-footer__nav" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="story.html">Our Story</a>
+          <a href="memories.html">Memories</a>
+          <a href="https://webnestofficial.wuaze.com/" rel="noopener">WebNest Showroom</a>
+        </nav>
+      </div>
+      <div class="cl-footer__bottom">
+        <p>Made with <span class="cl-footer__heart">&#10084;</span> by <a href="https://webnestofficial.wuaze.com/" rel="noopener">WebNest</a> &middot; Demo ID: WN-CL-BAS-001 &middot; Basic Package</p>
+        <span class="cl-footer__tag">Demo Preview — Your names, photos and content will be replaced after ordering.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cl-lightbox" id="clLightbox" aria-hidden="true">
+    <button class="cl-lightbox__close" aria-label="Close">&#10005;</button>
+    <img src="" alt="Photo preview">
+    <div class="cl-lightbox__cap"></div>
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+  <script src="../shared/js/basic.js"></script>
+</body>
+</html>

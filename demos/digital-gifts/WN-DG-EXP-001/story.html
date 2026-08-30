@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story | Expert Digital Gift</title>
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    .dg-notice {
+      background: #ffd700;
+      color: #1a1a2e;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .dg-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .dg-header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .dg-header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .dg-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      text-decoration: none;
+    }
+    
+    .dg-brand__icon {
+      font-size: 1.5rem;
+    }
+    
+    .dg-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .dg-nav a {
+      color: #444;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .dg-nav a:hover {
+      color: #ffd700;
+    }
+    
+    .dg-header__cta {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .dg-burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    
+    .dg-burger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #1a1a2e;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    .dg-mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 26, 46, 0.98);
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    .dg-mobile a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    
+    .dg-hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+    }
+    
+    .dg-hero__eyebrow {
+      color: #ffd700;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+    }
+    
+    .dg-hero__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      font-family: 'Georgia', serif;
+    }
+    
+    .dg-hero__subtitle {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .dg-moment {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .dg-moment--reversed {
+      flex-direction: row-reverse;
+    }
+    
+    .dg-moment__image {
+      flex: 1;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    .dg-moment__image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .dg-moment__content {
+      flex: 1;
+    }
+    
+    .dg-moment__title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #1a1a2e;
+      font-family: 'Georgia', serif;
+    }
+    
+    .dg-moment__text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+    
+    .dg-cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+    }
+    
+    .dg-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, #ffd700, #ffaa00);
+      color: #1a1a2e;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .dg-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    }
+    
+    .dg-footer {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+    
+    .dg-footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .dg-footer__brand {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    .dg-footer__nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .dg-footer__nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .dg-footer__nav a:hover {
+      color: #ffd700;
+    }
+    
+    .dg-footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .dg-footer__tag {
+      color: #ffd700;
+      font-size: 0.8rem;
+    }
+    
+    @media (max-width: 768px) {
+      .dg-nav, .dg-header__cta {
+        display: none;
+      }
+      .dg-burger {
+        display: block;
+      }
+      .dg-moment, .dg-moment--reversed {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .dg-footer__inner, .dg-footer__bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dg-notice">
+    <strong>WebNest Digital Gift Demo</strong> — Expert Package &bull; 8 Pages &bull; 20 Photos
+  </div>
+
+  <header class="dg-header">
+    <div class="dg-container dg-header__inner">
+      <a href="index.html" class="dg-brand">
+        <span class="dg-brand__icon">&#127873;</span>
+        Your Special Gift
+      </a>
+      <nav class="dg-nav">
+        <ul>
+          <li><a href="index.html">Begin</a></li>
+          <li><a href="message.html">For You</a></li>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="timeline.html">Timeline</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="moments.html">Moments</a></li>
+          <li><a href="surprise.html">Surprise</a></li>
+          <li><a href="final.html">Finale</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Digital%20Gift%20website%20like%20WN-DG-EXP-001" class="dg-btn dg-btn--whatsapp dg-btn--sm dg-header__cta" target="_blank" rel="noopener">
+        Order on WhatsApp
+      </a>
+      <button class="dg-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="dg-mobile">
+    <a href="index.html" data-link>Begin</a>
+    <a href="message.html" data-link>For You</a>
+    <a href="story.html" data-link>Our Story</a>
+    <a href="timeline.html" data-link>Timeline</a>
+    <a href="gallery.html" data-link>Gallery</a>
+    <a href="moments.html" data-link>Moments</a>
+    <a href="surprise.html" data-link>Surprise</a>
+    <a href="final.html" data-link>Finale</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Digital%20Gift%20website%20like%20WN-DG-EXP-001" class="dg-btn dg-btn--whatsapp" target="_blank" rel="noopener">
+      Order on WhatsApp
+    </a>
+  </div>
+
+  <section class="dg-hero">
+    <div class="dg-container">
+      <p class="dg-hero__eyebrow">How It All Began</p>
+      <h1 class="dg-hero__title">Our Story</h1>
+      <p class="dg-hero__subtitle">The beautiful journey that brought us together</p>
+    </div>
+  </section>
+
+  <section class="dg-moment">
+    <div class="dg-moment__image">
+      <img src="https://images.unsplash.com/photo-1506869640319-fe1a24fd76cb?w=800&q=80" alt="Mountain Dreams">
+    </div>
+    <div class="dg-moment__content">
+      <h2 class="dg-moment__title">The Beginning</h2>
+      <p class="dg-moment__text">
+        Every great story has a beginning, and ours is no different. It started with a simple moment — a glance, a smile, a connection that felt like destiny. Neither of us knew then that this meeting would change our lives forever.
+      </p>
+      <p class="dg-moment__text">
+        That first encounter was just the beginning of something beautiful. What started as curiosity quickly blossomed into something deeper, something real, something worth holding onto for a lifetime.
+      </p>
+    </div>
+  </section>
+
+  <section class="dg-moment dg-moment--reversed">
+    <div class="dg-moment__image">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="Peaceful Escape">
+    </div>
+    <div class="dg-moment__content">
+      <h2 class="dg-moment__title">The Journey</h2>
+      <p class="dg-moment__text">
+        Our journey together has been nothing short of magical. From quiet evenings to grand adventures, every moment has been a chapter in our beautiful story. We've grown together, learned together, and fallen deeper in love with each passing day.
+      </p>
+      <p class="dg-moment__text">
+        Through laughter and tears, through challenges and triumphs, we've built something extraordinary. Our love story isn't just about the big moments — it's about the everyday magic we create together.
+      </p>
+    </div>
+  </section>
+
+  <section class="dg-moment">
+    <div class="dg-moment__image">
+      <img src="https://images.unsplash.com/photo-1500534314263-0869cef649f0?w=800&q=80" alt="Starry Night">
+    </div>
+    <div class="dg-moment__content">
+      <h2 class="dg-moment__title">Our Future</h2>
+      <p class="dg-moment__text">
+        The best part of our story? It's still being written. Every day brings new opportunities to love, to grow, to create memories that will last a lifetime. Our future is as bright as the stars above.
+      </p>
+      <p class="dg-moment__text">
+        I can't wait to see what the next chapter holds for us. With you by my side, I know every day will be an adventure worth cherishing. Here's to our forever.
+      </p>
+    </div>
+  </section>
+
+  <section class="dg-cta">
+    <a href="timeline.html" class="dg-btn">See The Timeline</a>
+  </section>
+
+  <footer class="dg-footer">
+    <div class="dg-container">
+      <div class="dg-footer__inner">
+        <div class="dg-footer__brand">&#127873; Your Special Gift</div>
+        <nav class="dg-footer__nav">
+          <a href="index.html">Begin</a>
+          <a href="message.html">For You</a>
+          <a href="story.html">Our Story</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="moments.html">Moments</a>
+          <a href="surprise.html">Surprise</a>
+          <a href="final.html">Finale</a>
+        </nav>
+      </div>
+      <div class="dg-footer__bottom">
+        <p>Crafted with love by <strong>WebNest</strong></p>
+        <span class="dg-footer__tag"> WN-DG-EXP-001 &bull; Expert Package</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="dg-lightbox">
+    <button class="dg-lightbox__close">&times;</button>
+    <img src="" alt="Full view">
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

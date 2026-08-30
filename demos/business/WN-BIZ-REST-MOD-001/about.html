@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | La Maison Restaurant | WN-BIZ-REST-MOD-001</title>
+  <meta name="description" content="Learn about La Maison Restaurant - our story, our chef, and our passion for fine dining.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root { --primary: #d97706; --primary-light: #f59e0b; --primary-dark: #b45309; }
+    .biz-hero-page { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 120px 20px 60px; text-align: center; color: #fff; }
+    .biz-hero-page__title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); margin-bottom: 12px; }
+    .biz-hero-page__text { opacity: 0.9; max-width: 600px; margin: 0 auto; }
+    .biz-section { padding: 80px 20px; }
+    .biz-section--alt { background: #f9f5f0; }
+    .biz-about-full { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .biz-about-full__img { width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+    .biz-about-full__title { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 20px; }
+    .biz-about-full__text { color: #555; line-height: 1.8; margin-bottom: 16px; }
+    .biz-chef { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .biz-chef__img { width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+    .biz-chef__name { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 8px; }
+    .biz-chef__role { color: var(--primary); font-weight: 600; margin-bottom: 16px; }
+    .biz-chef__bio { color: #555; line-height: 1.8; margin-bottom: 16px; }
+    .biz-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+    .biz-value { text-align: center; padding: 40px 30px; }
+    .biz-value__icon { font-size: 48px; margin-bottom: 16px; }
+    .biz-value__title { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 12px; }
+    .biz-value__text { color: #666; line-height: 1.6; }
+    .biz-timeline { max-width: 800px; margin: 0 auto; }
+    .biz-timeline__item { display: flex; gap: 24px; margin-bottom: 40px; }
+    .biz-timeline__year { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); font-weight: 700; min-width: 80px; }
+    .biz-timeline__content h3 { font-size: 18px; margin-bottom: 8px; }
+    .biz-timeline__content p { color: #666; line-height: 1.6; }
+    @media (max-width: 768px) { .biz-about-full, .biz-chef, .biz-values { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="biz-notice"><div class="biz-container">Demo: <strong>La Maison Restaurant — Moderate Package</strong> | ID: <strong>WN-BIZ-REST-MOD-001</strong></div></div>
+
+  <header class="biz-header">
+    <div class="biz-header__inner">
+      <a href="index.html" class="biz-brand"><span class="biz-brand__icon">🍽</span><span>La Maison</span></a>
+      <nav class="biz-nav">
+        <a href="index.html" class="biz-nav__link">Home</a><a href="menu.html" class="biz-nav__link">Menu</a><a href="gallery.html" class="biz-nav__link">Gallery</a><a href="about.html" class="biz-nav__link biz-nav__link--active">About</a><a href="testimonials.html" class="biz-nav__link">Reviews</a><a href="contact.html" class="biz-nav__link">Contact</a>
+      </nav>
+      <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20would%20like%20to%20make%20a%20reservation." class="biz-header__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+      <div class="biz-burger"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+  <div class="biz-mobile">
+    <div class="biz-mobile__close">✕</div>
+    <a href="index.html" class="biz-mobile__link">Home</a><a href="menu.html" class="biz-mobile__link">Menu</a><a href="gallery.html" class="biz-mobile__link">Gallery</a><a href="about.html" class="biz-mobile__link">About</a><a href="testimonials.html" class="biz-mobile__link">Reviews</a><a href="contact.html" class="biz-mobile__link">Contact</a>
+    <a href="https://wa.me/923281190004?text=Hi%20La%20Maison!%20I%20would%20like%20to%20make%20a%20reservation." class="biz-mobile__cta" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+  </div>
+
+  <section class="biz-hero-page"><h1 class="biz-hero-page__title">Our Story</h1><p class="biz-hero-page__text">A journey of passion, flavor, and culinary excellence spanning over 16 years.</p></section>
+
+  <section class="biz-section">
+    <div class="biz-about-full">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="La Maison Interior" class="biz-about-full__img">
+      <div>
+        <h2 class="biz-about-full__title">The Beginning</h2>
+        <p class="biz-about-full__text">La Maison was born from a dream to bring authentic French-inspired fine dining to Downtown. Founded in 2010 by Chef Omar Hasan, our restaurant started as a small 30-seat establishment with a simple philosophy: use the finest ingredients, treat them with respect, and serve them with love.</p>
+        <p class="biz-about-full__text">Over the years, we have grown into one of the most celebrated dining destinations in the city, earning recognition from food critics and beloved by our loyal guests.</p>
+        <p class="biz-about-full__text">Every detail matters — from the hand-selected wines in our cellar to the locally sourced produce that arrives at our kitchen each morning. We believe that great food starts with great ingredients and ends with an unforgettable experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section biz-section--alt">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+      <div style="color:var(--primary);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:14px;margin-bottom:12px;">Meet the Chef</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);">The Heart of Our Kitchen</h2>
+    </div>
+    <div class="biz-chef">
+      <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80" alt="Chef Omar Hasan" class="biz-chef__img">
+      <div>
+        <h3 class="biz-chef__name">Chef Omar Hasan</h3>
+        <div class="biz-chef__role">Executive Chef & Founder</div>
+        <p class="biz-chef__bio">With over 25 years of culinary experience spanning kitchens in Paris, London, and New York, Chef Omar brings a world of flavor to La Maison. His passion for French cuisine, combined with local Pakistani ingredients, creates a unique fusion that has defined our restaurant's identity.</p>
+        <p class="biz-chef__bio">After training at Le Cordon Bleu and working under Michelin-starred chefs, Chef Omar returned home with a vision to elevate the dining scene in his beloved city. His dedication to perfection is evident in every dish that leaves our kitchen.</p>
+        <p class="biz-chef__bio">"Cooking is not just about feeding people. It's about creating moments of joy, bringing people together, and telling stories through flavors." — Chef Omar Hasan</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+      <div style="color:var(--primary);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:14px;margin-bottom:12px;">Our Journey</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);">Milestones</h2>
+    </div>
+    <div class="biz-timeline">
+      <div class="biz-timeline__item"><div class="biz-timeline__year">2010</div><div class="biz-timeline__content"><h3>Grand Opening</h3><p>La Maison opens its doors with a 30-seat dining room and a vision for excellence.</p></div></div>
+      <div class="biz-timeline__item"><div class="biz-timeline__year">2014</div><div class="biz-timeline__content"><h3>First Award</h3><p>Named "Best Fine Dining Restaurant" by Downtown Food & Wine Magazine.</p></div></div>
+      <div class="biz-timeline__item"><div class="biz-timeline__year">2018</div><div class="biz-timeline__content"><h3>Expansion</h3><p>Expanded to include a private dining room and wine cellar with over 200 labels.</p></div></div>
+      <div class="biz-timeline__item"><div class="biz-timeline__year">2022</div><div class="biz-timeline__content"><h3>Chef's Table</h3><p>Launched the exclusive Chef's Table experience, offering an intimate 8-course tasting menu.</p></div></div>
+      <div class="biz-timeline__item"><div class="biz-timeline__year">2026</div><div class="biz-timeline__content"><h3>Today</h3><p>Continuing to set the standard for fine dining with new seasonal menus and innovative experiences.</p></div></div>
+    </div>
+  </section>
+
+  <section class="biz-section biz-section--alt">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+      <div style="color:var(--primary);font-weight:600;text-transform:uppercase;letter-spacing:2px;font-size:14px;margin-bottom:12px;">Our Values</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);">What We Stand For</h2>
+    </div>
+    <div class="biz-values">
+      <div class="biz-value"><div class="biz-value__icon">🌿</div><h3 class="biz-value__title">Fresh Ingredients</h3><p class="biz-value__text">We source from local farms and trusted suppliers to ensure every ingredient meets our exacting standards.</p></div>
+      <div class="biz-value"><div class="biz-value__icon">✨</div><h3 class="biz-value__title">Artistry</h3><p class="biz-value__text">Every plate is a canvas. Our chefs combine technique with creativity to create visual and flavor masterpieces.</p></div>
+      <div class="biz-value"><div class="biz-value__icon">❤️</div><h3 class="biz-value__title">Hospitality</h3><p class="biz-value__text">We treat every guest like family. Warm service and genuine care are at the heart of everything we do.</p></div>
+    </div>
+  </section>
+
+  <footer class="biz-footer">
+    <div class="biz-container biz-footer__grid">
+      <div><div class="biz-brand biz-brand--footer"><span class="biz-brand__icon">🍽</span><span>La Maison</span></div><p class="biz-footer__text">Fine dining in the heart of Downtown.</p></div>
+      <div><h4 class="biz-footer__title">Quick Links</h4><a href="index.html" class="biz-footer__link">Home</a><a href="menu.html" class="biz-footer__link">Menu</a><a href="gallery.html" class="biz-footer__link">Gallery</a><a href="about.html" class="biz-footer__link">About</a><a href="testimonials.html" class="biz-footer__link">Reviews</a><a href="contact.html" class="biz-footer__link">Contact</a></div>
+      <div><h4 class="biz-footer__title">Contact</h4><p class="biz-footer__text">42 Oak Street, Downtown</p><p class="biz-footer__text">+92 321 555 0199</p></div>
+      <div><h4 class="biz-footer__title">Hours</h4><p class="biz-footer__text">Mon-Sat: 12PM - 11PM</p><p class="biz-footer__text">Sunday: 12PM - 10PM</p></div>
+    </div>
+    <div class="biz-footer__bottom"><div class="biz-container"><p>&copy; 2026 La Maison Restaurant. All rights reserved.</p></div></div>
+  </footer>
+
+  <div class="biz-admin-toggle" onclick="toggleAdmin()">⚙️</div>
+  <div class="biz-admin" id="bizAdmin">
+    <div class="biz-admin__sidebar">
+      <div class="biz-admin__sidebar-header"><h3>Admin Panel</h3><div class="biz-admin__close" onclick="toggleAdmin()">✕</div></div>
+      <nav class="biz-admin__nav"><a class="biz-admin__nav-link biz-admin__nav-link--active" onclick="showSection('overview')">Overview</a><a class="biz-admin__nav-link" onclick="showSection('menu')">Menu</a><a class="biz-admin__nav-link" onclick="showSection('gallery')">Gallery</a><a class="biz-admin__nav-link" onclick="showSection('testimonials')">Testimonials</a><a class="biz-admin__nav-link" onclick="showSection('inquiries')">Inquiries</a><a class="biz-admin__nav-link" onclick="showSection('settings')">Business Info</a></nav>
+    </div>
+    <div class="biz-admin__main">
+      <div class="biz-admin__topbar"><h2 class="biz-admin__title">Dashboard</h2><div class="biz-admin__close-mobile" onclick="toggleAdmin()">✕</div></div>
+      <div class="biz-admin__content">
+        <div class="biz-admin__section" id="admin-overview"><div class="biz-admin__stats"><div class="biz-admin__stat"><div class="biz-admin__stat-value">234</div><div class="biz-admin__stat-label">Total Orders</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">68</div><div class="biz-admin__stat-label">Reservations</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">₨520K</div><div class="biz-admin__stat-label">Revenue</div></div><div class="biz-admin__stat"><div class="biz-admin__stat-value">4.9★</div><div class="biz-admin__stat-label">Rating</div></div></div></div>
+        <div class="biz-admin__section" id="admin-menu" style="display:none;"><h3>Menu</h3><p>12 items.</p></div>
+        <div class="biz-admin__section" id="admin-gallery" style="display:none;"><h3>Gallery</h3><p>8 photos.</p></div>
+        <div class="biz-admin__section" id="admin-testimonials" style="display:none;"><h3>Testimonials</h3><p>6 reviews.</p></div>
+        <div class="biz-admin__section" id="admin-inquiries" style="display:none;"><h3>Inquiries</h3><p>No new inquiries.</p></div>
+        <div class="biz-admin__section" id="admin-settings" style="display:none;"><h3>Business Info</h3><p>La Maison — 42 Oak Street</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/js/base.js"></script>
+  <script>
+    function toggleAdmin() { document.getElementById('bizAdmin').classList.toggle('biz-admin--open'); }
+    function showSection(section) { document.querySelectorAll('.biz-admin__section').forEach(s => s.style.display = 'none'); document.getElementById('admin-' + section).style.display = 'block'; document.querySelectorAll('.biz-admin__nav-link').forEach(l => l.classList.remove('biz-admin__nav-link--active')); event.target.classList.add('biz-admin__nav-link--active'); }
+  </script>
+</body>
+</html>

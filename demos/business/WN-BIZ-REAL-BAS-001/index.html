@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeNest Properties — Premium Real Estate Agency in Pakistan</title>
+  <meta name="description" content="PrimeNest Properties offers premium real estate services in Pakistan. Buy, sell, and rent luxury properties in DHA, Gulberg, and top locations.">
+  <meta name="keywords" content="real estate Pakistan, DHA properties, Gulberg apartments, luxury homes, PrimeNest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    .biz-font-display { font-family: 'Playfair Display', serif; }
+    .biz-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+    }
+    .biz-hero__content { max-width: 700px; padding: 2rem; }
+    .biz-hero__title { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.1; }
+    .biz-hero__subtitle { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; line-height: 1.6; }
+    .biz-hero__buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .biz-btn { display: inline-block; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; font-size: 1rem; }
+    .biz-btn--primary { background: var(--primary); color: #fff; }
+    .biz-btn--primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .biz-btn--outline { border: 2px solid #fff; color: #fff; background: transparent; }
+    .biz-btn--outline:hover { background: #fff; color: #000; }
+    .biz-btn--whatsapp { background: #25d366; color: #fff; }
+    .biz-btn--whatsapp:hover { background: #1da851; }
+    .biz-section { padding: 5rem 2rem; }
+    .biz-section__header { text-align: center; margin-bottom: 3rem; }
+    .biz-section__title { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .biz-section__subtitle { color: #666; font-size: 1.1rem; }
+    .biz-container { max-width: 1200px; margin: 0 auto; }
+    .biz-grid { display: grid; gap: 2rem; }
+    .biz-grid--3 { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+    .biz-property { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; }
+    .biz-property:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+    .biz-property__image { position: relative; height: 220px; overflow: hidden; }
+    .biz-property__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .biz-property:hover .biz-property__image img { transform: scale(1.08); }
+    .biz-property__badge { position: absolute; top: 12px; left: 12px; background: var(--primary); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+    .biz-property__body { padding: 1.5rem; }
+    .biz-property__price { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+    .biz-property__title { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .biz-property__location { color: #666; font-size: 0.9rem; margin-bottom: 1rem; }
+    .biz-property__specs { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .biz-property__spec { background: #f1f5f9; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; color: #475569; }
+    .biz-about { background: #f8fafc; }
+    .biz-about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .biz-about__image { border-radius: 12px; overflow: hidden; height: 400px; }
+    .biz-about__image img { width: 100%; height: 100%; object-fit: cover; }
+    .biz-about__content h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .biz-about__content p { color: #555; line-height: 1.8; margin-bottom: 1rem; }
+    .biz-services { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem; }
+    .biz-service { text-align: center; padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.3s; }
+    .biz-service:hover { transform: translateY(-4px); }
+    .biz-service__icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .biz-service__title { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .biz-service__desc { color: #666; font-size: 0.95rem; }
+    .biz-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
+    .biz-agent { text-align: center; background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .biz-agent__photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 4px solid var(--primary-light); }
+    .biz-agent__name { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .biz-agent__role { color: var(--primary); font-size: 0.9rem; }
+    .biz-cta { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; text-align: center; border-radius: 12px; padding: 4rem 2rem; margin: 0 2rem; }
+    .biz-cta h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .biz-cta p { margin-bottom: 2rem; opacity: 0.9; font-size: 1.1rem; }
+    .biz-footer { background: #1e293b; color: #cbd5e1; padding: 4rem 2rem 2rem; }
+    .biz-footer__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+    .biz-footer h4 { color: #fff; margin-bottom: 1rem; font-size: 1.1rem; }
+    .biz-footer p, .biz-footer a { color: #94a3b8; text-decoration: none; line-height: 2; font-size: 0.95rem; display: block; }
+    .biz-footer a:hover { color: var(--primary-light); }
+    .biz-footer__bottom { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #334155; font-size: 0.9rem; }
+    .biz-nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .biz-nav__brand { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+    .biz-nav__links { display: flex; gap: 2rem; list-style: none; }
+    .biz-nav__links a { color: #e2e8f0; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+    .biz-nav__links a:hover { color: var(--primary-light); }
+    .biz-nav__toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+    @media (max-width: 768px) {
+      .biz-hero__title { font-size: 2.2rem; }
+      .biz-about__grid { grid-template-columns: 1fr; }
+      .biz-nav__links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(0,0,0,0.95); padding: 1rem 2rem; }
+      .biz-nav__links.active { display: flex; }
+      .biz-nav__toggle { display: block; }
+      .biz-grid--3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="biz-nav">
+    <a href="index.html" class="biz-nav__brand">PrimeNest</a>
+    <button class="biz-nav__toggle" onclick="document.querySelector('.biz-nav__links').classList.toggle('active')">☰</button>
+    <ul class="biz-nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="properties.html">Properties</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="admin.html">Admin</a></li>
+    </ul>
+  </nav>
+
+  <section class="biz-hero">
+    <div class="biz-hero__content">
+      <h1 class="biz-hero__title biz-font-display">Find Your Dream Property with PrimeNest</h1>
+      <p class="biz-hero__subtitle">Pakistan's trusted premium real estate agency. We help you discover luxury homes, modern apartments, and investment properties in the most sought-after locations.</p>
+      <div class="biz-hero__buttons">
+        <a href="properties.html" class="biz-btn biz-btn--primary">Browse Properties</a>
+        <a href="https://wa.me/923281190004?text=Hi%20PrimeNest%2C%20I%27m%20interested%20in%20your%20properties." class="biz-btn biz-btn--whatsapp" target="_blank">WhatsApp Us</a>
+        <a href="contact.html" class="biz-btn biz-btn--outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section">
+    <div class="biz-container">
+      <div class="biz-section__header">
+        <h2 class="biz-section__title biz-font-display">Featured Properties</h2>
+        <p class="biz-section__subtitle">Handpicked premium properties for discerning buyers</p>
+      </div>
+      <div class="biz-grid biz-grid--3">
+        <a href="property-detail.html" style="text-decoration:none;color:inherit">
+          <article class="biz-property">
+            <div class="biz-property__image">
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="Luxury Villa in DHA Phase 6" loading="lazy">
+              <span class="biz-property__badge">For Sale</span>
+            </div>
+            <div class="biz-property__body">
+              <div class="biz-property__price">Rs. 4.5 Crore</div>
+              <h3 class="biz-property__title">Luxury Villa</h3>
+              <div class="biz-property__location">📍 DHA Phase 6</div>
+              <div class="biz-property__specs">
+                <span class="biz-property__spec">🛏 5 Bed</span>
+                <span class="biz-property__spec">🚿 4 Bath</span>
+                <span class="biz-property__spec">📐 3200 sqft</span>
+              </div>
+            </div>
+          </article>
+        </a>
+        <a href="property-detail.html" style="text-decoration:none;color:inherit">
+          <article class="biz-property">
+            <div class="biz-property__image">
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Modern Apartment in Gulberg III" loading="lazy">
+              <span class="biz-property__badge">For Sale</span>
+            </div>
+            <div class="biz-property__body">
+              <div class="biz-property__price">Rs. 1.8 Crore</div>
+              <h3 class="biz-property__title">Modern Apartment</h3>
+              <div class="biz-property__location">📍 Gulberg III</div>
+              <div class="biz-property__specs">
+                <span class="biz-property__spec">🛏 3 Bed</span>
+                <span class="biz-property__spec">🚿 2 Bath</span>
+                <span class="biz-property__spec">📐 1800 sqft</span>
+              </div>
+            </div>
+          </article>
+        </a>
+        <a href="property-detail.html" style="text-decoration:none;color:inherit">
+          <article class="biz-property">
+            <div class="biz-property__image">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80" alt="Family Home in Cantonment" loading="lazy">
+              <span class="biz-property__badge">For Sale</span>
+            </div>
+            <div class="biz-property__body">
+              <div class="biz-property__price">Rs. 3.2 Crore</div>
+              <h3 class="biz-property__title">Family Home</h3>
+              <div class="biz-property__location">📍 Cantonment</div>
+              <div class="biz-property__specs">
+                <span class="biz-property__spec">🛏 4 Bed</span>
+                <span class="biz-property__spec">🚿 3 Bath</span>
+                <span class="biz-property__spec">📐 2500 sqft</span>
+              </div>
+            </div>
+          </article>
+        </a>
+      </div>
+      <div style="text-align:center;margin-top:3rem">
+        <a href="properties.html" class="biz-btn biz-btn--primary">View All Properties →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section biz-about">
+    <div class="biz-container">
+      <div class="biz-about__grid">
+        <div class="biz-about__image">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="PrimeNest Properties Office">
+        </div>
+        <div class="biz-about__content">
+          <h2 class="biz-font-display">About PrimeNest Properties</h2>
+          <p>Founded in 2015, PrimeNest Properties has become one of Pakistan's most respected real estate agencies. We specialize in premium residential and commercial properties across Lahore's most desirable neighborhoods.</p>
+          <p>Our team of experienced agents provides personalized service, ensuring every client finds the perfect property to match their lifestyle and investment goals. With over 500 successful transactions, we are your trusted partner in real estate.</p>
+          <a href="properties.html" class="biz-btn biz-btn--primary" style="margin-top:1rem">Explore Properties</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section">
+    <div class="biz-container">
+      <div class="biz-section__header">
+        <h2 class="biz-section__title biz-font-display">Our Services</h2>
+        <p class="biz-section__subtitle">Comprehensive real estate solutions</p>
+      </div>
+      <div class="biz-services">
+        <div class="biz-service">
+          <div class="biz-service__icon">🏠</div>
+          <h3 class="biz-service__title">Buy Property</h3>
+          <p class="biz-service__desc">Find your dream home from our curated selection of premium properties in top locations.</p>
+        </div>
+        <div class="biz-service">
+          <div class="biz-service__icon">💰</div>
+          <h3 class="biz-service__title">Sell Property</h3>
+          <p class="biz-service__desc">Get the best value for your property with our expert marketing and negotiation skills.</p>
+        </div>
+        <div class="biz-service">
+          <div class="biz-service__icon">🔑</div>
+          <h3 class="biz-service__title">Rent Property</h3>
+          <p class="biz-service__desc">Browse quality rental properties with flexible terms and prime locations.</p>
+        </div>
+        <div class="biz-service">
+          <div class="biz-service__icon">📊</div>
+          <h3 class="biz-service__title">Investment Advisory</h3>
+          <p class="biz-service__desc">Make informed investment decisions with our market analysis and expert guidance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section" style="background:#f8fafc">
+    <div class="biz-container">
+      <div class="biz-section__header">
+        <h2 class="biz-section__title biz-font-display">Meet Our Agents</h2>
+        <p class="biz-section__subtitle">Professional, experienced, and dedicated to your success</p>
+      </div>
+      <div class="biz-team">
+        <div class="biz-agent">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80" alt="Ahmad Khan" class="biz-agent__photo">
+          <h3 class="biz-agent__name">Ahmad Khan</h3>
+          <p class="biz-agent__role">Senior Agent</p>
+        </div>
+        <div class="biz-agent">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" alt="Fatima Malik" class="biz-agent__photo">
+          <h3 class="biz-agent__name">Fatima Malik</h3>
+          <p class="biz-agent__role">Property Consultant</p>
+        </div>
+        <div class="biz-agent">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80" alt="Hassan Ali" class="biz-agent__photo">
+          <h3 class="biz-agent__name">Hassan Ali</h3>
+          <p class="biz-agent__role">Investment Specialist</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="biz-section">
+    <div class="biz-cta">
+      <h2 class="biz-font-display">Ready to Find Your Perfect Property?</h2>
+      <p>Contact us today and let our expert agents help you make the right choice.</p>
+      <a href="https://wa.me/923281190004?text=Hi%20PrimeNest%2C%20I%20would%20like%20to%20schedule%20a%20property%20viewing." class="biz-btn biz-btn--whatsapp" target="_blank" style="margin-right:1rem">Schedule a Viewing</a>
+      <a href="tel:+923112225678" class="biz-btn biz-btn--outline" style="border-color:#fff;color:#fff">Call Now</a>
+    </div>
+  </section>
+
+  <footer class="biz-footer">
+    <div class="biz-footer__grid">
+      <div>
+        <h4 class="biz-font-display">PrimeNest Properties</h4>
+        <p>Your trusted partner in premium real estate. Helping families find their dream homes since 2015.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin Panel</a>
+      </div>
+      <div>
+        <h4>Contact Info</h4>
+        <p>88 Mall Road, DHA Phase 5</p>
+        <p>+92 311 222 5678</p>
+        <p>info@primenest.pk</p>
+        <p>Mon-Sat 9AM-7PM, Sun By Appointment</p>
+      </div>
+      <div>
+        <h4>WhatsApp</h4>
+        <a href="https://wa.me/923281190004?text=Hello%20PrimeNest%2C%20I%27m%20interested%20in%20your%20services." target="_blank">Chat with us on WhatsApp</a>
+      </div>
+    </div>
+    <div class="biz-footer__bottom">
+      <p>&copy; 2026 PrimeNest Properties. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

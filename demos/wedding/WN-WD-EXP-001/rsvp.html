@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP — Layla & Daniel Wedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root {
+      --wd-font-display: 'Cormorant Garamond', serif;
+      --wd-font-body: 'Inter', sans-serif;
+      --wd-color-primary: #b08d57;
+      --wd-color-primary-dark: #8f6f3d;
+      --wd-color-text: #2c2c2c;
+      --wd-color-text-light: #6b6b6b;
+      --wd-color-bg: #fdfbf7;
+      --wd-color-bg-alt: #f5f0e8;
+      --wd-color-white: #ffffff;
+      --wd-color-border: #e0d5c1;
+      --wd-color-success: #4a7c59;
+      --wd-color-error: #c0392b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--wd-font-body);
+      color: var(--wd-color-text);
+      background: var(--wd-color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wd-notice {
+      background: var(--wd-color-primary);
+      color: var(--wd-color-white);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .wd-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 251, 247, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--wd-color-border);
+      padding: 0 40px;
+    }
+
+    .wd-header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .wd-header__brand {
+      font-family: var(--wd-font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--wd-color-primary);
+      text-decoration: none;
+    }
+
+    .wd-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .wd-nav__link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--wd-color-text-light);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .wd-nav__link:hover,
+    .wd-nav__link--active {
+      color: var(--wd-color-primary);
+    }
+
+    .wd-nav__link--active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--wd-color-primary);
+    }
+
+    .wd-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-family: var(--wd-font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .wd-btn--primary {
+      background: var(--wd-color-primary);
+      color: var(--wd-color-white);
+    }
+
+    .wd-btn--primary:hover {
+      background: var(--wd-color-primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(176, 141, 87, 0.4);
+    }
+
+    .wd-btn--outline {
+      background: transparent;
+      color: var(--wd-color-primary);
+      border: 2px solid var(--wd-color-primary);
+    }
+
+    .wd-btn--outline:hover {
+      background: var(--wd-color-primary);
+      color: var(--wd-color-white);
+    }
+
+    .wd-btn--full {
+      width: 100%;
+    }
+
+    .wd-mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .wd-mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--wd-color-text);
+      transition: all 0.3s;
+    }
+
+    .wd-mobile {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--wd-color-bg);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .wd-mobile.is-open {
+      display: flex;
+    }
+
+    .wd-mobile__close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--wd-color-text);
+    }
+
+    .wd-mobile__link {
+      font-family: var(--wd-font-display);
+      font-size: 1.8rem;
+      color: var(--wd-color-text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .wd-mobile__link:hover,
+    .wd-mobile__link--active {
+      color: var(--wd-color-primary);
+    }
+
+    .wd-hero {
+      position: relative;
+      height: 50vh;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1600&q=80');
+    }
+
+    .wd-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+    }
+
+    .wd-hero__content {
+      position: relative;
+      z-index: 1;
+      color: var(--wd-color-white);
+      padding: 20px;
+    }
+
+    .wd-hero__eyebrow {
+      font-family: var(--wd-font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .wd-hero__title {
+      font-family: var(--wd-font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .wd-hero__message {
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    .wd-section {
+      padding: 100px 40px;
+    }
+
+    .wd-section--alt {
+      background: var(--wd-color-bg-alt);
+    }
+
+    .wd-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .wd-section__head {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .wd-section__tag {
+      font-family: var(--wd-font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--wd-color-primary);
+      margin-bottom: 12px;
+    }
+
+    .wd-section__title {
+      font-family: var(--wd-font-display);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--wd-color-text);
+      margin-bottom: 16px;
+    }
+
+    .wd-section__desc {
+      font-size: 1rem;
+      color: var(--wd-color-text-light);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .wd-rsvp {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .wd-rsvp__form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .wd-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .wd-form-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--wd-color-text);
+    }
+
+    .wd-form-input,
+    .wd-form-select,
+    .wd-form-textarea {
+      padding: 14px 18px;
+      border: 1px solid var(--wd-color-border);
+      border-radius: 8px;
+      font-family: var(--wd-font-body);
+      font-size: 0.95rem;
+      color: var(--wd-color-text);
+      background: var(--wd-color-white);
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .wd-form-input:focus,
+    .wd-form-select:focus,
+    .wd-form-textarea:focus {
+      border-color: var(--wd-color-primary);
+    }
+
+    .wd-form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .wd-form-radio-group {
+      display: flex;
+      gap: 24px;
+      padding: 8px 0;
+    }
+
+    .wd-form-radio {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .wd-form-radio input[type="radio"] {
+      accent-color: var(--wd-color-primary);
+      width: 18px;
+      height: 18px;
+    }
+
+    .wd-form-radio span {
+      font-size: 0.95rem;
+      color: var(--wd-color-text);
+    }
+
+    .wd-rsvp__success {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .wd-rsvp__success.is-visible {
+      display: block;
+    }
+
+    .wd-rsvp__success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--wd-color-success);
+      color: var(--wd-color-white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .wd-rsvp__success-title {
+      font-family: var(--wd-font-display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--wd-color-text);
+      margin-bottom: 12px;
+    }
+
+    .wd-rsvp__success-text {
+      font-size: 1rem;
+      color: var(--wd-color-text-light);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .wd-cta {
+      text-align: center;
+    }
+
+    .wd-cta__title {
+      font-family: var(--wd-font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--wd-color-text);
+      margin-bottom: 16px;
+    }
+
+    .wd-cta__desc {
+      font-size: 1rem;
+      color: var(--wd-color-text-light);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .wd-final {
+      text-align: center;
+      padding: 100px 40px;
+      background: var(--wd-color-text);
+      color: var(--wd-color-white);
+    }
+
+    .wd-final__names {
+      font-family: var(--wd-font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .wd-final__date {
+      font-family: var(--wd-font-body);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.8;
+      margin-bottom: 32px;
+    }
+
+    .wd-final__quote {
+      font-family: var(--wd-font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      max-width: 500px;
+      margin: 0 auto 32px;
+      opacity: 0.9;
+      line-height: 1.7;
+    }
+
+    .wd-final__credit {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      letter-spacing: 1px;
+    }
+
+    .wd-footer {
+      background: #1a1a1a;
+      color: var(--wd-color-white);
+      padding: 60px 40px 30px;
+    }
+
+    .wd-footer__inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .wd-footer__brand {
+      font-family: var(--wd-font-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--wd-color-primary);
+      margin-bottom: 24px;
+    }
+
+    .wd-footer__nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .wd-footer__link {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    .wd-footer__link:hover {
+      color: var(--wd-color-primary);
+    }
+
+    .wd-footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .wd-footer__tag {
+      background: rgba(176, 141, 87, 0.15);
+      color: var(--wd-color-primary);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .wd-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wd-lightbox.is-active {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      .wd-header { padding: 0 20px; }
+      .wd-nav { display: none; }
+      .wd-mobile-toggle { display: flex; }
+      .wd-hero { min-height: 350px; }
+      .wd-section { padding: 60px 20px; }
+      .wd-form-radio-group { flex-direction: column; gap: 12px; }
+      .wd-footer { padding: 40px 20px 20px; }
+      .wd-final { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wd-notice">
+    WebNest Wedding Demo — Expert Package · 8 Pages · 20 Photos · Premium Experience
+  </div>
+
+  <header class="wd-header">
+    <div class="wd-header__inner">
+      <a href="index.html" class="wd-header__brand">💍 Layla & Daniel</a>
+      <nav class="wd-nav">
+        <a href="index.html" class="wd-nav__link">Home</a>
+        <a href="story.html" class="wd-nav__link">Story</a>
+        <a href="timeline.html" class="wd-nav__link">Timeline</a>
+        <a href="events.html" class="wd-nav__link">Events</a>
+        <a href="venue.html" class="wd-nav__link">Venue</a>
+        <a href="gallery.html" class="wd-nav__link">Gallery</a>
+        <a href="rsvp.html" class="wd-nav__link wd-nav__link--active">RSVP</a>
+        <a href="message.html" class="wd-nav__link">Message</a>
+        <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Wedding%20website%20like%20WN-WD-EXP-001" class="wd-btn wd-btn--primary" target="_blank" rel="noopener">Order on WhatsApp</a>
+      </nav>
+      <button class="wd-mobile-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="wd-mobile">
+    <button class="wd-mobile__close" aria-label="Close">&times;</button>
+    <a href="index.html" class="wd-mobile__link">Home</a>
+    <a href="story.html" class="wd-mobile__link">Story</a>
+    <a href="timeline.html" class="wd-mobile__link">Timeline</a>
+    <a href="events.html" class="wd-mobile__link">Events</a>
+    <a href="venue.html" class="wd-mobile__link">Venue</a>
+    <a href="gallery.html" class="wd-mobile__link">Gallery</a>
+    <a href="rsvp.html" class="wd-mobile__link wd-mobile__link--active">RSVP</a>
+    <a href="message.html" class="wd-mobile__link">Message</a>
+    <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Wedding%20website%20like%20WN-WD-EXP-001" class="wd-btn wd-btn--primary" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </div>
+
+  <section class="wd-hero">
+    <div class="wd-hero__content">
+      <p class="wd-hero__eyebrow">Your Presence Is Requested</p>
+      <h1 class="wd-hero__title">RSVP</h1>
+      <p class="wd-hero__message">Please let us know if you'll be joining our celebration.</p>
+    </div>
+  </section>
+
+  <section class="wd-section">
+    <div class="wd-container">
+      <div class="wd-section__head">
+        <p class="wd-section__tag">Respond</p>
+        <h2 class="wd-section__title">Kindly Respond</h2>
+        <p class="wd-section__desc">We would be honored to have you celebrate with us.</p>
+      </div>
+
+      <div class="wd-rsvp">
+        <form class="wd-rsvp__form" id="rsvpForm">
+          <div class="wd-form-group">
+            <label class="wd-form-label" for="rsvpName">Full Name *</label>
+            <input class="wd-form-input" type="text" id="rsvpName" name="name" required placeholder="Your full name">
+          </div>
+
+          <div class="wd-form-group">
+            <label class="wd-form-label" for="rsvpEmail">Email *</label>
+            <input class="wd-form-input" type="email" id="rsvpEmail" name="email" required placeholder="your@email.com">
+          </div>
+
+          <div class="wd-form-group">
+            <label class="wd-form-label" for="rsvpPhone">Phone</label>
+            <input class="wd-form-input" type="tel" id="rsvpPhone" name="phone" placeholder="+92 300 123 4567">
+          </div>
+
+          <div class="wd-form-group">
+            <label class="wd-form-label">Will you attend? *</label>
+            <div class="wd-form-radio-group">
+              <label class="wd-form-radio">
+                <input type="radio" name="attendance" value="accept" required>
+                <span>Joyfully Accept</span>
+              </label>
+              <label class="wd-form-radio">
+                <input type="radio" name="attendance" value="decline">
+                <span>Respectfully Decline</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="wd-form-group">
+            <label class="wd-form-label" for="rsvpGuests">Number of Guests</label>
+            <select class="wd-form-select" id="rsvpGuests" name="guests">
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5+ Guests</option>
+            </select>
+          </div>
+
+          <div class="wd-form-group">
+            <label class="wd-form-label" for="rsvpMessage">Message</label>
+            <textarea class="wd-form-textarea" id="rsvpMessage" name="message" placeholder="Any message for the couple..."></textarea>
+          </div>
+
+          <button type="submit" class="wd-btn wd-btn--primary wd-btn--full">Send RSVP</button>
+        </form>
+
+        <div class="wd-rsvp__success" id="rsvpSuccess">
+          <div class="wd-rsvp__success-icon">✓</div>
+          <h3 class="wd-rsvp__success-title">Thank You!</h3>
+          <p class="wd-rsvp__success-text">Your RSVP has been received. We look forward to celebrating with you!</p>
+          <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Wedding%20website%20like%20WN-WD-EXP-001" class="wd-btn wd-btn--primary" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wd-section wd-section--alt">
+    <div class="wd-container">
+      <div class="wd-cta">
+        <h2 class="wd-cta__title">Have Questions?</h2>
+        <p class="wd-cta__desc">Feel free to reach out to us directly on WhatsApp for any queries.</p>
+        <a href="https://wa.me/923281190004?text=Hi%20WebNest!%20I%20want%20to%20order%20a%20Wedding%20website%20like%20WN-WD-EXP-001" class="wd-btn wd-btn--primary" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wd-final">
+    <div class="wd-container">
+      <h2 class="wd-final__names">Layla & Daniel</h2>
+      <p class="wd-final__date">March 21, 2027</p>
+      <p class="wd-final__quote">"Two souls with but a single thought, two hearts that beat as one."</p>
+      <p class="wd-final__credit">With love from WebNest</p>
+    </div>
+  </section>
+
+  <footer class="wd-footer">
+    <div class="wd-footer__inner">
+      <div class="wd-footer__brand">💍 Layla & Daniel</div>
+      <nav class="wd-footer__nav">
+        <a href="index.html" class="wd-footer__link">Home</a>
+        <a href="story.html" class="wd-footer__link">Story</a>
+        <a href="timeline.html" class="wd-footer__link">Timeline</a>
+        <a href="events.html" class="wd-footer__link">Events</a>
+        <a href="venue.html" class="wd-footer__link">Venue</a>
+        <a href="gallery.html" class="wd-footer__link">Gallery</a>
+        <a href="rsvp.html" class="wd-footer__link">RSVP</a>
+        <a href="message.html" class="wd-footer__link">Message</a>
+      </nav>
+      <div class="wd-footer__bottom">
+        <span>Crafted with love by WebNest</span>
+        <span class="wd-footer__tag">WN-WD-EXP-001 · Expert Package · Premium</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wd-lightbox"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu
+      const mobileToggle = document.querySelector('.wd-mobile-toggle');
+      const mobileMenu = document.querySelector('.wd-mobile');
+      const mobileClose = document.querySelector('.wd-mobile__close');
+
+      if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener('click', () => mobileMenu.classList.add('is-open'));
+      }
+      if (mobileClose && mobileMenu) {
+        mobileClose.addEventListener('click', () => mobileMenu.classList.remove('is-open'));
+      }
+
+      // RSVP form
+      const form = document.getElementById('rsvpForm');
+      const success = document.getElementById('rsvpSuccess');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          form.style.display = 'none';
+          success.classList.add('is-visible');
+        });
+      }
+    });
+  </script>
+  <script src="../shared/js/base.js"></script>
+</body>
+</html>

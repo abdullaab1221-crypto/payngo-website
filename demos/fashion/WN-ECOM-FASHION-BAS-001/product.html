@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WN Fashion — Product | WN-ECOM-FASHION-BAS-001</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <style>
+    :root {
+      --primary: #c9a96e;
+      --primary-light: #dfc9a0;
+      --primary-dark: #a8884d;
+      --accent: #e8a0b4;
+    }
+    .ec-breadcrumb { padding:20px 5%; background:#f9f7f4; display:flex; gap:8px; align-items:center; font-size:0.85rem; flex-wrap:wrap; }
+    .ec-breadcrumb a { color:#666; text-decoration:none; }
+    .ec-breadcrumb a:hover { color:var(--primary); }
+    .ec-breadcrumb span { color:#aaa; }
+    .ec-breadcrumb strong { color:#1a1a2e; }
+    .ec-product-detail { display:grid; grid-template-columns:1fr 1fr; gap:48px; padding:40px 5%; max-width:1200px; margin:0 auto; }
+    .ec-gallery { position:sticky; top:100px; align-self:start; }
+    .ec-gallery__main { border-radius:8px; overflow:hidden; margin-bottom:12px; cursor:pointer; }
+    .ec-gallery__main img { width:100%; height:auto; display:block; transition:transform 0.3s; }
+    .ec-gallery__main:hover img { transform:scale(1.02); }
+    .ec-gallery__thumbs { display:flex; gap:8px; }
+    .ec-gallery__thumb { width:80px; height:80px; border-radius:4px; overflow:hidden; cursor:pointer; border:2px solid transparent; transition:border-color 0.2s; opacity:0.6; }
+    .ec-gallery__thumb.active,.ec-gallery__thumb:hover { border-color:var(--primary); opacity:1; }
+    .ec-gallery__thumb img { width:100%; height:100%; object-fit:cover; }
+    .ec-product-info__brand { color:var(--primary); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+    .ec-product-info__title { font-family:'Playfair Display',serif; font-size:2rem; color:#1a1a2e; margin-bottom:12px; }
+    .ec-product-info__rating { display:flex; align-items:center; gap:8px; margin-bottom:16px; }
+    .ec-product-info__stars { color:var(--primary); font-size:1rem; }
+    .ec-product-info__reviews { color:#888; font-size:0.85rem; }
+    .ec-product-info__price { display:flex; gap:12px; align-items:center; margin-bottom:20px; }
+    .ec-product-info__price--current { font-size:1.5rem; font-weight:600; color:var(--primary-dark); }
+    .ec-product-info__price--original { font-size:1.1rem; text-decoration:line-through; color:#aaa; }
+    .ec-product-info__price--badge { background:#e74c3c; color:#fff; padding:4px 10px; border-radius:2px; font-size:0.75rem; font-weight:600; }
+    .ec-product-info__desc { color:#555; line-height:1.8; margin-bottom:24px; }
+    .ec-product-info__option { margin-bottom:20px; }
+    .ec-product-info__label { font-weight:500; color:#1a1a2e; margin-bottom:8px; display:block; }
+    .ec-size-options { display:flex; gap:8px; flex-wrap:wrap; }
+    .ec-size-btn { padding:10px 18px; border:1px solid #ddd; background:#fff; border-radius:4px; cursor:pointer; font-size:0.85rem; font-family:'Inter',sans-serif; transition:all 0.2s; }
+    .ec-size-btn:hover { border-color:var(--primary); }
+    .ec-size-btn.active { background:var(--primary); color:#fff; border-color:var(--primary); }
+    .ec-color-options { display:flex; gap:10px; }
+    .ec-color-btn { width:36px; height:36px; border-radius:50%; border:2px solid transparent; cursor:pointer; position:relative; transition:border-color 0.2s; }
+    .ec-color-btn::after { content:''; position:absolute; inset:-4px; border-radius:50%; border:2px solid transparent; transition:border-color 0.2s; }
+    .ec-color-btn.active::after { border-color:var(--primary); }
+    .ec-qty { display:flex; align-items:center; gap:12px; }
+    .ec-qty__btn { width:36px; height:36px; border:1px solid #ddd; background:#fff; border-radius:4px; cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center; }
+    .ec-qty__btn:hover { border-color:var(--primary); }
+    .ec-qty__value { font-size:1rem; font-weight:500; min-width:24px; text-align:center; }
+    .ec-product-info__actions { display:flex; gap:12px; margin-top:24px; margin-bottom:32px; }
+    .ec-product-info__actions .ec-btn { flex:1; padding:14px 24px; text-align:center; }
+    .ec-features { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:20px 0; border-top:1px solid #eee; }
+    .ec-feature { display:flex; align-items:center; gap:10px; font-size:0.9rem; color:#555; }
+    .ec-feature svg { color:var(--primary); flex-shrink:0; }
+    .ec-reviews-section { padding:40px 5%; max-width:1200px; margin:0 auto; }
+    .ec-reviews-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:24px; }
+    .ec-review { padding:20px 0; border-bottom:1px solid #eee; }
+    .ec-review__header { display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+    .ec-review__avatar { width:40px; height:40px; border-radius:50%; background:var(--primary-light); display:flex; align-items:center; justify-content:center; font-weight:600; color:#fff; font-size:0.9rem; }
+    .ec-review__name { font-weight:500; }
+    .ec-review__date { color:#999; font-size:0.8rem; }
+    .ec-review__stars { color:var(--primary); margin-bottom:8px; }
+    .ec-review__text { color:#555; line-height:1.7; }
+    .ec-related { padding:40px 5% 60px; max-width:1200px; margin:0 auto; }
+    .ec-related h2 { font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:24px; }
+    .ec-product-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .ec-product-card { background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); transition:transform 0.3s,box-shadow 0.3s; text-decoration:none; color:inherit; display:block; }
+    .ec-product-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+    .ec-product-card__img { position:relative; padding-top:120%; overflow:hidden; }
+    .ec-product-card__img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .ec-product-card__body { padding:12px; }
+    .ec-product-card__category { color:#999; font-size:0.7rem; text-transform:uppercase; }
+    .ec-product-card__name { font-size:0.9rem; font-weight:500; color:#1a1a2e; margin:4px 0; }
+    .ec-product-card__price { font-weight:600; color:var(--primary-dark); font-size:0.9rem; }
+    .ec-product-card__badges { position:absolute; top:8px; left:8px; }
+    .ec-product-card__badge { padding:3px 8px; font-size:0.65rem; font-weight:600; text-transform:uppercase; border-radius:2px; background:#1a1a2e; color:#fff; }
+    @media(max-width:768px){
+      .ec-product-detail{grid-template-columns:1fr;gap:24px;padding:20px 5%;}
+      .ec-gallery{position:static;}
+      .ec-product-grid{grid-template-columns:repeat(2,1fr);}
+      .ec-features{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="ec-notice-bar">
+    <p>WN Fashion Store — Basic Package | WN-ECOM-FASHION-BAS-001</p>
+  </div>
+
+  <header class="ec-header ec-header--sticky">
+    <div class="ec-header__inner">
+      <a href="index.html" class="ec-header__brand">WN Fashion</a>
+      <nav class="ec-header__nav">
+        <a href="index.html" class="ec-header__link">Home</a>
+        <a href="shop.html" class="ec-header__link">Shop</a>
+      </nav>
+      <div class="ec-header__actions">
+        <button class="ec-header__icon ec-search-toggle" aria-label="Search">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="cart.html" class="ec-header__icon ec-cart-toggle" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="ec-header__badge ec-cart-count">0</span>
+        </a>
+        <button class="ec-header__icon ec-burger" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ec-mobile-menu">
+    <div class="ec-mobile-menu__header">
+      <span class="ec-mobile-menu__brand">WN Fashion</span>
+      <button class="ec-mobile-menu__close">&times;</button>
+    </div>
+    <nav class="ec-mobile-menu__nav">
+      <a href="index.html" class="ec-mobile-menu__link">Home</a>
+      <a href="shop.html" class="ec-mobile-menu__link">Shop</a>
+      <a href="cart.html" class="ec-mobile-menu__link">Cart</a>
+      <a href="admin.html" class="ec-mobile-menu__link">Admin</a>
+    </nav>
+  </div>
+  <div class="ec-overlay ec-mobile-overlay"></div>
+
+  <div class="ec-search-overlay">
+    <div class="ec-search-overlay__inner">
+      <button class="ec-search-overlay__close">&times;</button>
+      <input type="text" class="ec-search-overlay__input" placeholder="Search products..." id="ecSearchInput">
+      <div class="ec-search-overlay__results" id="ecSearchResults"></div>
+    </div>
+  </div>
+
+  <main>
+    <div class="ec-breadcrumb" id="ecBreadcrumb">
+      <a href="index.html">Home</a><span>/</span><a href="shop.html">Shop</a><span>/</span><strong id="ecBreadcrumbProduct">Product</strong>
+    </div>
+
+    <div class="ec-product-detail">
+      <div class="ec-gallery">
+        <div class="ec-gallery__main" id="ecGalleryMain">
+          <img id="ecMainImage" src="" alt="Product">
+        </div>
+        <div class="ec-gallery__thumbs" id="ecGalleryThumbs"></div>
+      </div>
+
+      <div class="ec-product-info" id="ecProductInfo">
+        <p class="ec-product-info__brand" id="ecProductBrand">WN Fashion</p>
+        <h1 class="ec-product-info__title" id="ecProductTitle">Loading...</h1>
+        <div class="ec-product-info__rating">
+          <span class="ec-product-info__stars" id="ecProductStars"></span>
+          <span class="ec-product-info__reviews" id="ecProductReviews"></span>
+        </div>
+        <div class="ec-product-info__price" id="ecProductPrice"></div>
+        <p class="ec-product-info__desc" id="ecProductDesc"></p>
+
+        <div class="ec-product-info__option">
+          <label class="ec-product-info__label">Size</label>
+          <div class="ec-size-options" id="ecSizeOptions"></div>
+        </div>
+
+        <div class="ec-product-info__option">
+          <label class="ec-product-info__label">Color</label>
+          <div class="ec-color-options" id="ecColorOptions"></div>
+        </div>
+
+        <div class="ec-product-info__option">
+          <label class="ec-product-info__label">Quantity</label>
+          <div class="ec-qty">
+            <button class="ec-qty__btn" id="ecQtyMinus">-</button>
+            <span class="ec-qty__value" id="ecQtyValue">1</span>
+            <button class="ec-qty__btn" id="ecQtyPlus">+</button>
+          </div>
+        </div>
+
+        <div class="ec-product-info__actions">
+          <button class="ec-btn ec-btn--primary" id="ecAddToCart">Add to Cart</button>
+          <button class="ec-btn ec-btn--outline" id="ecBuyNow">Buy Now</button>
+        </div>
+
+        <div class="ec-features">
+          <div class="ec-feature">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5a2 2 0 0 1-2 2h-1M2 21a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/><circle cx="7" cy="21" r="2"/><circle cx="17" cy="21" r="2"/></svg>
+            <span>Free shipping on orders over Rs. 10,000</span>
+          </div>
+          <div class="ec-feature">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Ships within 2-3 business days</span>
+          </div>
+          <div class="ec-feature">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14l-4-4 4-4"/><path d="M5 10h11a4 4 0 0 1 0 8h-1"/></svg>
+            <span>14-day easy returns & exchanges</span>
+          </div>
+          <div class="ec-feature">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Secure checkout guaranteed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="ec-reviews-section">
+      <h2>Customer Reviews</h2>
+      <div id="ecReviewsList"></div>
+    </section>
+
+    <section class="ec-related">
+      <h2>You May Also Like</h2>
+      <div class="ec-product-grid" id="ecRelatedGrid"></div>
+    </section>
+  </main>
+
+  <footer class="ec-footer">
+    <div class="ec-footer__inner">
+      <div class="ec-footer__col">
+        <h4 class="ec-footer__brand">WN Fashion</h4>
+        <p class="ec-footer__desc">Premium fashion for the modern woman. Curated collections of timeless elegance and contemporary design.</p>
+      </div>
+      <div class="ec-footer__col">
+        <h4 class="ec-footer__heading">Quick Links</h4>
+        <a href="index.html" class="ec-footer__link">Home</a>
+        <a href="shop.html" class="ec-footer__link">Shop</a>
+        <a href="cart.html" class="ec-footer__link">Cart</a>
+        <a href="admin.html" class="ec-footer__link">Admin</a>
+      </div>
+      <div class="ec-footer__col">
+        <h4 class="ec-footer__heading">Contact</h4>
+        <a href="https://wa.me/923281190004?text=Hello%20WebNest%2C%20I%20am%20interested%20in%20Fashion%20E-commerce%20%E2%80%94%20Basic%20Package%20(WN-ECOM-FASHION-BAS-001)." class="ec-footer__link" target="_blank" rel="noopener">WhatsApp</a>
+        <p class="ec-footer__link">demo@webnest.com</p>
+      </div>
+    </div>
+    <div class="ec-footer__bottom">
+      <p>&copy; 2026 WN Fashion. WN-ECOM-FASHION-BAS-001. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="ec-cart-drawer">
+    <div class="ec-cart-drawer__header">
+      <h3>Your Cart</h3>
+      <button class="ec-cart-drawer__close">&times;</button>
+    </div>
+    <div class="ec-cart-drawer__items" id="ecCartDrawerItems">
+      <p class="ec-cart-drawer__empty">Your cart is empty</p>
+    </div>
+    <div class="ec-cart-drawer__footer">
+      <div class="ec-cart-drawer__total">
+        <span>Total</span>
+        <span id="ecCartDrawerTotal">Rs. 0</span>
+      </div>
+      <a href="cart.html" class="ec-btn ec-btn--primary ec-btn--full">View Cart</a>
+      <a href="checkout.html" class="ec-btn ec-btn--outline ec-btn--full" style="margin-top:8px;">Checkout</a>
+    </div>
+  </div>
+  <div class="ec-overlay ec-cart-overlay"></div>
+
+  <button class="ec-admin-toggle" id="ecAdminToggle">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+  </button>
+
+  <div class="ec-admin-overlay" id="ecAdminOverlay">
+    <div class="ec-admin-sidebar">
+      <div class="ec-admin-sidebar__header">
+        <h3>Admin Panel</h3>
+        <button class="ec-admin-close" id="ecAdminClose">&times;</button>
+      </div>
+      <nav class="ec-admin-sidebar__nav">
+        <button class="ec-admin-nav ec-admin-nav--active" data-section="dashboard">Dashboard</button>
+        <button class="ec-admin-nav" data-section="products">Products</button>
+        <button class="ec-admin-nav" data-section="orders">Orders</button>
+        <button class="ec-admin-nav" data-section="customers">Customers</button>
+        <button class="ec-admin-nav" data-section="inventory">Inventory</button>
+        <button class="ec-admin-nav" data-section="discounts">Discounts</button>
+        <button class="ec-admin-nav" data-section="settings">Settings</button>
+      </nav>
+    </div>
+    <div class="ec-admin-content" id="ecAdminContent">
+      <div class="ec-admin-section ec-admin-section--active" id="admin-dashboard"><h2>Dashboard</h2><div class="ec-admin-stats"><div class="ec-admin-stat"><span class="ec-admin-stat__value">Rs. 485,000</span><span class="ec-admin-stat__label">Revenue</span></div><div class="ec-admin-stat"><span class="ec-admin-stat__value">127</span><span class="ec-admin-stat__label">Orders</span></div><div class="ec-admin-stat"><span class="ec-admin-stat__value">89</span><span class="ec-admin-stat__label">Customers</span></div><div class="ec-admin-stat"><span class="ec-admin-stat__value">20</span><span class="ec-admin-stat__label">Products</span></div></div></div>
+      <div class="ec-admin-section" id="admin-products"><h2>Products</h2><div class="ec-admin-table-wrap"><table class="ec-admin-table" id="ecAdminProductTable"><thead><tr><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table></div></div>
+      <div class="ec-admin-section" id="admin-orders"><h2>Orders</h2></div>
+      <div class="ec-admin-section" id="admin-customers"><h2>Customers</h2></div>
+      <div class="ec-admin-section" id="admin-inventory"><h2>Inventory</h2></div>
+      <div class="ec-admin-section" id="admin-discounts"><h2>Discounts</h2></div>
+      <div class="ec-admin-section" id="admin-settings"><h2>Settings</h2></div>
+    </div>
+  </div>
+
+  <div class="ec-toast" id="ecToast"></div>
+  <div class="ec-lightbox" id="ecLightbox"><button class="ec-lightbox__close">&times;</button><img class="ec-lightbox__img" id="ecLightboxImg" src="" alt="Product"></div>
+
+  <script>
+  window.EC_PRODUCTS = [
+    {id:'V001',name:'Silk Wrap Dress',category:'dresses',price:12500,salePrice:null,image:'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#c9a96e','#1a1a2e'],rating:4.8,reviews:24,isNew:true,featured:true,tags:['silk','dress','evening'],description:'Elegantly draped silk wrap dress featuring a flattering V-neckline and adjustable waist tie. Perfect for evening occasions, this dress flows beautifully with every step. Crafted from 100% mulberry silk for a luxurious feel against the skin.'},
+    {id:'V002',name:'Cashmere Blend Blazer',category:'outerwear',price:18900,salePrice:15900,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#8b7355'],rating:4.9,reviews:18,isNew:false,featured:true,tags:['blazer','cashmere','formal'],description:'Tailored cashmere blend blazer with structured shoulders and a single-button closure. The luxurious fabric blend offers warmth without bulk, making it ideal for transitional weather. Features interior pocket and satin-lined interior.'},
+    {id:'V003',name:'High-Waist Tailored Trousers',category:'bottoms',price:8500,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#d4c5a9'],rating:4.7,reviews:31,isNew:true,featured:false,tags:['trousers','tailored','high-waist'],description:'Precision-tailored high-waist trousers with a wide leg silhouette. The flattering cut elongates the legs while the premium stretch fabric ensures all-day comfort. Features concealed side zip and pressed crease detail.'},
+    {id:'V004',name:'Oversized Linen Shirt',category:'tops',price:6800,salePrice:null,image:'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#8b7355'],rating:4.6,reviews:42,isNew:false,featured:true,tags:['shirt','linen','oversized'],description:'Relaxed oversized linen shirt perfect for effortless everyday style. The breathable linen fabric keeps you cool while the dropped shoulders and extended hem create a modern silhouette. Roll-up sleeves with button tabs.'},
+    {id:'V005',name:'Pleated Midi Skirt',category:'bottoms',price:7200,salePrice:5800,image:'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80',sizes:['XS','S','M','L'],colors:['#c9a96e','#1a1a2e'],rating:4.5,reviews:19,isNew:false,featured:false,tags:['skirt','pleated','midi'],isSale:true,description:'Graceful pleated midi skirt with an elasticized waistband for comfortable fit. The knife pleats create beautiful movement and a feminine silhouette. Pairs perfectly with tucked-in tops and heels for an elevated look.'},
+    {id:'V006',name:'Structured Leather Tote',category:'accessories',price:22500,salePrice:null,image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',sizes:['One Size'],colors:['#8b7355','#1a1a2e'],rating:4.9,reviews:56,isNew:false,featured:true,tags:['bag','leather','tote'],description:'Handcrafted structured leather tote with premium Italian calf leather. Features interior zip pocket, magnetic snap closure, and protective metal feet. Spacious enough for daily essentials while maintaining an elegant silhouette.'},
+    {id:'V007',name:'Merino Wool Coat',category:'outerwear',price:28000,salePrice:22000,image:'https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=600&q=80',sizes:['S','M','L','XL'],colors:['#2d2d3f','#c9a96e'],rating:4.8,reviews:12,isNew:true,featured:true,tags:['coat','wool','merino'],isSale:true,description:'Luxurious merino wool coat with a relaxed fit and notched lapels. The premium wool blend provides exceptional warmth while remaining lightweight. Features two front pockets and a single-breasted button closure.'},
+    {id:'V008',name:'Ribbed Knit Tank Top',category:'tops',price:3800,salePrice:null,image:'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#f5f0e8','#c9a96e','#1a1a2e'],rating:4.4,reviews:67,isNew:false,featured:false,tags:['tank','knit','ribbed'],description:'Essential ribbed knit tank top crafted from soft cotton-blend jersey. The body-hugging fit and scoop neckline make it a versatile layering piece. Available in multiple colors to complement any wardrobe.'},
+    {id:'V009',name:'Wide-Leg Palazzo Pants',category:'bottoms',price:9200,salePrice:null,image:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80',sizes:['XS','S','M','L'],colors:['#1a1a2e','#d4c5a9'],rating:4.7,reviews:28,isNew:true,featured:false,tags:['pants','palazzo','wide-leg'],description:'Flowing wide-leg palazzo pants with a high waist and fluid drape. The lightweight crepe fabric moves beautifully with every step. Features a comfortable elastic waistband and side pockets for practicality.'},
+    {id:'V010',name:'Embellished Evening Clutch',category:'accessories',price:15800,salePrice:null,image:'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80',sizes:['One Size'],colors:['#c9a96e','#e8a0b4'],rating:4.6,reviews:14,isNew:false,featured:false,tags:['clutch','evening','embellished'],description:'Show-stopping embellished evening clutch featuring hand-sewn crystal and bead detailing. The compact silhouette holds essentials while the detachable chain strap offers versatile carrying options. Satin-lined interior.'},
+    {id:'V011',name:'V-Neck Cashmere Sweater',category:'tops',price:11500,salePrice:9200,image:'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#c9a96e','#f5f0e8','#2d2d3f'],rating:4.8,reviews:35,isNew:false,featured:true,tags:['sweater','cashmere','v-neck'],isSale:true,description:'Ultra-soft cashmere V-neck sweater with a relaxed fit. The luxurious cashmere wool provides unparalleled softness and warmth. Ribbed cuffs and hem add subtle texture. Perfect for layering or wearing on its own.'},
+    {id:'V012',name:'Leather Belt with Gold Buckle',category:'accessories',price:4500,salePrice:null,image:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80',sizes:['S','M','L'],colors:['#8b7355','#1a1a2e'],rating:4.5,reviews:48,isNew:false,featured:false,tags:['belt','leather','gold'],description:'Classic leather belt with a polished gold-tone buckle. Crafted from full-grain leather that develops a beautiful patina over time. The versatile width pairs perfectly with both casual and formal outfits.'},
+    {id:'V013',name:'Satin Slip Dress',category:'dresses',price:14200,salePrice:null,image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#1a1a2e'],rating:4.9,reviews:22,isNew:true,featured:true,tags:['dress','satin','slip'],description:'Elegant satin slip dress with delicate spaghetti straps and a cowl neckline. The bias-cut silhouette skims the body beautifully, creating a flattering drape. Can be worn alone or layered over a fitted tee.'},
+    {id:'V014',name:'Double-Breasted Trench Coat',category:'outerwear',price:32000,salePrice:null,image:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80',sizes:['S','M','L','XL'],colors:['#d4c5a9','#2d2d3f'],rating:4.9,reviews:9,isNew:true,featured:false,tags:['trench','coat','double-breasted'],description:'Iconic double-breasted trench coat reimagined with modern proportions. Water-resistant cotton twill construction with storm flap, epaulettes, and buckled cuffs. A timeless investment piece for any wardrobe.'},
+    {id:'V015',name:'Cropped Denim Jacket',category:'outerwear',price:9800,salePrice:7900,image:'https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=600&q=80',sizes:['XS','S','M','L','XL'],colors:['#4a6fa5','#1a1a2e'],rating:4.6,reviews:41,isNew:false,featured:false,tags:['denim','jacket','cropped'],isSale:true,description:'Trendy cropped denim jacket in premium Japanese selvedge denim. The cropped length hits at the waist, creating a flattering proportion. Features classic button-front closure and chest pockets with brass hardware.'},
+    {id:'V016',name:'Floral Print Maxi Dress',category:'dresses',price:16500,salePrice:null,image:'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80',sizes:['XS','S','M','L'],colors:['#e8a0b4','#c9a96e'],rating:4.7,reviews:16,isNew:true,featured:false,tags:['dress','floral','maxi'],description:'Romantic floral print maxi dress with a flattering empire waist and flowing skirt. The vibrant botanical print on lightweight chiffon creates a dreamy aesthetic. Adjustable spaghetti straps and smocked back panel.'},
+    {id:'V017',name:'Tailored Wool Vest',category:'tops',price:7800,salePrice:null,image:'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80',sizes:['XS','S','M','L'],colors:['#2d2d3f','#d4c5a9'],rating:4.5,reviews:20,isNew:false,featured:false,tags:['vest','wool','tailored'],description:'Sharp tailored wool vest with a V-neckline and button-front closure. The structured silhouette adds polish to any outfit, whether worn over a blouse or on its own. Features welt pockets and satin back panel.'},
+    {id:'V018',name:'Platform Suede Heels',category:'shoes',price:13500,salePrice:null,image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80',sizes:['36','37','38','39','40'],colors:['#8b7355','#1a1a2e'],rating:4.8,reviews:33,isNew:false,featured:true,tags:['heels','suede','platform'],description:'Statement platform suede heels with a sculptural block heel. The elevated platform provides height without sacrificing comfort. Premium suede upper with leather lining and cushioned insole for all-day wearability.'},
+    {id:'V019',name:'Gold Chain Necklace',category:'accessories',price:8900,salePrice:null,image:'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',sizes:['One Size'],colors:['#c9a96e'],rating:4.7,reviews:27,isNew:true,featured:false,tags:['necklace','gold','chain'],description:'Bold gold chain necklace with interlocking links for a modern statement piece. Crafted from 18k gold-plated stainless steel for lasting shine. The adjustable length allows for versatile styling options.'},
+    {id:'V020',name:'Quilted Crossbody Bag',category:'accessories',price:19500,salePrice:16500,image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',sizes:['One Size'],colors:['#1a1a2e','#c9a96e','#e8a0b4'],rating:4.9,reviews:44,isNew:false,featured:true,tags:['bag','crossbody','quilted'],isSale:true,description:'Signature quilted crossbody bag with a chain-link strap and flap closure. The diamond quilting pattern adds textural interest while the compact size keeps essentials organized. Adjustable strap for crossbody or shoulder wear.'}
+  ];
+  </script>
+  <script src="../shared/js/base.js"></script>
+  <script>
+  (function(){
+    var params=new URLSearchParams(window.location.search);
+    var productId=params.get('id')||'V001';
+    var product=window.EC_PRODUCTS.find(function(p){return p.id===productId;});
+    if(!product) product=window.EC_PRODUCTS[0];
+
+    document.title='WN Fashion — '+product.name+' | WN-ECOM-FASHION-BAS-001';
+    document.getElementById('ecBreadcrumbProduct').textContent=product.name;
+    document.getElementById('ecMainImage').src=product.image;
+    document.getElementById('ecMainImage').alt=product.name;
+    document.getElementById('ecProductTitle').textContent=product.name;
+
+    var desc=product.description||'Crafted with meticulous attention to detail, this piece embodies the WN Fashion commitment to quality and timeless design. Made from premium materials for lasting comfort and style.';
+    document.getElementById('ecProductDesc').textContent=desc;
+
+    var stars='';
+    for(var i=0;i<5;i++) stars+=(i<Math.floor(product.rating)?'?':'?');
+    document.getElementById('ecProductStars').textContent=stars;
+    document.getElementById('ecProductReviews').textContent=product.rating+' ('+product.reviews+' reviews)';
+
+    var priceHtml='<span class="ec-product-info__price--current">Rs. '+(product.salePrice||product.price).toLocaleString()+'</span>';
+    if(product.salePrice){
+      priceHtml+='<span class="ec-product-info__price--original">Rs. '+product.price.toLocaleString()+'</span>';
+      priceHtml+='<span class="ec-product-info__price--badge">-'+Math.round((1-product.salePrice/product.price)*100)+'%</span>';
+    }
+    document.getElementById('ecProductPrice').innerHTML=priceHtml;
+
+    var thumbs=[product.image,product.image,product.image,product.image];
+    var thumbsEl=document.getElementById('ecGalleryThumbs');
+    thumbs.forEach(function(src,i){
+      thumbsEl.innerHTML+='<div class="ec-gallery__thumb'+(i===0?' active':'')+'" onclick="document.getElementById(\'ecMainImage\').src=\''+src+'\';document.querySelectorAll(\'.ec-gallery__thumb\').forEach(function(t){t.classList.remove(\'active\');});this.classList.add(\'active\');"><img src="'+src+'" alt="Thumbnail"></div>';
+    });
+
+    var sizesEl=document.getElementById('ecSizeOptions');
+    product.sizes.forEach(function(s,i){
+      sizesEl.innerHTML+='<button class="ec-size-btn'+(i===0?' active':'')+'" onclick="document.querySelectorAll(\'.ec-size-btn\').forEach(function(b){b.classList.remove(\'active\');});this.classList.add(\'active\');">'+s+'</button>';
+    });
+
+    var colorsEl=document.getElementById('ecColorOptions');
+    product.colors.forEach(function(c,i){
+      colorsEl.innerHTML+='<button class="ec-color-btn'+(i===0?' active':'')+'" style="background:'+c+';" onclick="document.querySelectorAll(\'.ec-color-btn\').forEach(function(b){b.classList.remove(\'active\');});this.classList.add(\'active\');" title="'+c+'"></button>';
+    });
+
+    var qty=1;
+    document.getElementById('ecQtyMinus').onclick=function(){if(qty>1){qty--;document.getElementById('ecQtyValue').textContent=qty;}};
+    document.getElementById('ecQtyPlus').onclick=function(){qty++;document.getElementById('ecQtyValue').textContent=qty;};
+
+    var selectedSize=product.sizes[0];
+    var selectedColor=product.colors[0];
+    document.getElementById('ecSizeOptions').addEventListener('click',function(e){if(e.target.classList.contains('ec-size-btn'))selectedSize=e.target.textContent;});
+    document.getElementById('ecColorOptions').addEventListener('click',function(e){if(e.target.classList.contains('ec-color-btn'))selectedColor=e.target.style.background;});
+
+    function addToCart(){
+      var item={id:product.id,name:product.name,price:product.salePrice||product.price,image:product.image,size:selectedSize,color:selectedColor,qty:qty};
+      var cart=JSON.parse(localStorage.getItem('ec_cart')||'[]');
+      var existing=cart.find(function(c){return c.id===item.id&&c.size===item.size&&c.color===item.color;});
+      if(existing){existing.qty+=qty;}else{cart.push(item);}
+      localStorage.setItem('ec_cart',JSON.stringify(cart));
+      if(window.updateCartCount) window.updateCartCount();
+      alert(product.name+' added to cart!');
+    }
+
+    document.getElementById('ecAddToCart').onclick=addToCart;
+    document.getElementById('ecBuyNow').onclick=function(){addToCart();window.location.href='checkout.html';};
+
+    var reviews=[
+      {name:'Ayesha K.',date:'August 2026',rating:5,text:'Absolutely love this piece! The quality is outstanding and it fits perfectly. The fabric feels luxurious and the stitching is impeccable.'},
+      {name:'Fatima A.',date:'July 2026',rating:5,text:'This exceeded my expectations. The color is exactly as shown and the fit is true to size. Received many compliments wearing it.'},
+      {name:'Zara M.',date:'July 2026',rating:4,text:'Beautiful design and premium feel. Shipping was fast and the packaging was lovely. Will definitely order from WN Fashion again.'},
+      {name:'Sana R.',date:'June 2026',rating:5,text:'One of my best purchases this year. The attention to detail is remarkable and it pairs well with so many outfits in my wardrobe.'}
+    ];
+    var reviewsEl=document.getElementById('ecReviewsList');
+    reviews.forEach(function(r){
+      var rStars='';for(var i=0;i<5;i++)rStars+=(i<r.rating?'?':'?');
+      reviewsEl.innerHTML+='<div class="ec-review"><div class="ec-review__header"><div class="ec-review__avatar">'+r.name.charAt(0)+'</div><div><div class="ec-review__name">'+r.name+'</div><div class="ec-review__date">'+r.date+'</div></div></div><div class="ec-review__stars">'+rStars+'</div><p class="ec-review__text">'+r.text+'</p></div>';
+    });
+
+    var related=window.EC_PRODUCTS.filter(function(p){return p.category===product.category&&p.id!==product.id;}).slice(0,4);
+    if(related.length<4){
+      var extra=window.EC_PRODUCTS.filter(function(p){return p.id!==product.id&&related.indexOf(p)===-1;}).slice(0,4-related.length);
+      related=related.concat(extra);
+    }
+    var relatedEl=document.getElementById('ecRelatedGrid');
+    related.forEach(function(p){
+      var badge=p.isNew?'<span class="ec-product-card__badge">New</span>':'';
+      relatedEl.innerHTML+='<a href="product.html?id='+p.id+'" class="ec-product-card"><div class="ec-product-card__img"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy"><div class="ec-product-card__badges">'+badge+'</div></div><div class="ec-product-card__body"><p class="ec-product-card__category">'+p.category+'</p><h3 class="ec-product-card__name">'+p.name+'</h3><p class="ec-product-card__price">Rs. '+(p.salePrice||p.price).toLocaleString()+'</p></div></a>';
+    });
+  })();
+  </script>
+</body>
+</html>
