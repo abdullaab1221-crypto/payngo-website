@@ -235,9 +235,13 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .hero__proof-lbl{font-size:var(--fs-xs);color:rgba(255,255,255,0.65);margin-top:2px;letter-spacing:0.02em}
 
 /* Hero Banner Image */
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-10px) rotate(2deg)}
+}
 .hero__right{position:relative;display:flex;justify-content:center}
 .hero__banner{width:100%;max-width:480px;display:flex;align-items:center;justify-content:center}
-.hero__banner-img{width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:var(--r-xl);display:block}
+.hero__banner-img{width:100%;height:auto;max-height:420px;object-fit:contain;border-radius:var(--r-xl);display:block;filter:drop-shadow(0 14px 28px rgba(0,0,0,.18));animation:heroFloat 6s ease-in-out infinite}
 
 .dash{width:100%;max-width:420px}
 .dash__card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:var(--sp-6);box-shadow:var(--sh-xl)}
