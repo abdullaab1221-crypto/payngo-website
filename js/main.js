@@ -76,8 +76,6 @@
   const calcSwapBtn = $('#calcSwapBtn');
   const calcRate = $('.conv__rate');
   const calcFee = $('.conv__fee');
-  const calcSendLabel = document.querySelector('.conv__field:first-child .conv__lbl');
-  const calcRecvLabel = document.querySelectorAll('.conv__lbl')[1];
 
   let fromCurrency = 'MYR';
   let toCurrency = 'PKR';
@@ -86,9 +84,7 @@
   const FEE_MYR = 5;
 
   function getRate() {
-    if (fromCurrency === 'MYR') {
-      return EXCHANGE_RATE;
-    }
+    if (fromCurrency === 'MYR') return EXCHANGE_RATE;
     return 1 / EXCHANGE_RATE;
   }
 
@@ -100,20 +96,14 @@
   function updateCalculator() {
     const amount = parseFloat(calcInput.value) || 0;
     const rate = getRate();
-    let converted;
+    const converted = amount * rate;
 
-    if (fromCurrency === 'MYR') {
-      const afterFee = Math.max(amount - FEE_MYR, 0);
-      converted = afterFee * rate;
-    } else {
-      converted = amount * rate;
-    }
-
-    converted = Math.round(converted * 100) / 100;
-    if (calcOutVal) calcOutVal.textContent = converted.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    if (calcOutVal) calcOutVal.textContent = Math.round(converted).toLocaleString('en-US');
     if (calcOutCur) calcOutCur.textContent = toCurrency;
     if (calcRate) calcRate.innerHTML = 'Rate: <b>1 ' + fromCurrency + ' = ' + formatRate(rate) + ' ' + toCurrency + '</b>';
-    if (calcFee) calcFee.textContent = fromCurrency === 'MYR' ? 'RM ' + FEE_MYR + ' transfer fee deducted. No hidden charges.' : 'No hidden fees. Competitive exchange rates guaranteed.';
+    if (calcFee) calcFee.textContent = fromCurrency === 'MYR'
+      ? 'RM ' + FEE_MYR + ' flat transfer fee. No hidden charges.'
+      : 'No hidden fees. Competitive exchange rates guaranteed.';
   }
 
   if (calcInput) {
