@@ -74,15 +74,46 @@
   const calcOutVal = $('.conv__out-val');
   const calcOutCur = $('.conv__out-cur');
   const calcSwapBtn = $('#calcSwapBtn');
+  const calcRate = $('.conv__rate');
+  const calcFee = $('.conv__fee');
+  const calcSendLabel = document.querySelector('.conv__field:first-child .conv__lbl');
+  const calcRecvLabel = document.querySelectorAll('.conv__lbl')[1];
 
   let fromCurrency = 'MYR';
   let toCurrency = 'PKR';
 
+  const FLAGS = { MYR: '\uD83C\uDDF2\uD83C\uDDFE', PKR: '\uD83C\uDDF5\uD83C\uDDF0' };
+  const FEE_MYR = 5;
+
+  function getRate() {
+    if (fromCurrency === 'MYR') {
+      return EXCHANGE_RATE;
+    }
+    return 1 / EXCHANGE_RATE;
+  }
+
+  function formatRate(rate) {
+    if (rate >= 1) return rate.toFixed(2);
+    return rate.toFixed(6);
+  }
+
   function updateCalculator() {
     const amount = parseFloat(calcInput.value) || 0;
-    const converted = Math.round(amount * EXCHANGE_RATE);
-    if (calcOutVal) calcOutVal.textContent = converted.toLocaleString('en-US');
+    const rate = getRate();
+    let converted;
+
+    if (fromCurrency === 'MYR') {
+      const afterFee = Math.max(amount - FEE_MYR, 0);
+      converted = afterFee * rate;
+    } else {
+      converted = amount * rate;
+    }
+
+    converted = Math.round(converted * 100) / 100;
+    if (calcOutVal) calcOutVal.textContent = converted.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
     if (calcOutCur) calcOutCur.textContent = toCurrency;
+    if (calcRate) calcRate.innerHTML = 'Rate: <b>1 ' + fromCurrency + ' = ' + formatRate(rate) + ' ' + toCurrency + '</b>';
+    if (calcFee) calcFee.textContent = fromCurrency === 'MYR' ? 'RM ' + FEE_MYR + ' transfer fee deducted. No hidden charges.' : 'No hidden fees. Competitive exchange rates guaranteed.';
   }
 
   if (calcInput) {
@@ -94,7 +125,8 @@
     calcSwapBtn.addEventListener('click', () => {
       [fromCurrency, toCurrency] = [toCurrency, fromCurrency];
       const ccyEl = $('.conv__ccy');
-      if (ccyEl) ccyEl.textContent = (fromCurrency === 'MYR' ? '\uD83C\uDDF2\uD83C\uDDFE ' : '\uD83C\uDDF5\uD83C\uDDF0 ') + fromCurrency;
+      if (ccyEl) ccyEl.textContent = (FLAGS[fromCurrency] || '') + ' ' + fromCurrency;
+      if (calcInput) calcInput.setAttribute('aria-label', 'Send amount in ' + fromCurrency);
       updateCalculator();
     });
   }
