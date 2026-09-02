@@ -212,14 +212,19 @@ input{font-family:inherit;border:none;outline:none;background:none}
 /* ========================================
    HERO — Dashboard Composition
    ======================================== */
-.hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:calc(var(--header-h) + 32px) 0 var(--sp-16);overflow:hidden;background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%)}
+.hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:calc(var(--header-h) + 32px) 0 var(--sp-16);overflow:hidden;background:var(--brand-dark)}
 .hero__bg{position:absolute;inset:0;z-index:0}
-.hero__bg-glow{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(160px);pointer-events:none}
-.hero__bg-glow--1{background:var(--accent);opacity:0.08;top:-200px;right:-100px}
-.hero__bg-glow--2{background:var(--accent-light);opacity:0.05;bottom:-200px;left:-100px}
-.hero__bg-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(ellipse at 60% 40%,black 10%,transparent 60%);-webkit-mask-image:radial-gradient(ellipse at 60% 40%,black 10%,transparent 60%)}
 
-.hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:center}
+/* KL Skyline Background */
+.hero__skyline{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1920&q=80&fit=crop&auto=format') center bottom/cover no-repeat;opacity:0.35}
+
+/* Dark gradient overlay — darker left, lighter right */
+.hero__overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,18,56,0.97) 0%,rgba(21,18,56,0.92) 25%,rgba(30,27,75,0.8) 50%,rgba(30,27,75,0.5) 75%,rgba(30,27,75,0.25) 100%)}
+
+/* Particle network overlay — Canvas animated */
+.hero__particles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+
+.hero__grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:center}
 
 /* Left — Text */
 .hero__left{max-width:520px}
@@ -242,6 +247,16 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .hero__right{position:relative;display:flex;justify-content:center}
 .hero__banner{width:100%;max-width:720px;display:flex;align-items:center;justify-content:center}
 .hero__banner-img{width:100%;height:auto;max-height:680px;object-fit:contain;display:block;filter:drop-shadow(0 14px 28px rgba(0,0,0,.18));animation:heroFloat 6s ease-in-out infinite}
+
+/* Floating Currency Badges */
+.hero__badges{position:absolute;inset:0;z-index:3;pointer-events:none}
+.hero__badge{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;animation:badgeBob 4s ease-in-out infinite}
+.hero__badge-icon{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:1.25rem;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 0 20px rgba(139,92,246,0.2),inset 0 0 12px rgba(255,255,255,0.05)}
+.hero__badge-code{font-size:0.65rem;font-weight:600;color:rgba(255,255,255,0.8);letter-spacing:0.08em;text-transform:uppercase}
+.hero__badge--myr{top:12%;right:8%;animation-delay:0s}
+.hero__badge--usd{top:55%;right:2%;animation-delay:1.2s}
+.hero__badge--pkr{bottom:15%;right:12%;animation-delay:2.4s}
+@keyframes badgeBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 .dash{width:100%;max-width:420px}
 .dash__card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:var(--sp-6);box-shadow:var(--sh-xl)}
@@ -511,6 +526,8 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hero__right{order:-1}
 .hero__banner{max-width:540px}
 .hero__banner-img{max-height:500px}
+  .hero__badge-icon{width:40px;height:40px;font-size:1.1rem}
+  .hero__badge-code{font-size:0.6rem}
   .float{display:none}
   .showcase__grid{grid-template-columns:1fr;text-align:center}
   .showcase__info{max-width:100%;margin:0 auto}
@@ -527,6 +544,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hero{min-height:auto;padding:calc(var(--header-h) + 20px) 0 var(--sp-10)}
 .hero__banner{max-width:400px}
 .hero__banner-img{max-height:400px}
+  .hero__badges{display:none}
   .hero__h1{font-size:clamp(1.625rem,7vw,2.125rem)}
   .hero__proof{flex-direction:column;gap:var(--sp-4);align-items:center}
   .dash{max-width:100%}
