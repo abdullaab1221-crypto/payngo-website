@@ -121,9 +121,9 @@
     <!-- ========== HERO ========== -->
     <section class="hero" id="home">
       <div class="hero__bg">
-        <div class="hero__bg-glow hero__bg-glow--1"></div>
-        <div class="hero__bg-glow hero__bg-glow--2"></div>
-        <div class="hero__bg-dots"></div>
+        <div class="hero__skyline"></div>
+        <div class="hero__overlay"></div>
+        <canvas class="hero__particles" id="heroParticles"></canvas>
       </div>
       <div class="wrap hero__grid">
         <!-- Left — Text -->
@@ -158,6 +158,20 @@
         </div>
         <!-- Right — Banner Image -->
         <div class="hero__right rv">
+          <div class="hero__badges">
+            <div class="hero__badge hero__badge--myr">
+              <span class="hero__badge-icon">&#127482;&#127480;</span>
+              <span class="hero__badge-code">MYR</span>
+            </div>
+            <div class="hero__badge hero__badge--usd">
+              <span class="hero__badge-icon">&#127482;&#127484;</span>
+              <span class="hero__badge-code">USD</span>
+            </div>
+            <div class="hero__badge hero__badge--pkr">
+              <span class="hero__badge-icon">&#127477;&#127485;</span>
+              <span class="hero__badge-code">PKR</span>
+            </div>
+          </div>
           <div class="hero__banner">
             <img src="assets/images/hero-image-transparent.png" alt="PayNGo — Send Money from Malaysia to Pakistan" class="hero__banner-img">
           </div>
@@ -599,6 +613,7 @@
     </div>
   </footer>
 
+  <script src="js/particles.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
