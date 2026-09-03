@@ -345,7 +345,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .how{padding:var(--section) 0;background:var(--bg)}
 .how__timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-8);margin-top:var(--sp-10);position:relative}
 .how__step{text-align:center;position:relative}
-.how__num{width:52px;height:52px;border-radius:50%;background:var(--brand);border:1.5px solid var(--brand);display:grid;place-items:center;font-size:var(--fs-lg);font-weight:var(--w-bold);color:var(--white);margin:0 auto var(--sp-5);position:relative;z-index:2}
+.how__icon{width:56px;height:56px;border-radius:50%;background:var(--accent-soft);border:1px solid rgba(59,130,246,0.15);display:grid;place-items:center;color:var(--accent);margin:0 auto var(--sp-5);position:relative;z-index:2}
 .how__step-title{font-size:var(--fs-base);font-weight:var(--w-semibold);color:var(--ink);margin-bottom:var(--sp-2)}
 .how__step-desc{font-size:var(--fs-sm);color:var(--mist);line-height:1.6;max-width:220px;margin:0 auto}
 .how__step+.how__step::before{content:'';position:absolute;top:26px;right:calc(50% + 26px);width:calc(100% - 52px);height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);z-index:1}
