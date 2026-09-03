@@ -213,13 +213,13 @@ input{font-family:inherit;border:none;outline:none;background:none}
 .drawer__cta{margin-top:var(--sp-6);width:100%;max-width:260px}
 
 /* ========================================
-   HERO — abdulla.jpg Background + HTML Overlay
+   HERO — premium-photo.jpg Background + HTML Overlay
    ======================================== */
 .hero{position:relative;min-height:auto;padding:calc(var(--header-h) + 20px) 0 var(--sp-8);overflow:hidden}
 .hero__bg{position:absolute;inset:0;z-index:0}
 
-/* abdulla.jpg as hero background */
-.hero__imaage{position:absolute;inset:0;background:url('../assets/images/abdulla.jpg') center top/cover no-repeat}
+/* premium-photo.jpg as hero background */
+.hero__imaage{position:absolute;inset:0;background:url('../assets/images/premium-photo.jpg') center top/cover no-repeat}
 
 /* Dark overlay to suppress baked-in image text so real HTML content is readable */
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,30,0.82) 0%,rgba(10,18,42,0.78) 30%,rgba(12,22,52,0.72) 55%,rgba(16,28,65,0.65) 75%,rgba(20,34,78,0.55) 100%)}
