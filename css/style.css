@@ -566,7 +566,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hero__inner{
     display:flex !important;
     flex-direction:row !important;
-    align-items:center !important;
+    align-items:flex-start !important;
     gap:10px !important;
     padding:0 8px !important
   }
@@ -639,17 +639,17 @@ input{font-family:inherit;border:none;outline:none;background:none}
     max-width:45% !important;
     position:relative !important;
     overflow:visible !important;
-    align-self:flex-end !important;
+    align-self:flex-start !important;
     line-height:0;
     font-size:0
   }
   .hero__visual::before{display:none !important}
   .hero__visual-img{
     width:100% !important;
-    height:auto !important;
+    height:100% !important;
     display:block !important;
-    object-fit:contain !important;
-    object-position:bottom center !important;
+    object-fit:cover !important;
+    object-position:top center !important;
     mask-image:linear-gradient(to right,transparent 0%,black 40px);
     -webkit-mask-image:linear-gradient(to right,transparent 0%,black 40px)
   }
