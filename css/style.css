@@ -454,10 +454,11 @@ input{font-family:inherit;border:none;outline:none;background:none}
    RESPONSIVE — DESKTOP UP
    ======================================== */
 @media(min-width:768px){
-  .hero{padding:calc(var(--header-h) + 36px) 0 var(--sp-10)}
+  .hero{padding:calc(var(--header-h) + 36px) 0 var(--sp-10);overflow:hidden}
+  .hero__inner{width:100%;max-width:var(--max-w)}
   .hero__h1{font-size:clamp(2rem,4.5vw,3rem)}
   .hero__sub{font-size:var(--fs-md);max-width:440px}
-  .hero__visual{flex:0 0 48%}
+  .hero__visual{flex:0 0 48%;max-width:48%}
   .hero__content{padding:var(--sp-8) 0 var(--sp-8) var(--sp-8)}
   .hero__logo-img{height:42px}
   .xr__chart-box{height:300px}
@@ -496,24 +497,41 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hdr__burger{display:flex}
 }
 @media(max-width:767px){
-  /* === MOBILE HERO: Girl top, text below, no overflow === */
-  .hero{padding:calc(var(--header-h) + 16px) 0 0;overflow:hidden}
-  .hero__inner{flex-direction:column;align-items:stretch;gap:0}
-  .hero__visual{flex:none;width:100%;max-width:100%;height:auto;align-self:stretch;position:relative;overflow:hidden}
-  .hero__visual::before{display:none}
-  .hero__visual-img{width:100%;height:auto;max-height:280px;display:block;object-fit:cover;object-position:top center}
-  .hero__content{padding:var(--sp-5) var(--gutter) var(--sp-6);align-items:center;text-align:center;max-width:100%}
-  .hero__logo-img{height:28px}
-  .hero__h1{font-size:clamp(1.375rem,6vw,1.875rem);margin-bottom:var(--sp-2);line-height:1.12;letter-spacing:-0.03em}
-  .hero__sub{font-size:0.8rem;max-width:320px;margin:0 auto var(--sp-4);line-height:1.6;text-align:center}
-  .hero__features{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3);margin-bottom:var(--sp-5);width:100%;max-width:360px}
-  .hero__feature{flex-direction:column;align-items:center;text-align:center;gap:var(--sp-2)}
-  .hero__feature-icon{width:40px;height:40px}
-  .hero__feature-icon svg{width:18px;height:18px}
-  .hero__feature-label{font-size:0.55rem;line-height:1.3}
-  .hero__btns{flex-direction:column;align-items:center;gap:10px;width:100%;max-width:280px}
-  .hero__btns .btn--hero-outline{display:none}
-  .btn--hero-download{width:100%;padding:12px 24px;font-size:0.8rem;min-height:42px;border-radius:var(--r-md)}
+  /* =============================================
+     MOBILE HERO — Complete override
+     Girl image on top, text below, no overflow
+     ============================================= */
+  .hero{padding:calc(var(--header-h) + 12px) 0 0;background:#000;overflow:visible}
+  .hero__inner{display:flex !important;flex-direction:column !important;align-items:stretch !important;justify-content:flex-start !important;gap:0 !important;height:auto !important;min-height:0 !important;max-width:100vw !important;width:100vw !important;box-sizing:border-box !important;overflow:hidden !important}
+
+  /* Girl image — top of hero, head visible, body flows down */
+  .hero__visual{flex:0 0 auto !important;width:100% !important;max-width:100% !important;height:auto !important;align-self:stretch !important;position:relative !important;overflow:hidden !important;line-height:0;font-size:0}
+  .hero__visual::before{display:none !important}
+  .hero__visual-img{width:100% !important;height:auto !important;max-height:50vw !important;min-height:160px !important;display:block !important;object-fit:cover !important;object-position:top center !important}
+
+  /* Hero content — text below girl image */
+  .hero__content{flex:0 0 auto !important;width:100% !important;max-width:100% !important;box-sizing:border-box !important;display:flex !important;flex-direction:column !important;align-items:center !important;text-align:center !important;padding:var(--sp-5) var(--gutter) var(--sp-6) var(--gutter) !important;overflow:hidden !important}
+
+  /* Logo */
+  .hero__logo-img{height:28px;width:auto !important;display:block !important;max-width:100%}
+
+  /* Heading — premium, balanced wrapping */
+  .hero__h1{font-size:1.625rem !important;font-weight:800 !important;line-height:1.12 !important;letter-spacing:-0.03em !important;margin:0 0 var(--sp-3) !important;color:var(--white) !important;max-width:100% !important;word-wrap:break-word !important;overflow-wrap:break-word !important}
+
+  /* Subtitle */
+  .hero__sub{font-size:0.8rem !important;color:rgba(255,255,255,0.6) !important;line-height:1.6 !important;margin:0 0 var(--sp-4) !important;max-width:340px !important;width:100% !important;box-sizing:border-box !important;overflow-wrap:break-word !important}
+
+  /* Features grid — 4 columns, no overflow */
+  .hero__features{display:grid !important;grid-template-columns:repeat(4,1fr) !important;gap:var(--sp-2) !important;margin:0 0 var(--sp-5) !important;width:100% !important;max-width:380px !important;box-sizing:border-box !important;overflow:hidden !important}
+  .hero__feature{flex-direction:column !important;align-items:center !important;text-align:center !important;gap:var(--sp-1) !important;min-width:0 !important}
+  .hero__feature-icon{width:40px !important;height:40px !important}
+  .hero__feature-icon svg{width:18px !important;height:18px !important}
+  .hero__feature-label{font-size:0.55rem !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important}
+
+  /* Buttons — stacked, no overflow */
+  .hero__btns{display:flex !important;flex-direction:column !important;align-items:center !important;gap:10px !important;width:100% !important;max-width:300px !important;box-sizing:border-box !important}
+  .hero__btns .btn--hero-outline{display:none !important}
+  .btn--hero-download{width:100% !important;box-sizing:border-box !important;max-width:300px !important;padding:12px 24px !important;font-size:0.8rem !important;min-height:42px !important;border-radius:var(--r-md) !important;text-align:center !important;justify-content:center !important}
 
   /* === EXISTING MOBILE OVERRIDES === */
   .showcase__grid{grid-template-columns:1fr;text-align:center}
@@ -548,19 +566,19 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hdr{height:52px}
   .hdr__logo{height:28px}
   .foot__logo-img{height:30px}
-  /* Tighter mobile hero for 320-479px */
-  .hero{padding:calc(var(--header-h) + 10px) 0 0}
-  .hero__visual-img{max-height:230px}
-  .hero__content{padding:var(--sp-4) var(--gutter) var(--sp-5)}
+  /* Tighter hero for small screens */
+  .hero__inner{width:100vw !important;max-width:100vw !important}
+  .hero__visual-img{max-height:55vw !important;min-height:140px !important}
+  .hero__content{padding:var(--sp-4) var(--gutter) var(--sp-5) var(--gutter) !important}
   .hero__logo-img{height:24px}
-  .hero__h1{font-size:clamp(1.125rem,6vw,1.5rem);margin-bottom:var(--sp-1);line-height:1.14}
-  .hero__sub{font-size:0.7rem;max-width:280px;margin-bottom:var(--sp-3)}
-  .hero__features{gap:var(--sp-2);margin-bottom:var(--sp-4);max-width:300px}
-  .hero__feature-icon{width:34px;height:34px}
-  .hero__feature-icon svg{width:15px;height:15px}
-  .hero__feature-label{font-size:0.48rem;line-height:1.25}
-  .hero__btns{gap:8px;max-width:260px}
-  .btn--hero-download{padding:10px 20px;font-size:0.72rem;min-height:38px}
+  .hero__h1{font-size:1.375rem !important;margin-bottom:var(--sp-2) !important;line-height:1.14}
+  .hero__sub{font-size:0.75rem !important;max-width:300px !important;margin-bottom:var(--sp-3) !important}
+  .hero__features{gap:var(--sp-1) !important;margin-bottom:var(--sp-4) !important;max-width:320px !important}
+  .hero__feature-icon{width:34px !important;height:34px !important}
+  .hero__feature-icon svg{width:15px !important;height:15px !important}
+  .hero__feature-label{font-size:0.48rem !important;line-height:1.25}
+  .hero__btns{gap:8px !important;max-width:280px !important}
+  .btn--hero-download{padding:10px 20px !important;font-size:0.72rem !important;min-height:38px !important}
   .conv__box{padding:16px}
   .conv__inp{font-size:var(--fs-lg);padding:11px}
   .conv__out-val{font-size:var(--fs-xl)}
@@ -573,15 +591,15 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .faq__a p{padding:0 14px 12px;font-size:var(--fs-xs)}
 }
 @media(max-width:359px){
-  .hero__inner{gap:0}
-  .hero__visual-img{max-height:190px}
-  .hero__h1{font-size:1rem}
-  .hero__sub{font-size:0.62rem;max-width:250px}
-  .hero__features{gap:var(--sp-1);max-width:260px}
-  .hero__feature-icon{width:28px;height:28px}
-  .hero__feature-icon svg{width:13px;height:13px}
-  .hero__feature-label{font-size:0.42rem}
-  .btn--hero-download{padding:8px 14px;font-size:0.65rem;min-height:34px}
+  .hero__inner{width:100vw !important;max-width:100vw !important}
+  .hero__visual-img{max-height:55vw !important;min-height:120px !important}
+  .hero__h1{font-size:1.2rem !important}
+  .hero__sub{font-size:0.7rem !important;max-width:260px !important}
+  .hero__features{gap:2px !important;max-width:280px !important}
+  .hero__feature-icon{width:30px !important;height:30px !important}
+  .hero__feature-icon svg{width:13px !important;height:13px !important}
+  .hero__feature-label{font-size:0.42rem !important}
+  .btn--hero-download{padding:9px 16px !important;font-size:0.68rem !important;min-height:36px !important}
   .xr__chart-box{height:180px}
   .phone{width:200px;height:400px}
 }
