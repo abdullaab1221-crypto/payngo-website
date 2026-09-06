@@ -627,11 +627,24 @@ input{font-family:inherit;border:none;outline:none;background:none}
     order:4 !important
   }
   .btn--hero-download{
-    padding:10px 20px !important;
+    padding:6px 16px !important;
     font-size:0.8rem !important;
-    min-height:42px !important;
+    min-height:34px !important;
     width:100% !important;
-    border-radius:var(--r-md) !important
+    border-radius:var(--r-md) !important;
+    background:#D4D4D8 !important;
+    background-image:none !important;
+    color:#D4AF37 !important;
+    -webkit-text-fill-color:#D4AF37 !important;
+    border:1px solid #A8A8A8 !important;
+    box-shadow:none !important;
+    gap:6px !important
+  }
+  .btn--hero-download:hover{
+    background:#C8C8CC !important;
+    background-image:none !important;
+    box-shadow:none !important;
+    transform:none !important
   }
   .btn--hero-outline{display:none !important}
   .hero__visual{
@@ -664,7 +677,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hero__logo-img{height:32px !important}
   .hero__h1{font-size:1.5rem !important;line-height:1.1 !important}
   .hero__visual{flex:0 0 42% !important;max-width:42% !important}
-  .btn--hero-download{padding:12px 20px !important;font-size:0.85rem !important;min-height:44px !important}
+  .btn--hero-download{padding:6px 14px !important;font-size:0.78rem !important;min-height:32px !important}
   .conv__box{padding:16px}
   .conv__inp{font-size:var(--fs-lg);padding:11px}
   .conv__out-val{font-size:var(--fs-xl)}
@@ -682,7 +695,7 @@ input{font-family:inherit;border:none;outline:none;background:none}
   .hero__h1{font-size:1.3rem !important;line-height:1.1 !important}
   .hero__visual{flex:0 0 40% !important;max-width:40% !important}
   .hero__visual-img{mask-image:linear-gradient(to right,transparent 0%,black 25px);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 25px)}
-  .btn--hero-download{padding:10px 16px !important;font-size:0.8rem !important;min-height:40px !important}
+  .btn--hero-download{padding:5px 12px !important;font-size:0.75rem !important;min-height:30px !important}
   .xr__chart-box{height:180px}
   .phone{width:200px;height:400px}
 }
