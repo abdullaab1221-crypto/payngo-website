@@ -493,6 +493,18 @@ input{font-family:inherit;border:none;outline:none;background:none}
 }
 
 /* ========================================
+   DESKTOP HERO IMAGE FIX — Full Visibility
+   Scoped to desktop only (769px+)
+   ======================================== */
+@media(min-width:769px){
+  .hero__visual::before{background:linear-gradient(to left,transparent 85%,rgba(0,0,0,0.6) 100%)}
+}
+@media(min-width:1024px){
+  .hero__visual{align-self:stretch}
+  .hero__visual-img{width:auto;height:100%;max-width:100%;object-fit:contain;object-position:center bottom}
+}
+
+/* ========================================
    RESPONSIVE — MOBILE OVERRIDES
    ======================================== */
 @media(max-width:1023px){
