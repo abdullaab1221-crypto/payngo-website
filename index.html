@@ -120,39 +120,45 @@
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="home">
-      <div class="hero__bg">
-        <div class="hero__imaage"></div>
-        <div class="hero__overlay"></div>
-        <canvas class="hero__particles" id="heroParticles"></canvas>
-      </div>
       <div class="wrap hero__inner">
+        <div class="hero__visual rv">
+          <img src="assets/images/mobile-hero-111.png" alt="PayNGo – Send Money from Malaysia to Pakistan" class="hero__visual-img" loading="eager">
+        </div>
         <div class="hero__content">
-          <div class="hero__pill rv">
-            <span class="hero__pill-dot"></span>
-            Live MYR / PKR Exchange Rates
-          </div>
-          <h1 class="hero__h1 rv"><span class="hero__h1-top">Send Money</span><br><span class="hero__h1-accent">Malaysia to Pakistan</span></h1>
+          <a href="index.html" class="hero__logo rv" aria-label="PayNGo Home">
+            <img src="assets/images/payngo-logo.png" alt="PayNGo - Send Money from Malaysia to Pakistan" class="hero__logo-img" width="588" height="171" loading="eager">
+          </a>
+          <h1 class="hero__h1 rv">Send Money<br><span class="hero__h1-gradient">Malaysia to Pakistan</span></h1>
           <p class="hero__sub rv">Fast, secure and affordable money transfers from Malaysia to Pakistan.</p>
-          <div class="hero__btns rv">
-            <a href="https://play.google.com/store/apps/details?id=com.payngo.payngo" target="_blank" rel="noopener noreferrer" class="btn btn--hero btn--lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-              Download App
-            </a>
-            <a href="#rates" class="btn btn--hero-ghost btn--lg">View Live Rates</a>
+          <div class="hero__features rv">
+            <div class="hero__feature">
+              <div class="hero__feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              </div>
+              <span class="hero__feature-label">Secure<br>Transactions</span>
+            </div>
+            <div class="hero__feature">
+              <div class="hero__feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <span class="hero__feature-label">Fast<br>Transfers</span>
+            </div>
+            <div class="hero__feature">
+              <div class="hero__feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span class="hero__feature-label">Verified<br>Partners</span>
+            </div>
+            <div class="hero__feature">
+              <div class="hero__feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+              </div>
+              <span class="hero__feature-label">24/7<br>Support</span>
+            </div>
           </div>
-          <div class="hero__proof rv">
-            <div class="hero__proof-item">
-              <span class="hero__proof-val">53.42</span>
-              <span class="hero__proof-lbl">Current Rate</span>
-            </div>
-            <div class="hero__proof-item">
-              <span class="hero__proof-val">RM 5</span>
-              <span class="hero__proof-lbl">Fee on Every Transfer</span>
-            </div>
-            <div class="hero__proof-item">
-              <span class="hero__proof-val">24/7</span>
-              <span class="hero__proof-lbl">Rate Updates</span>
-            </div>
+          <div class="hero__btns rv">
+            <a href="https://play.google.com/store/apps/details?id=com.payngo.payngo" target="_blank" rel="noopener noreferrer" class="btn btn--hero-download"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download App</a>
+            <a href="#exchange-rates" class="btn btn--hero-outline">See Live Rates <span style="margin-left:4px">&#8594;</span></a>
           </div>
         </div>
       </div>
@@ -176,27 +182,6 @@
         <div class="ticker__item"><span>AED/PKR</span> <strong>75.90</strong> <span class="up">&#9650; +0.06%</span></div>
       </div>
     </div>
-
-    <!-- ========== SEE RATES BEFORE LOGIN ========== -->
-    <section class="before-login" id="before-login">
-      <div class="wrap">
-        <div class="before-login__card rv">
-          <div class="before-login__icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <div class="before-login__text">
-            <h2 class="before-login__title">See Live Rates Before Login</h2>
-            <p class="before-login__desc">Check current exchange rates instantly. No login required.</p>
-          </div>
-          <div class="before-login__benefits">
-            <span class="before-login__benefit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live rates</span>
-            <span class="before-login__benefit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No login required</span>
-            <span class="before-login__benefit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Clear conversion</span>
-          </div>
-          <a href="#rates" class="btn btn--fill btn--sm before-login__cta">View Live Rates</a>
-        </div>
-      </div>
-    </section>
 
     <!-- ========== EXCHANGE RATE SECTION ========== -->
     <section class="xr" id="rates">
